@@ -37,7 +37,7 @@
 
 <body class="dark-theme">
 
-<header>
+<!-- header>
     <div class="nav-wrapper"><ul class="nav">
         <li><a class="button nav-first" href="//pokemonshowdown.com/"><img src="./img/pokemonshowdownbeta.png" srcset="./img/pokemonshowdownbeta.png 1x, ./img/pokemonshowdownbeta@2x.png 2x" alt="Pok&eacute;mon Showdown" width="146" height="44" /> Home</a></li>
         <li><a class="button" href="//pokemonshowdown.com/dex/">Pok&eacute;dex</a></li>
@@ -46,7 +46,7 @@
         <li><a class="button nav-last purplebutton" href="//smogon.com/forums/" target="_blank">Forum</a></li>
         <li><a class="button greenbutton nav-first nav-last" href="//play.pokemonshowdown.com/">Play</a></li>
     </ul></div>
-</header>
+</header -->
 
 <!-- START WRAPPER -->
 <div class="wrapper">
@@ -55,29 +55,29 @@
     <div aria-label="Settings" role="region">
         <span class="genSelection" aria-labelledby="selectGenInstruction" role="radiogroup" title="Select the generation.">
             <span class="visually-hidden" id="selectGenInstruction">Select the generation.</span>
-            <input class="gen visually-hidden" type="radio" name="gen" value="1" id="gen1" /><label class="btn btn-small btn-left" for="gen1">RBY</label>
+            <!-- input class="gen visually-hidden" type="radio" name="gen" value="1" id="gen1" /><label class="btn btn-small btn-left" for="gen1">RBY</label>
             <input class="gen visually-hidden" type="radio" name="gen" value="2" id="gen2" /><label class="btn btn-small btn-mid" for="gen2">GSC</label>
             <input class="gen visually-hidden" type="radio" name="gen" value="3" id="gen3" /><label class="btn btn-small btn-mid" for="gen3">ADV</label>
             <input class="gen visually-hidden" type="radio" name="gen" value="4" id="gen4" /><label class="btn btn-small btn-mid" for="gen4">DPP</label>
             <input class="gen visually-hidden" type="radio" name="gen" value="5" id="gen5" /><label class="btn btn-small btn-mid" for="gen5">B/W</label>
             <input class="gen visually-hidden" type="radio" name="gen" value="6" id="gen6" /><label class="btn btn-small btn-mid" for="gen6">X/Y</label>
             <input class="gen visually-hidden" type="radio" name="gen" value="7" id="gen7" /><label class="btn btn-small btn-mid" for="gen7">S/M</label>
-            <input class="gen visually-hidden" type="radio" name="gen" value="8" id="gen8" /><label class="btn btn-small btn-mid" for="gen8">S/S</label>
-            <input class="gen visually-hidden" type="radio" name="gen" value="9" id="gen9" checked="checked" /><label class="btn btn-small btn-right" for="gen9">S/V</label>
+            <input class="gen visually-hidden" type="radio" name="gen" value="8" id="gen8" /><label class="btn btn-small btn-mid" for="gen8">S/S</label -->
+            <input class="gen visually-hidden" type="radio" name="gen" value="9" id="gen9" checked="checked" /><label class="btn btn-xwide" for="gen9">Legends Z-A</label>
         </span>
-        <span class="notationSelection" aria-labelledby="selectNotationInstruction" role="radiogroup" title="Select the output notation.">
+        <!-- span class="notationSelection" aria-labelledby="selectNotationInstruction" role="radiogroup" title="Select the output notation.">
             <span class="visually-hidden" id="selectNotationInstruction">Select the output notation.</span>
             <input class="notation visually-hidden" type="radio" name="notation" id="pixels" value="px" /><label class="btn btn-small btn-left" for="pixels">48th</label>
             <input class="notation visually-hidden" type="radio" name="notation" id="percentage" value="%" /><label class="btn btn-small btn-right" for="percentage">100%</label>
-        </span>
-        <span class="modeSelection" aria-labelledby="selectModeInstruction" role="radiogroup" title="Select the calculator's mode of function.">
+        </span -->
+        <!-- span class="modeSelection" aria-labelledby="selectModeInstruction" role="radiogroup" title="Select the calculator's mode of function.">
             <span class="visually-hidden" id="selectModeInstruction">Select the calculator's mode of function.</span>
             <input class="mode visually-hidden" type="radio" name="mode" id="one-vs-one" checked="checked" /><label class="btn btn-left btn-wide" for="one-vs-one">One vs One</label>
             <input class="mode visually-hidden" type="radio" name="mode" id="one-vs-all" /><label class="btn btn-mid btn-wide gen-specific g3 g4 g5 g6 g7 g8 g9" for="one-vs-all">One vs All</label>
             <input class="mode visually-hidden" type="radio" name="mode" id="all-vs-one" /><label class="btn btn-mid btn-wide gen-specific g3 g4 g5 g6 g7 g8 g9" for="all-vs-one">All vs One</label>
             <input class="mode visually-hidden" type="radio" name="mode" id="randoms" /><label class="btn btn-mid btn-wide" for="randoms">Random Battles</label>
             <input class="mode visually-hidden" type="radio" name="mode" id="oms" /><label class="btn btn-right btn-xwide" for="oms">Other Metagames</label>
-        </span>
+        </span -->
     </div>
     <hr />
     <div aria-label="Move selection" class="move-result-group" role="region" title="Select a move to show detailed results.">
@@ -158,10 +158,14 @@
                     <select aria-label="type2" class="type2 terrain-trigger calc-trigger"></select>
                     <small class="right">(<a class="analysis links-lighten" target="_blank" href="">Smogon&nbsp;analysis</a>)</small>
                 </div>
-                <div class="gen-specific g9">
+                <!-- div class="gen-specific g9">
                     <label>Tera Type</label>
                     <select class="teraType terrain-trigger calc-trigger"></select>
                     <input type="checkbox" title= "Has this Pok&eacute;mon terastalized?" class="teraToggle terrain-trigger calc-trigger">
+                </div -->
+                <div class="gen-specific g9">
+                    <label>Rogue Mega</label>
+                    <input type="checkbox" title= "Is this Pok&eacute;mon a Rogue Mega?" class="rogueMega terrain-trigger calc-trigger">
                 </div>
                 <div class="hide">
                     <label>Forme</label>
@@ -238,19 +242,10 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <option value="6">+6</option>
-                                    <option value="5">+5</option>
-                                    <option value="4">+4</option>
-                                    <option value="3">+3</option>
-                                    <option value="2">+2</option>
+                                    <option value="2">+2 (PvP only)</option>
                                     <option value="1">+1</option>
                                     <option value="0" selected="selected">--</option>
                                     <option value="-1">-1</option>
-                                    <option value="-2">-2</option>
-                                    <option value="-3">-3</option>
-                                    <option value="-4">-4</option>
-                                    <option value="-5">-5</option>
-                                    <option value="-6">-6</option>
                                 </select>
                             </td>
                         </tr>
@@ -274,19 +269,10 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <option value="6">+6</option>
-                                    <option value="5">+5</option>
-                                    <option value="4">+4</option>
-                                    <option value="3">+3</option>
-                                    <option value="2">+2</option>
+                                    <option value="2">+2 (PvP only)</option>
                                     <option value="1">+1</option>
                                     <option value="0" selected="selected">--</option>
                                     <option value="-1">-1</option>
-                                    <option value="-2">-2</option>
-                                    <option value="-3">-3</option>
-                                    <option value="-4">-4</option>
-                                    <option value="-5">-5</option>
-                                    <option value="-6">-6</option>
                                 </select>
                             </td>
                         </tr>
@@ -310,19 +296,10 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <option value="6">+6</option>
-                                    <option value="5">+5</option>
-                                    <option value="4">+4</option>
-                                    <option value="3">+3</option>
-                                    <option value="2">+2</option>
+                                    <option value="2">+2 (PvP only)</option>
                                     <option value="1">+1</option>
                                     <option value="0" selected="selected">--</option>
                                     <option value="-1">-1</option>
-                                    <option value="-2">-2</option>
-                                    <option value="-3">-3</option>
-                                    <option value="-4">-4</option>
-                                    <option value="-5">-5</option>
-                                    <option value="-6">-6</option>
                                 </select>
                             </td>
                         </tr>
@@ -346,19 +323,10 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <option value="6">+6</option>
-                                    <option value="5">+5</option>
-                                    <option value="4">+4</option>
-                                    <option value="3">+3</option>
-                                    <option value="2">+2</option>
+                                    <option value="2">+2 (PvP only)</option>
                                     <option value="1">+1</option>
                                     <option value="0" selected="selected">--</option>
                                     <option value="-1">-1</option>
-                                    <option value="-2">-2</option>
-                                    <option value="-3">-3</option>
-                                    <option value="-4">-4</option>
-                                    <option value="-5">-5</option>
-                                    <option value="-6">-6</option>
                                 </select>
                             </td>
                         </tr>
@@ -376,19 +344,10 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <option value="6">+6</option>
-                                    <option value="5">+5</option>
-                                    <option value="4">+4</option>
-                                    <option value="3">+3</option>
-                                    <option value="2">+2</option>
+                                    <option value="2">+2 (PvP only)</option>
                                     <option value="1">+1</option>
                                     <option value="0" selected="selected">--</option>
                                     <option value="-1">-1</option>
-                                    <option value="-2">-2</option>
-                                    <option value="-3">-3</option>
-                                    <option value="-4">-4</option>
-                                    <option value="-5">-5</option>
-                                    <option value="-6">-6</option>
                                 </select>
                             </td>
                         </tr>
@@ -412,19 +371,10 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <option value="6">+6</option>
-                                    <option value="5">+5</option>
-                                    <option value="4">+4</option>
-                                    <option value="3">+3</option>
-                                    <option value="2">+2</option>
+                                    <option value="2">+2 (PvP only)</option>
                                     <option value="1">+1</option>
                                     <option value="0" selected="selected">--</option>
                                     <option value="-1">-1</option>
-                                    <option value="-2">-2</option>
-                                    <option value="-3">-3</option>
-                                    <option value="-4">-4</option>
-                                    <option value="-5">-5</option>
-                                    <option value="-6">-6</option>
                                 </select>
                             </td>
                             <td><span class="totalMod">---</span>
@@ -474,7 +424,7 @@
                         <option value="Timid">Timid (+Spe, -Atk)</option>
                     </select>
                 </div>
-                <div class="gen-specific g3 g4 g5 g6 g7 g8 g9">
+                <div class="gen-specific g3 g4 g5 g6 g7 g8">
                     <label for="abilityL1">Ability</label>
                     <select class="ability terrain-trigger calc-trigger" id="abilityL1"></select>
                     <input hidden type="checkbox" title= "Is this ability active?" class="abilityToggle calc-trigger">
@@ -554,7 +504,9 @@
                 <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critL1" />
                 <label class="btn crit-btn" for="critL1" title="Force this attack to be a critical hit?">Crit</label>
                 <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zL1"/>
-                <label class="btn z-btn gen-specific g7 g8 g9" for="zL1" title="Make this attack a Z-move?">Z</label>
+                <label class="btn z-btn gen-specific g7" for="zL1" title="Make this attack a Z-move?">Z</label>
+                <input aria-describedby="plusMoveInstruction" class="move-plus calc-trigger visually-hidden" type="checkbox" id="plusL1" />
+                <label class="btn plus-btn gen-specific g9" for="plusL1" title="Make this attack a Plus Move?">Plus</label>
                 <input aria-describedby="stellarBoostInstruction" class="move-stellar calc-trigger visually-hidden" type="checkbox" id="stellarL1" />
                 <label class="stellar-btn btn" style="display: none;" for="stellarL1" title="Make this attack Stellar boosted?">Stellar</label>
                 <select class="move-hits calc-trigger hide">
@@ -563,7 +515,7 @@
                     <option value="4">4 hits</option>
                     <option value="5">5 hits</option>
                 </select>
-                <select class="move-times calc-trigger hide" title="How many times was this move used in a row?">>
+                <!-- select class="move-times calc-trigger hide" title="How many times was this move used in a row?">
                     <option value="1">Once</option>
                     <option value="2">Twice</option>
                     <option value="3">3 times</option>
@@ -577,7 +529,7 @@
                     <option value="3">3 times</option>
                     <option value="4">4 times</option>
                     <option value="5">5 times</option>
-                </select>
+                </select -->
             </div>
             <div class="move2">
                 <select class="move-selector calc-trigger small-select"></select>
@@ -590,7 +542,9 @@
                 <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critL2" />
                 <label class="btn crit-btn" for="critL2" title="Force this attack to be a critical hit?">Crit</label>
                 <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zL2"/>
-                <label class="btn z-btn gen-specific g7 g8 g9" for="zL2" title="Make this attack a Z-move?">Z</label>
+                <label class="btn z-btn gen-specific g7" for="zL2" title="Make this attack a Z-move?">Z</label>
+                <input aria-describedby="plusMoveInstruction" class="move-plus calc-trigger visually-hidden" type="checkbox" id="plusL2" />
+                <label class="btn plus-btn gen-specific g9" for="plusL2" title="Make this attack a Plus Move?">Plus</label>
                 <input aria-describedby="stellarBoostInstruction" class="move-stellar calc-trigger visually-hidden" type="checkbox" id="stellarL2" />
                 <label class="stellar-btn btn" style="display: none;" for="stellarL2" title="Make this attack Stellar boosted?">Stellar</label>
                 <select class="move-hits calc-trigger hide">
@@ -599,7 +553,7 @@
                     <option value="4">4 hits</option>
                     <option value="5">5 hits</option>
                 </select>
-                <select class="move-times calc-trigger hide" title="How many times was this move used in a row?">>
+                <!-- select class="move-times calc-trigger hide" title="How many times was this move used in a row?">
                     <option value="1">Once</option>
                     <option value="2">Twice</option>
                     <option value="3">3 times</option>
@@ -613,7 +567,7 @@
                     <option value="3">3 times</option>
                     <option value="4">4 times</option>
                     <option value="5">5 times</option>
-                </select>
+                </select -->
             </div>
             <div class="move3">
                 <select class="move-selector calc-trigger small-select"></select>
@@ -626,7 +580,9 @@
                 <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critL3" />
                 <label class="btn crit-btn" for="critL3" title="Force this attack to be a critical hit?">Crit</label>
                 <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zL3"/>
-                <label class="btn z-btn gen-specific g7 g8 g9" for="zL3" title="Make this attack a Z-move?">Z</label>
+                <label class="btn z-btn gen-specific g7" for="zL3" title="Make this attack a Z-move?">Z</label>
+                <input aria-describedby="plusMoveInstruction" class="move-plus calc-trigger visually-hidden" type="checkbox" id="plusL3" />
+                <label class="btn plus-btn gen-specific g9" for="plusL3" title="Make this attack a Plus Move?">Plus</label>
                 <input aria-describedby="stellarBoostInstruction" class="move-stellar calc-trigger visually-hidden" type="checkbox" id="stellarL3" />
                 <label class="stellar-btn btn" style="display: none;" for="stellarL3" title="Make this attack Stellar boosted?">Stellar</label>
                 <select class="move-hits calc-trigger hide">
@@ -635,7 +591,7 @@
                     <option value="4">4 hits</option>
                     <option value="5">5 hits</option>
                 </select>
-                <select class="move-times calc-trigger hide" title="How many times was this move used in a row?">>
+                <!-- select class="move-times calc-trigger hide" title="How many times was this move used in a row?">
                     <option value="1">Once</option>
                     <option value="2">Twice</option>
                     <option value="3">3 times</option>
@@ -649,7 +605,7 @@
                     <option value="3">3 times</option>
                     <option value="4">4 times</option>
                     <option value="5">5 times</option>
-                </select>
+                </select -->
             </div>
             <div class="move4">
                 <select class="move-selector calc-trigger small-select"></select>
@@ -662,7 +618,9 @@
                 <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critL4" />
                 <label class="btn crit-btn" for="critL4" title="Force this attack to be a critical hit?">Crit</label>
                 <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zL4"/>
-                <label class="btn z-btn gen-specific g7 g8 g9" for="zL4" title="Make this attack a Z-move?">Z</label>
+                <label class="btn z-btn gen-specific g7" for="zL4" title="Make this attack a Z-move?">Z</label>
+                <input aria-describedby="plusMoveInstruction" class="move-plus calc-trigger visually-hidden" type="checkbox" id="plusL4" />
+                <label class="btn plus-btn gen-specific g9" for="plusL4" title="Make this attack a Plus Move?">Plus</label>
                 <input aria-describedby="stellarBoostInstruction" class="move-stellar calc-trigger visually-hidden" type="checkbox" id="stellarL4" />
                 <label class="stellar-btn btn" style="display: none;" for="stellarL4" title="Make this attack Stellar boosted?">Stellar</label>
                 <select class="move-hits calc-trigger hide">
@@ -671,7 +629,7 @@
                     <option value="4">4 hits</option>
                     <option value="5">5 hits</option>
                 </select>
-                <select class="move-times calc-trigger hide" title="How many times was this move used in a row?">>
+                <!-- select class="move-times calc-trigger hide" title="How many times was this move used in a row?">
                     <option value="1">Once</option>
                     <option value="2">Twice</option>
                     <option value="3">3 times</option>
@@ -685,7 +643,7 @@
                     <option value="3">3 times</option>
                     <option value="4">4 times</option>
                     <option value="5">5 times</option>
-                </select>
+                </select -->
             </div>
         </fieldset>
     </div>
@@ -710,13 +668,13 @@
                     <input class="visually-hidden calc-trigger" type="radio" name="defaultLevel" value="5" id="default-level-5" />
                     <label class="btn btn-wide btn-right" for="default-level-5">Level 5</label>
                </div>
-                <div aria-labelledby="selectTerrainInstruction" class="gen-specific g6 g7 g8 g9" role="group" title="Select the current terrain.">
+                <!-- div aria-labelledby="selectTerrainInstruction" class="gen-specific g6 g7 g8 g9" role="group" title="Select the current terrain.">
                     <span class="visually-hidden" id="selectTerrainInstruction">Select the current terrain.</span>
                     <input class="visually-hidden terrain-trigger calc-trigger" type="checkbox" name="terrain" value="Electric" id="electric" /><label class="btn btn-left" for="electric">Electric</label>
                     <input class="visually-hidden terrain-trigger calc-trigger" type="checkbox" name="terrain" value="Grassy" id="grassy" /><label class="btn btn-mid" for="grassy">Grassy</label>
                     <input class="visually-hidden terrain-trigger calc-trigger" type="checkbox" name="terrain" value="Misty" id="misty" /><label class="btn btn-mid" for="misty">Misty</label>
                     <input class="visually-hidden terrain-trigger calc-trigger" type="checkbox" name="terrain" value="Psychic" id="psychic" /><label class="btn btn-xxxwide btn-right" for="psychic">Psychic Terrain</label>
-                </div>
+                </div -->
                 <div aria-labelledby="selectRuinInstruction" class="gen-specific g9 format-specific doubles" role="group" style="margin: 5px auto auto;" title="Select the ruin abilities from other Pok&eacute;mon on the field.">
                     <span class="visually-hidden" id="selectRuinInstruction">Select the active Ruin abilities from other Poke&eacute;mon on the field.</span>
                     <input class="visually-hidden calc-trigger" type="checkbox" name="ruin" value="Beads" id="beads" />
@@ -734,11 +692,11 @@
                     <div class="gen-specific g3 g4 g5 g6 g7 g8 g9" style="width: 22.2em; margin: 5px auto;" title="Select the current weather condition.">
                         <input class="weather visually-hidden calc-trigger" type="radio" name="weather" value="" id="clear" checked="checked" />
                         <label class="btn btn-small btn-left" for="clear">None</label>
-                        <input class="weather visually-hidden calc-trigger" type="radio" name="weather" value="Sun" id="sun" />
-                        <label class="btn btn-small btn-mid" for="sun">Sun</label>
+                        <!-- input class="weather visually-hidden calc-trigger" type="radio" name="weather" value="Sun" id="sun" />
+                        <label class="btn btn-small btn-mid" for="sun">Sun</label -->
                         <input class="weather visually-hidden calc-trigger" type="radio" name="weather" value="Rain" id="rain" />
-                        <label class="btn btn-small btn-mid" for="rain">Rain</label>
-                        <input class="weather visually-hidden calc-trigger" type="radio" name="weather" value="Sand" id="sand" />
+                        <label class="btn btn-small btn-right" for="rain">Rain</label>
+                        <!-- input class="weather visually-hidden calc-trigger" type="radio" name="weather" value="Sand" id="sand" />
                         <label class="btn btn-small btn-mid" for="sand">Sand</label>
                         <span class="gen-specific g3 g4 g5 g6 g7 g8">
                             <input class="weather visually-hidden calc-trigger" type="radio" name="weather" value="Hail" id="hail" />
@@ -747,16 +705,16 @@
                         <span class="gen-specific g9">
                             <input class="weather visually-hidden calc-trigger" type="radio" name="weather" value="Snow" id="snow" />
                             <label class="btn btn-small btn-right" for="snow">Snow</label>
-                        </span>
+                        </span -->
                     </div>
-                    <div class="gen-specific g6 g7 g8 g9" title="Select the current weather condition.">
+                    <!-- div class="gen-specific g6 g7 g8 g9" title="Select the current weather condition.">
                         <input class="weather visually-hidden calc-trigger" type="radio" name="weather" value="Harsh Sunshine" id="harsh-sunshine" />
                         <label class="btn btn-xxxwide btn-left" for="harsh-sunshine">Harsh Sunshine</label>
                         <input class="weather visually-hidden calc-trigger" type="radio" name="weather" value="Heavy Rain" id="heavy-rain" />
                         <label class="btn btn-xxxwide btn-mid" for="heavy-rain">Heavy Rain</label>
                         <input class="weather visually-hidden calc-trigger" type="radio" name="weather" value="Strong Winds" id="strong-winds" />
                         <label class="btn btn-xxxwide btn-right" for="strong-winds">Strong Winds</label>
-                    </div>
+                    </div -->
                   </div>
                 <div aria-labelledby="selectGscWeatherInstruction" class="gen-specific g2 hide" role="radiogroup" style="width: 17.8em; margin: 0 auto 5px;" title="Select the current weather condition.">
                     <span class="visually-hidden" id="selectGscWeatherInstruction">Select the current weather condition.</span>
@@ -769,7 +727,7 @@
                     <input class="weather visually-hidden calc-trigger" type="radio" name="gscWeather" value="Sand" id="gscSand" />
                     <label class="btn btn-small btn-right" for="gscSand">Sand</label>
                 </div>
-                <div class="gen-specific g5 g6 g7 g8 g9" style="width: 22.2em; margin: 5px auto; display: inline-block;">
+                <!-- div class="gen-specific g5 g6 g7 g8 g9" style="width: 22.2em; margin: 5px auto; display: inline-block;">
                     <span hidden id="magicRoomInstruction">Is Magic Room in effect?</span>
                     <span hidden id="wonderRoomInstruction">Is Wonder Room in effect?</span>
                     <input aria-describedby="magicRoomInstruction" class="visually-hidden calc-trigger" type="checkbox" id="magicroom" />
@@ -781,7 +739,7 @@
                     <span hidden id="gravityInstruction">Is gravity in effect?</span>
                     <input aria-describedby="gravityInstruction" class="visually-hidden calc-trigger" type="checkbox" id="gravity" />
                     <label class="btn" for="gravity">Gravity</label>
-                </div>
+                </div -->
                 <hr class="gen-specific g2 g3 g4 g5 g6 g7 g8 g9" />
                 <table class="field">
                     <thead>
@@ -791,7 +749,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="gen-specific g4 g5 g6 g7 g8 g9">
+                        <tr class="gen-specific g4 g5 g6 g7 g8">
                             <div hidden id="selectStealthRockInstruction">Is Stealth Rock affecting this side of the field?</div>
                             <td><div class="left" title="Is Stealth Rock affecting this side of the field?">
                                 <input aria-describedby="selectStealthRockInstruction" class="visually-hidden calc-trigger" type="checkbox" id="srL" />
@@ -902,6 +860,28 @@
                                 <label class="btn btn-wide" for="protectR">Protect</label>
                             </div></td>
                         </tr>
+                        <tr class="gen-specific g6 g7 g8 g9">
+                            <td><div class="left" title="Is this Pok&eacute;mon afflicted by Trick-or-Treat?">
+                                <div hidden id="selectTrickOrTreatInstruction">Is this Pok&eacute;mon afflicted by Trick-or-Treat?</div>
+                                <input aria-describedby="selectTrickOrTreatInstruction" class="visually-hidden calc-trigger" type="checkbox" id="totL" />
+                                <label class="btn btn-wide" for="totL">Trick-or-Treat</label>
+                            </div></td>
+                            <td><div class="right" title="Is this Pok&eacute;mon Trick-or-Treated?">
+                                <input aria-describedby="selectTrickOrTreatInstruction" class="visually-hidden calc-trigger" type="checkbox" id="totR" />
+                                <label class="btn btn-wide" for="totR">Trick-or-Treat</label>
+                            </div></td>
+                        </tr>
+                        <tr class="gen-specific g6 g7 g8 g9">
+                            <td><div class="left" title="Is this Pok&eacute;mon afflicted by Forest's Curse?">
+                                <div hidden id="selectForestsCurseInstruction">Is this Pok&eacute;mon afflicted by Forest's Curse?</div>
+                                <input aria-describedby="selectForestsCurseInstruction" class="visually-hidden calc-trigger" type="checkbox" id="forestsCurseL" />
+                                <label class="btn btn-wide" for="forestsCurseL">Forest's Curse</label>
+                            </div></td>
+                            <td><div class="right" title="Is this Pok&eacute;mon afflicted by Forest's Curse?">
+                                <input aria-describedby="selectForestsCurseInstruction" class="visually-hidden calc-trigger" type="checkbox" id="forestsCurseR" />
+                                <label class="btn btn-wide" for="forestsCurseR">Forest's Curse</label>
+                            </div></td>
+                        </tr>
                         <tr>
                             <td><div class="left" title="Has this Pok&eacute;mon been affected by Leech Seed?">
                                 <div hidden id="selectLeechSeedInstruction">Has this Pok&eacute;mon been affected by Leech Seed?</div>
@@ -913,7 +893,7 @@
                                 <label class="btn btn-wide" for="leechSeedR">Leech Seed</label>
                             </div></td>
                         </tr>
-                        <tr class="gen-specific g9">
+                        <!-- tr class="gen-specific g9">
                             <td><div class="left" title="Has this Pok&eacute;mon been affected by Salt Cure?">
                                 <div hidden id="selectSaltCureInstruction">Has this Pok&eacute;mon been affected by Salt Cure?</div>
                                 <input aria-describedby="selectSaltCureInstruction" class="visually-hidden calc-trigger" type="checkbox" id="saltCureL" />
@@ -923,8 +903,8 @@
                                 <input aria-describedby="selectSaltCureInstruction" class="visually-hidden calc-trigger" type="checkbox" id="saltCureR" />
                                 <label class="btn btn-wide" for="saltCureR">Salt Cure</label>
                             </div></td>
-                        </tr>
-                        <tr class="gen-specific g2 g3 g4 g5 g6 g7 g8 g9">
+                        </tr -->
+                        <tr class="gen-specific g2 g3 g4 g5 g6 g7 g8">
                             <td><div class="left" title="Has this Pok&eacute;mon been revealed with Foresight or Odor Sleuth?">
                                 <div hidden id="selectRevealInstruction">Has this Pok&eacute;mon been revealed with Foresight or Odor Sleuth?</div>
                                 <input aria-describedby="selectRevealInstruction" class="visually-hidden calc-trigger" type="checkbox" id="foresightL" />
@@ -935,7 +915,7 @@
                                 <label class="btn btn-wide" for="foresightR">Foresight</label>
                             </div></td>
                         </tr>
-                        <tr class="gen-specific g3 g4 g5 g6 g7 g8 g9">
+                        <tr class="gen-specific g3 g4 g5 g6 g7 g8">
                             <td><div class="left" title="Has this Pok&eacute;mon's power been boosted by an ally's Helping Hand?">
                                 <div hidden id="selectHelpingHandInstruction">Has this Pok&eacute;mon's power been boosted by an ally's Helping Hand?</div>
                                 <input aria-describedby="selectHelpingHandInstruction" class="visually-hidden calc-trigger" type="checkbox" id="helpingHandL" />
@@ -946,7 +926,7 @@
                                 <label class="btn btn-xxwide" for="helpingHandR">Helping Hand</label>
                             </div></td>
                         </tr>
-                        <tr class="gen-specific g4 g5 g6 g7 g8 g9">
+                        <tr class="gen-specific g4 g5 g6 g7 g8">
                             <td><div class="left" title="Has this Pok&eacute;mon's speed been boosted by Tailwind?">
                                 <div hidden id="selectTailwindInstruction">Has this Pok&eacute;mon's power been boosted by an ally's Helping Hand?</div>
                                 <input aria-describedby="selectTailwindInstruction" class="visually-hidden calc-trigger" type="checkbox" id="tailwindL" />
@@ -957,7 +937,7 @@
                                 <label class="btn btn-xxwide" for="tailwindR">Tailwind</label>
                             </div></td>
                         </tr>
-                        <tr class="gen-specific g4 g5 g6 g7 g8 g9">
+                        <tr class="gen-specific g4 g5 g6 g7 g8">
                             <td><div class="left" title="Is the Pok&eacute;mon affected by an ally's Flower Gift?">
                                 <div hidden id="selectFlowerGiftInstruction">Is the Pok&eacute;mon affected by an ally's Flower Gift?</div>
                                 <input aria-describedby="selectFlowerGiftInstruction" class="visually-hidden calc-trigger" type="checkbox" id="flowerGiftL" />
@@ -968,7 +948,7 @@
                                 <label class="btn btn-xxwide" for="flowerGiftR">Flower Gift</label>
                             </div></td>
                         </tr>
-                        <tr class="gen-specific g4 g5 g6 g7 g8 g9">
+                        <tr class="gen-specific g4 g5 g6 g7 g8">
                             <td><div class="left" title="Is the Pok&eacute;mon affected by Power Trick?">
                                 <div hidden id="selectPowerTrickInstruction">Is the Pok&eacute;mon affected by Power Trick?</div>
                                 <input aria-describedby="selectPowerTrickInstruction" class="visually-hidden calc-trigger" type="checkbox" id="powerTrickL" />
@@ -979,7 +959,7 @@
                                 <label class="btn btn-xxwide" for="powerTrickR">Power Trick</label>
                             </div></td>
                         </tr>
-                        <tr class="gen-specific g8 g9">
+                        <tr class="gen-specific g8">
                             <td><div class="left" title="Is the Pok&eacute;mon affected by an ally's Steely Spirit?">
                                 <div hidden id="selectSteelySpiritInstruction">Is the Pok&eacute;mon affected by an ally's Steely Spirit?</div>
                                 <input aria-describedby="selectSteelySpiritInstruction" class="visually-hidden calc-trigger" type="checkbox" id="steelySpiritL" />
@@ -990,7 +970,7 @@
                                 <label class="btn btn-xxwide" for="steelySpiritR">Steely Spirit</label>
                             </div></td>
                         </tr>
-                        <tr class="gen-specific g5 g6 g7 g8 g9">
+                        <tr class="gen-specific g5 g6 g7 g8">
                             <td><div class="left" title="Is the Pok&eacute;mon protected by an ally's Friend Guard?">
                                 <div hidden id="selectFriendGuardInstruction">Is the Pok&eacute;mon protected by an ally's Friend Guard?</div>
                                 <input aria-describedby="selectFriendGuardInstruction" class="visually-hidden calc-trigger" type="checkbox" id="friendGuardL" />
@@ -1001,7 +981,7 @@
                                 <label class="btn btn-xxwide" for="friendGuardR">Friend Guard</label>
                             </div></td>
                         </tr>
-                        <tr class="gen-specific g7 g8 g9">
+                        <tr class="gen-specific g7 g8">
                             <td><div class="left" title="Is the Pok&eacute;mon protected by an ally's Aurora Veil?">
                                 <div hidden id="selectAuroraVeilInstruction">Is the Pok&eacute;mon protected by an ally's Aurora Veil?</div>
                                 <input aria-describedby="selectAuroraVeilInstruction" class="visually-hidden calc-trigger" type="checkbox" id="auroraVeilL" />
@@ -1023,7 +1003,7 @@
                                 <label class="btn btn-xxwide" for="StatBoostR">+1 All Stats</label>
                             </div></td>
                         </tr>
-                        <tr class="gen-specific g7 g8 g9">
+                        <tr class="gen-specific g7 g8">
                           <td><div class="left" title="Is the Pok&eacute;mon boosted by an ally's Battery ability?">
                               <div hidden id="selectBatteryInstruction">Is the Pok&eacute;mon boosted by an ally's Battery ability?</div>
                                 <input aria-describedby="selectBatteryInstruction" class="visually-hidden calc-trigger" type="checkbox" id="batteryL" />
@@ -1034,7 +1014,7 @@
                                 <label class="btn btn-xxwide" for="batteryR">Battery</label>
                             </div></td>
                         </tr>
-                        <tr class="gen-specific g8 g9">
+                        <tr class="gen-specific g8">
                           <td><div class="left" title="Is the Pok&eacute;mon boosted by an ally's Power Spot ability?">
                               <div hidden id="selectPowerSpotInstruction">Is the Pok&eacute;mon boosted by an ally's Power Spot ability?</div>
                                 <input aria-describedby="selectPowerSpotInstruction" class="visually-hidden calc-trigger" type="checkbox" id="powerSpotL" />
@@ -1045,7 +1025,7 @@
                                 <label class="btn btn-xxwide" for="powerSpotR">Power Spot</label>
                             </div></td>
                         </tr>
-                        <tr class="gen-specific g2 g3 g4 g5 g6 g7 g8 g9">
+                        <tr class="gen-specific g2 g3 g4 g5 g6 g7 g8">
                             <td><div class="left" title="Is the defending Pok&eacute;mon switching out?">
                               <div hidden id="selectSwitchingInstruction">Is the defending Pok&eacute;mon switching out?</div>
                                 <input aria-describedby="selectSwitchingInstruction" class="visually-hidden calc-trigger" type="checkbox" id="switchingL" />
@@ -1096,10 +1076,14 @@
                     <select aria-label="Type 2" class="type2 terrain-trigger calc-trigger"></select>
                     <small class="right">(<a class="analysis links-lighten" target="_blank" href="">Smogon&nbsp;analysis</a>)</small>
                 </div>
-                <div class="gen-specific g9">
+                <!-- div class="gen-specific g9">
                     <label>Tera Type</label>
                     <select class="teraType terrain-trigger calc-trigger"></select>
                     <input type="checkbox" title= "Has this Pok&eacute;mon terastalized?" class="teraToggle terrain-trigger calc-trigger">
+                </div -->
+                <div class="gen-specific g9">
+                    <label>Rogue Mega</label>
+                    <input type="checkbox" title= "Is this Pok&eacute;mon a Rogue Mega?" class="rogueMega terrain-trigger calc-trigger">
                 </div>
                 <div class="hide">
                     <label>Forme</label>
@@ -1172,19 +1156,10 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <option value="6">+6</option>
-                                    <option value="5">+5</option>
-                                    <option value="4">+4</option>
-                                    <option value="3">+3</option>
-                                    <option value="2">+2</option>
+                                    <option value="2">+2 (PvP only)</option>
                                     <option value="1">+1</option>
                                     <option value="0" selected="selected">--</option>
                                     <option value="-1">-1</option>
-                                    <option value="-2">-2</option>
-                                    <option value="-3">-3</option>
-                                    <option value="-4">-4</option>
-                                    <option value="-5">-5</option>
-                                    <option value="-6">-6</option>
                                 </select>
                             </td>
                         </tr>
@@ -1208,19 +1183,10 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <option value="6">+6</option>
-                                    <option value="5">+5</option>
-                                    <option value="4">+4</option>
-                                    <option value="3">+3</option>
-                                    <option value="2">+2</option>
+                                    <option value="2">+2 (PvP only)</option>
                                     <option value="1">+1</option>
                                     <option value="0" selected="selected">--</option>
                                     <option value="-1">-1</option>
-                                    <option value="-2">-2</option>
-                                    <option value="-3">-3</option>
-                                    <option value="-4">-4</option>
-                                    <option value="-5">-5</option>
-                                    <option value="-6">-6</option>
                                 </select>
                             </td>
                         </tr>
@@ -1244,19 +1210,10 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <option value="6">+6</option>
-                                    <option value="5">+5</option>
-                                    <option value="4">+4</option>
-                                    <option value="3">+3</option>
-                                    <option value="2">+2</option>
+                                    <option value="2">+2 (PvP only)</option>
                                     <option value="1">+1</option>
                                     <option value="0" selected="selected">--</option>
                                     <option value="-1">-1</option>
-                                    <option value="-2">-2</option>
-                                    <option value="-3">-3</option>
-                                    <option value="-4">-4</option>
-                                    <option value="-5">-5</option>
-                                    <option value="-6">-6</option>
                                 </select>
                             </td>
                         </tr>
@@ -1280,19 +1237,10 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <option value="6">+6</option>
-                                    <option value="5">+5</option>
-                                    <option value="4">+4</option>
-                                    <option value="3">+3</option>
-                                    <option value="2">+2</option>
+                                    <option value="2">+2 (PvP only)</option>
                                     <option value="1">+1</option>
                                     <option value="0" selected="selected">--</option>
                                     <option value="-1">-1</option>
-                                    <option value="-2">-2</option>
-                                    <option value="-3">-3</option>
-                                    <option value="-4">-4</option>
-                                    <option value="-5">-5</option>
-                                    <option value="-6">-6</option>
                                 </select>
                             </td>
                         </tr>
@@ -1310,19 +1258,10 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <option value="6">+6</option>
-                                    <option value="5">+5</option>
-                                    <option value="4">+4</option>
-                                    <option value="3">+3</option>
-                                    <option value="2">+2</option>
+                                    <option value="2">+2 (PvP only)</option>
                                     <option value="1">+1</option>
                                     <option value="0" selected="selected">--</option>
                                     <option value="-1">-1</option>
-                                    <option value="-2">-2</option>
-                                    <option value="-3">-3</option>
-                                    <option value="-4">-4</option>
-                                    <option value="-5">-5</option>
-                                    <option value="-6">-6</option>
                                 </select>
                             </td>
                         </tr>
@@ -1346,19 +1285,10 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <option value="6">+6</option>
-                                    <option value="5">+5</option>
-                                    <option value="4">+4</option>
-                                    <option value="3">+3</option>
-                                    <option value="2">+2</option>
+                                    <option value="2">+2 (PvP only)</option>
                                     <option value="1">+1</option>
                                     <option value="0" selected="selected">--</option>
                                     <option value="-1">-1</option>
-                                    <option value="-2">-2</option>
-                                    <option value="-3">-3</option>
-                                    <option value="-4">-4</option>
-                                    <option value="-5">-5</option>
-                                    <option value="-6">-6</option>
                                 </select>
                             </td>
                             <td><span class="totalMod">---</span>
@@ -1408,7 +1338,7 @@
                         <option value="Timid">Timid (+Spe, -Atk)</option>
                     </select>
                 </div>
-                <div class="gen-specific g3 g4 g5 g6 g7 g8 g9">
+                <div class="gen-specific g3 g4 g5 g6 g7 g8">
                     <label for="abilityR1">Ability</label>
                     <select class="ability terrain-trigger calc-trigger" id="abilityR1"></select>
                     <input hidden type="checkbox" title= "Is this ability active?" class="abilityToggle calc-trigger">
@@ -1486,7 +1416,9 @@
                 <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critR1" />
                 <label class="btn crit-btn" for="critR1" title="Force this attack to be a critical hit?">Crit</label>
                 <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zR1"/>
-                <label class="btn z-btn gen-specific g7 g8 g9" for="zR1" title="Make this attack a Z-move?">Z</label>
+                <label class="btn z-btn gen-specific g7" for="zR1" title="Make this attack a Z-move?">Z</label>
+                <input aria-describedby="plusMoveInstruction" class="move-plus calc-trigger visually-hidden" type="checkbox" id="plusR1" />
+                <label class="btn plus-btn gen-specific g9" for="plusR1" title="Make this attack a Plus Move?">Plus</label>
                 <input aria-describedby="stellarBoostInstruction" class="move-stellar calc-trigger visually-hidden" type="checkbox" id="stellarR1" />
                 <label class="stellar-btn btn" style="display: none;" for="stellarR1" title="Make this attack Stellar boosted?">Stellar</label>
                 <select class="move-hits calc-trigger hide">
@@ -1495,7 +1427,7 @@
                     <option value="4">4 hits</option>
                     <option value="5">5 hits</option>
                 </select>
-                <select class="move-times calc-trigger hide" title="How many times was this move used in a row?">>
+                <!-- select class="move-times calc-trigger hide" title="How many times was this move used in a row?">
                     <option value="1">Once</option>
                     <option value="2">Twice</option>
                     <option value="3">3 times</option>
@@ -1509,7 +1441,7 @@
                     <option value="3">3 times</option>
                     <option value="4">4 times</option>
                     <option value="5">5 times</option>
-                </select>
+                </select -->
             </div>
             <div class="move2">
                 <select class="move-selector calc-trigger small-select"></select>
@@ -1522,7 +1454,9 @@
                 <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critR2" />
                 <label class="btn crit-btn" for="critR2" title="Force this attack to be a critical hit?">Crit</label>
                 <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zR2"/>
-                <label class="btn z-btn gen-specific g7 g8 g9" for="zR2" title="Make this attack a Z-move?">Z</label>
+                <label class="btn z-btn gen-specific g7" for="zR2" title="Make this attack a Z-move?">Z</label>
+                <input aria-describedby="plusMoveInstruction" class="move-plus calc-trigger visually-hidden" type="checkbox" id="plusR2" />
+                <label class="btn plus-btn gen-specific g9" for="plusR2" title="Make this attack a Plus Move?">Plus</label>
                 <input aria-describedby="stellarBoostInstruction" class="move-stellar calc-trigger visually-hidden" type="checkbox" id="stellarR2" />
                 <label class="stellar-btn btn" style="display: none;" for="stellarR2" title="Make this attack Stellar boosted?">Stellar</label>
                 <select class="move-hits calc-trigger hide">
@@ -1531,7 +1465,7 @@
                     <option value="4">4 hits</option>
                     <option value="5">5 hits</option>
                 </select>
-                <select class="move-times calc-trigger hide" title="How many times was this move used in a row?">>
+                <!-- select class="move-times calc-trigger hide" title="How many times was this move used in a row?">
                     <option value="1">Once</option>
                     <option value="2">Twice</option>
                     <option value="3">3 times</option>
@@ -1545,7 +1479,7 @@
                     <option value="3">3 times</option>
                     <option value="4">4 times</option>
                     <option value="5">5 times</option>
-                </select>
+                </select -->
             </div>
             <div class="move3">
                 <select class="move-selector calc-trigger small-select"></select>
@@ -1558,7 +1492,9 @@
                 <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critR3" />
                 <label class="btn crit-btn" for="critR3" title="Force this attack to be a critical hit?">Crit</label>
                 <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zR3"/>
-                <label class="btn z-btn gen-specific g7 g8 g9" for="zR3" title="Make this attack a Z-move?">Z</label>
+                <label class="btn z-btn gen-specific g7" for="zR3" title="Make this attack a Z-move?">Z</label>
+                <input aria-describedby="plusMoveInstruction" class="move-plus calc-trigger visually-hidden" type="checkbox" id="plusR3" />
+                <label class="btn plus-btn gen-specific g9" for="plusR3" title="Make this attack a Plus Move?">Plus</label>
                <input aria-describedby="stellarBoostInstruction" class="move-stellar calc-trigger visually-hidden" type="checkbox" id="stellarR3" />
                 <label class="stellar-btn btn" style="display: none;" for="stellarR3" title="Make this attack Stellar boosted?">Stellar</label>
                 <select class="move-hits calc-trigger hide">
@@ -1567,7 +1503,7 @@
                     <option value="4">4 hits</option>
                     <option value="5">5 hits</option>
                 </select>
-                <select class="move-times calc-trigger hide" title="How many times was this move used in a row?">>
+                <!-- select class="move-times calc-trigger hide" title="How many times was this move used in a row?">
                     <option value="1">Once</option>
                     <option value="2">Twice</option>
                     <option value="3">3 times</option>
@@ -1581,7 +1517,7 @@
                     <option value="3">3 times</option>
                     <option value="4">4 times</option>
                     <option value="5">5 times</option>
-                </select>
+                </select -->
             </div>
             <div class="move4">
                 <select class="move-selector calc-trigger small-select"></select>
@@ -1594,7 +1530,9 @@
                 <input aria-describedby="criticalHitInstruction" class="move-crit calc-trigger visually-hidden" type="checkbox" id="critR4" />
                 <label class="btn crit-btn" for="critR4" title="Force this attack to be a critical hit?">Crit</label>
                 <input aria-describedby="zMoveInstruction" class="move-z calc-trigger visually-hidden" type="checkbox" id="zR4"/>
-                <label class="btn z-btn gen-specific g7 g8 g9" for="zR4" title="Make this attack a Z-move?">Z</label>
+                <label class="btn z-btn gen-specific g7" for="zR4" title="Make this attack a Z-move?">Z</label>
+                <input aria-describedby="plusMoveInstruction" class="move-plus calc-trigger visually-hidden" type="checkbox" id="plusR4" />
+                <label class="btn plus-btn gen-specific g9" for="plusR4" title="Make this attack a Plus Move?">Plus</label>
                 <input aria-describedby="stellarBoostInstruction" class="move-stellar calc-trigger visually-hidden" type="checkbox" id="stellarR4" />
                 <label class="stellar-btn btn" style="display: none;" for="stellarR4" title="Make this attack Stellar boosted?">Stellar</label>
                 <select class="move-hits calc-trigger hide">
@@ -1603,7 +1541,7 @@
                     <option value="4">4 hits</option>
                     <option value="5">5 hits</option>
                 </select>
-                <select class="move-times calc-trigger hide" title="How many times was this move used in a row?">>
+                <!-- select class="move-times calc-trigger hide" title="How many times was this move used in a row?">
                     <option value="1">Once</option>
                     <option value="2">Twice</option>
                     <option value="3">3 times</option>
@@ -1617,7 +1555,7 @@
                     <option value="3">3 times</option>
                     <option value="4">4 times</option>
                     <option value="5">5 times</option>
-                </select>
+                </select -->
             </div>
         </fieldset>
     </div>
@@ -1654,6 +1592,7 @@
     <script type="text/javascript" src="./calc/field.js?"></script>
     <script type="text/javascript" src="./calc/items.js?"></script>
     <script type="text/javascript" src="./calc/mechanics/util.js?"></script>
+    <script type="text/javascript" src="./calc/mechanics/gen9za.js?"></script>
     <script type="text/javascript" src="./calc/mechanics/gen789.js?"></script>
     <script type="text/javascript" src="./calc/mechanics/gen56.js?"></script>
     <script type="text/javascript" src="./calc/mechanics/gen4.js?"></script>
@@ -1670,10 +1609,11 @@
 </div>
 <!-- END WRAPPER -->
 
-<div class="credits">Created by Honko; maintained by Austin, Kris, <a href="https://github.com/smogon/damage-calc/contributors" class="links-lighten" target="_blank">and others</a>.
-    <ul><li><a href="https://www.smogon.com/forums/threads/pok%C3%A9mon-showdown-damage-calculator.3593546/" class="links-lighten" target="_blank">Bug Reports</a></li>
-    <li><a href="https://github.com/smogon/damage-calc" class="links-lighten" target="_blank">GitHub repository</a></li></ul>
-
+<div class="credits">Based on the <a href="https://calc.pokemonshowdown.com/" target="_blank">Pok&eacute;mon Showdown! damage calculator</a>; maintained by <a href="https://x.com/dhelmise_ps" class="links-lighten" target="_blank">dhelmise</a>.
+    <ul>
+        <li><a href="https://www.smogon.com/forums/threads/pok%C3%A9mon-showdown-damage-calculator.3593546/" class="links-lighten" target="_blank">Bug Reports</a></li>
+        <li><a href="https://github.com/KrisXV/ingame-calc" class="links-lighten" target="_blank">GitHub repository</a></li>
+    </ul>
     <select id="dark-theme-toggle">
         <option value="">Auto dark theme</option>
         <option value="false">Light theme</option>

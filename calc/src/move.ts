@@ -14,6 +14,7 @@ export class Move implements State.Move {
   species?: I.SpeciesName;
   useZ?: boolean;
   useMax?: boolean;
+  usePlus?: boolean;
   overrides?: Partial<I.Move>;
 
   hits: number;
@@ -117,6 +118,7 @@ export class Move implements State.Move {
     this.item = options.item;
     this.useZ = options.useZ;
     this.useMax = options.useMax;
+    this.usePlus = options.usePlus;
     this.overrides = options.overrides;
     this.species = options.species;
 
@@ -184,6 +186,7 @@ export class Move implements State.Move {
       species: this.species,
       useZ: this.useZ,
       useMax: this.useMax,
+      usePlus: this.usePlus,
       isCrit: this.isCrit,
       isStellarFirstUse: this.isStellarFirstUse,
       hits: this.hits,

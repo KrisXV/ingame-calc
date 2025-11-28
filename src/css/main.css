@@ -316,7 +316,7 @@ html, body {
     min-width: 100em;
 }
 .wrapper {
-    padding: 0 1em;
+    padding: 1em 1em;
     max-width: 1300px;
     margin: 0 auto;
 }
@@ -586,6 +586,13 @@ select.toxic-counter {
     height: 1em;
     padding: 3px 3px;
     margin-right: 1px;
+}
+.poke-info .plus-btn {
+    font-size: 0.8em;
+    width: 2.5em;
+    height: 1em;
+    padding: 3px 3px;
+    margin: 0px 1px;
 }
 .poke-info .max-btn {
 	font-size: 0.8em;

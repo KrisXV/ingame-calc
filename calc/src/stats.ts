@@ -114,11 +114,13 @@ export const Stats = new (class {
     iv: number,
     ev: number,
     level: number,
-    nature?: string
+    nature?: string,
+    isAlpha = false,
+    isRogueMega = false
   ) {
     if (gen.num < 1 || gen.num > 9) throw new Error(`Invalid generation ${gen.num}`);
     if (gen.num < 3) return this.calcStatRBY(stat, base, iv, level);
-    return this.calcStatADV(gen.natures, stat, base, iv, ev, level, nature);
+    return this.calcStatADV(gen.natures, stat, base, iv, ev, level, nature, isAlpha, isRogueMega);
   }
 
   calcStatADV(
@@ -128,12 +130,17 @@ export const Stats = new (class {
     iv: number,
     ev: number,
     level: number,
-    nature?: string
+    nature?: string,
+    isAlpha = false,
+    isRogueMega = false
   ) {
+    let rogueMegaModifier = 16;
+    let alphaModifier = 2;
     if (stat === 'hp') {
       return base === 1
         ? base
-        : Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100) + level + 10;
+        : (isRogueMega ? rogueMegaModifier : 1) *
+          (isAlpha ? alphaModifier : 1) * Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100) + level + 10;
     } else {
       let mods: [StatID?, StatID?] = [undefined, undefined];
       if (nature) {
@@ -149,7 +156,7 @@ export const Stats = new (class {
               ? 0.9
               : 1;
 
-      return Math.floor((Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100) + 5) * n);
+      return (isAlpha ? alphaModifier : 1) * Math.floor((Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100) + 5) * n);
     }
   }
 

@@ -614,6 +614,8 @@ $(".set-selector").change(function () {
 		}
 		pokeObj.find(".teraToggle").prop("checked", isAutoTera);
 		pokeObj.find(".max").prop("checked", false);
+		pokeObj.find(".rogueMega").prop("checked", false);
+		pokeObj.find(".alpha").prop("checked", false);
 		stellarButtonsVisibility(pokeObj, 0);
 		pokeObj.find(".boostedStat").val("");
 		pokeObj.find(".analysis").attr("href", smogonAnalysis(pokemonName));
@@ -1094,15 +1096,21 @@ function createPokemon(pokeInfo) {
 		var ability = pokeInfo.find(".ability").val();
 		var item = pokeInfo.find(".item").val();
 		var isDynamaxed = pokeInfo.find(".max").prop("checked");
+		var isAlpha = pokeInfo.find(".alpha").is(":checked");
+		var isRogueMega = pokeInfo.find(".rogueMega").is(":checked");
 		var teraType = pokeInfo.find(".teraToggle").is(":checked") ? pokeInfo.find(".teraType").val() : undefined;
 		var opts = {
 			ability: ability,
 			item: item,
 			isDynamaxed: isDynamaxed,
+			isAlpha: isAlpha,
+			isRogueMega: isRogueMega,
 			teraType: teraType,
 			species: name,
 		};
 		pokeInfo.isDynamaxed = isDynamaxed;
+		pokeInfo.isRogueMega = isRogueMega;
+		pokeInfo.isAlpha = isAlpha;
 		calcHP(pokeInfo);
 		var curHP = ~~pokeInfo.find(".current-hp").val();
 		// FIXME the Pokemon constructor expects non-dynamaxed HP
@@ -1118,6 +1126,8 @@ function createPokemon(pokeInfo) {
 			ivs: ivs,
 			evs: evs,
 			isDynamaxed: isDynamaxed,
+			isRogueMega: isRogueMega,
+			isAlpha: isAlpha,
 			alliesFainted: parseInt(pokeInfo.find(".alliesFainted").val()),
 			boostedStat: pokeInfo.find(".boostedStat").val() || undefined,
 			teraType: teraType,
@@ -1172,7 +1182,7 @@ function getMoveDetails(moveInfo, opts) {
 	return new calc.Move(gen, moveName, {
 		ability: opts.ability, item: opts.item, useZ: isZMove, species: opts.species, isCrit: isCrit, hits: hits,
 		isStellarFirstUse: isStellarFirstUse, timesUsed: timesUsed, timesUsedWithMetronome: timesUsedWithMetronome,
-		overrides: overrides, useMax: opts.isDynamaxed
+		overrides: overrides, useMax: opts.isDynamaxed, usePlus: opts.usePlus
 	});
 }
 
@@ -1216,6 +1226,8 @@ function createField() {
 	var isAuroraVeil = [$("#auroraVeilL").prop("checked"), $("#auroraVeilR").prop("checked")];
 	var isBattery = [$("#batteryL").prop("checked"), $("#batteryR").prop("checked")];
 	var isPowerSpot = [$("#powerSpotL").prop("checked"), $("#powerSpotR").prop("checked")];
+	var trickOrTreat = [$("#totL").prop("checked"), $("#totR").prop("checked")];
+	var forestsCurse = [$("#forestsCurseL").prop("checked"), $("#forestsCurseR").prop("checked")];
 	// TODO: support switching in as well!
 	var isSwitchingOut = [$("#switchingL").prop("checked"), $("#switchingR").prop("checked")];
 
@@ -1243,6 +1255,8 @@ function createField() {
 			isAuroraVeil: isAuroraVeil[i],
 			isBattery: isBattery[i],
 			isPowerSpot: isPowerSpot[i],
+			trickOrTreat: trickOrTreat[i],
+			forestsCurse: forestsCurse[i],
 			isSwitching: isSwitchingOut[i] ? 'out' : undefined
 		});
 	};
@@ -1307,7 +1321,7 @@ function calcStat(poke, StatID) {
 		if (StatID !== "hp") nature = poke.find(".nature").val();
 	}
 	// Shedinja still has 1 max HP during the effect even if its Dynamax Level is maxed (DaWoblefet)
-	var total = calc.calcStat(gen, legacyStatToStat(StatID), base, ivs, evs, level, nature);
+	var total = calc.calcStat(gen, legacyStatToStat(StatID), base, ivs, evs, level, nature, poke.isRogueMega, poke.isAlpha);
 	if (gen > 7 && StatID === "hp" && poke.isDynamaxed && total !== 1) {
 		total *= 2;
 	}

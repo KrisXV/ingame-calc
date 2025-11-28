@@ -8,6 +8,8 @@ export namespace State {
     abilityOn?: boolean;
     isDynamaxed?: boolean;
     dynamaxLevel?: number;
+    isRogueMega?: boolean;
+    isAlpha?: boolean;
     alliesFainted?: number;
     boostedStat?: I.StatIDExceptHP | 'auto';
     item?: I.ItemName;
@@ -28,6 +30,7 @@ export namespace State {
     name: I.MoveName;
     useZ?: boolean;
     useMax?: boolean;
+    usePlus?: boolean;
     isCrit?: boolean;
     isStellarFirstUse?: boolean;
     hits?: number;
@@ -77,6 +80,9 @@ export namespace State {
     isBattery?: boolean;
     isPowerSpot?: boolean;
     isSteelySpirit?: boolean;
+    isRogueMega?: boolean;
+    trickOrTreat?: boolean;
+    forestsCurse?: boolean;
     isSwitching?: 'out' | 'in';
   }
 }

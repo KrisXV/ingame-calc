@@ -34,7 +34,7 @@ export function isGrounded(pokemon: Pokemon, field: Field) {
       !pokemon.hasItem('Air Balloon')));
 }
 
-export function getModifiedStat(stat: number, mod: number, gen?: Generation) {
+export function getModifiedStat(stat: number, mod: number, gen?: Generation, isZA = false) {
   if (gen && gen.num < 3) {
     if (mod >= 0) {
       const pastGenBoostTable = [1, 1.5, 2, 2.5, 3, 3.5, 4];
@@ -48,7 +48,7 @@ export function getModifiedStat(stat: number, mod: number, gen?: Generation) {
 
   const numerator = 0;
   const denominator = 1;
-  const modernGenBoostTable = [
+  let modernGenBoostTable = [
     [2, 8],
     [2, 7],
     [2, 6],
@@ -63,6 +63,24 @@ export function getModifiedStat(stat: number, mod: number, gen?: Generation) {
     [7, 2],
     [8, 2],
   ];
+  if (isZA) {
+    modernGenBoostTable = [
+      [2, 3],
+      [2, 3],
+      [2, 3],
+      [2, 3],
+      [2, 3],
+      [2, 3],
+      [2, 2],
+      [3, 2],
+      [4, 2],
+      [4, 2],
+      [4, 2],
+      [4, 2],
+      [4, 2],
+      [4, 2],
+    ];
+  }
   stat = OF16(stat * modernGenBoostTable[6 + mod][numerator]);
   stat = Math.floor(stat / modernGenBoostTable[6 + mod][denominator]);
 
@@ -84,6 +102,24 @@ export function computeFinalStats(
         pokemon.stats.spe = getFinalSpeed(gen, pokemon, field, side);
       } else {
         pokemon.stats[stat] = getModifiedStat(pokemon.rawStats[stat]!, pokemon.boosts[stat]!, gen);
+      }
+    }
+  }
+}
+
+export function computeFinalStatsZA(
+  gen: Generation,
+  attacker: Pokemon,
+  defender: Pokemon,
+  ...stats: StatID[]
+) {
+  const sideActive: Array<Pokemon> = [attacker, defender];
+  for (const pokemon of sideActive) {
+    for (const stat of stats) {
+      if (stat === 'spe') {
+        pokemon.stats.spe = getFinalSpeedZA(gen, pokemon);
+      } else {
+        pokemon.stats[stat] = getModifiedStat(pokemon.rawStats[stat]!, pokemon.boosts[stat]!, gen, true);
       }
     }
   }
@@ -128,6 +164,22 @@ export function getFinalSpeed(gen: Generation, pokemon: Pokemon, field: Field, s
 
   speed = OF32(pokeRound((speed * chainMods(speedMods, 410, 131172)) / 4096));
   if (pokemon.hasStatus('par') && !pokemon.hasAbility('Quick Feet')) {
+    speed = Math.floor(OF32(speed * (gen.num < 7 ? 25 : 50)) / 100);
+  }
+
+  speed = Math.min(gen.num <= 2 ? 999 : 10000, speed);
+  return Math.max(0, speed);
+}
+
+export function getFinalSpeedZA(gen: Generation, pokemon: Pokemon) {
+  let speed = getModifiedStat(pokemon.rawStats.spe, pokemon.boosts.spe, gen, true);
+  const speedMods = [];
+  if (pokemon.hasItem(...EV_ITEMS)) {
+      speedMods.push(2048);
+  }
+
+  speed = OF32(pokeRound((speed * chainMods(speedMods, 410, 131172)) / 4096));
+  if (pokemon.hasStatus('par')) {
     speed = Math.floor(OF32(speed * (gen.num < 7 ? 25 : 50)) / 100);
   }
 
@@ -545,6 +597,26 @@ export function getFinalDamage(
   if (isBurned) damageAmount = Math.floor(damageAmount / 2);
   if (protect) damageAmount = pokeRound(OF32(damageAmount * 1024) / 4096);
   return OF16(pokeRound(Math.max(1, OF32(damageAmount * finalMod) / 4096)));
+}
+
+export function getFinalDamageFloat(
+  baseAmount: number,
+  i: number,
+  effectiveness: number,
+  isBurned: boolean,
+  stabMod: number,
+  finalMod: number,
+  protect?: boolean
+) {
+  let damageAmount = Math.floor(OF32(baseAmount * (85 + i)) / 100);
+  // If the stabMod would not accomplish anything we avoid applying it because it could cause
+  // us to calculate damage overflow incorrectly (DaWoblefet)
+  if (stabMod !== 4096) damageAmount = OF32(damageAmount * stabMod) / 4096;
+  damageAmount = Math.floor(OF32(pokeRound(damageAmount) * effectiveness));
+
+  if (isBurned) damageAmount = Math.floor(damageAmount / 2);
+  if (protect) damageAmount = pokeRound(OF32(damageAmount * 0.25));
+  return OF16(pokeRound(Math.max(1, OF32(damageAmount * finalMod))));
 }
 
 /**

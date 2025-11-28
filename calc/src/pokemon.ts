@@ -26,6 +26,8 @@ export class Pokemon implements State.Pokemon {
   item?: I.ItemName;
   disabledItem?: I.ItemName;
   teraType?: I.TypeName;
+  isRogueMega?: boolean;
+  isAlpha?: boolean;
 
   nature: I.NatureName;
   ivs: I.StatsTable;
@@ -68,6 +70,8 @@ export class Pokemon implements State.Pokemon {
     this.alliesFainted = options.alliesFainted;
     this.boostedStat = options.boostedStat;
     this.teraType = options.teraType;
+    this.isRogueMega = !!options.isRogueMega;
+    this.isAlpha = !!options.isAlpha;
     this.item = options.item;
     this.nature = options.nature || ('Serious' as I.NatureName);
     this.ivs = Pokemon.withDefault(gen, options.ivs, 31);
@@ -190,7 +194,9 @@ export class Pokemon implements State.Pokemon {
       this.ivs[stat]!,
       this.evs[stat]!,
       this.level,
-      this.nature
+      this.nature,
+      this.isAlpha,
+      this.isRogueMega,
     );
   }
 
