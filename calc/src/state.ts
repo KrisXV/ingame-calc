@@ -8,8 +8,10 @@ export namespace State {
     abilityOn?: boolean;
     isDynamaxed?: boolean;
     dynamaxLevel?: number;
-    isRogueMega?: boolean;
+    isRogueMega?: string | boolean;
+    rogueMegaQuest?: 'yveltal' | 'endgame' | 'simulator' | boolean;
     isAlpha?: boolean;
+    isAlphaReboot?: boolean;
     alliesFainted?: number;
     boostedStat?: I.StatIDExceptHP | 'auto';
     item?: I.ItemName;
@@ -80,7 +82,6 @@ export namespace State {
     isBattery?: boolean;
     isPowerSpot?: boolean;
     isSteelySpirit?: boolean;
-    isRogueMega?: boolean;
     trickOrTreat?: boolean;
     forestsCurse?: boolean;
     isSwitching?: 'out' | 'in';

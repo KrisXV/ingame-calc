@@ -116,11 +116,64 @@ export const Stats = new (class {
     level: number,
     nature?: string,
     isAlpha = false,
-    isRogueMega = false
+    isAlphaReboot = false,
+    isRogueMega: string | boolean = false,
+    rogueMegaQuest: 'yveltal' | 'endgame' | 'simulator' | boolean = false
   ) {
     if (gen.num < 1 || gen.num > 9) throw new Error(`Invalid generation ${gen.num}`);
     if (gen.num < 3) return this.calcStatRBY(stat, base, iv, level);
-    return this.calcStatADV(gen.natures, stat, base, iv, ev, level, nature, isAlpha, isRogueMega);
+    return this.calcStatADV(
+      gen.natures, stat, base, iv, ev, level, nature,
+      isAlpha, isAlphaReboot, isRogueMega, rogueMegaQuest
+    );
+  }
+
+  getRogueMegaModifier(
+    rogueMega: string | boolean,
+    postGame: 'yveltal' | 'simulator' | 'endgame' | boolean = false
+  ) {
+    const ROGUE_MEGAS: {[k: string]: {[k: string]: number}} = {
+      'Absol-Mega': {hp: postGame === 'simulator' ? 20 : 22},
+      'Slowbro-Mega': {hp: postGame === 'simulator' ? 20 : 11},
+      'Camerupt-Mega': {hp: postGame === 'simulator' ? 20 : 12},
+      'Victreebel-Mega': {hp: postGame === 'simulator' ? 20 : postGame === 'yveltal' ? 17 : 12},
+      'Beedrill-Mega': {hp: postGame === 'simulator' ? 24 : 20},
+      'Hawlucha-Mega': {
+        hp: postGame === 'simulator' ? 20 : postGame === 'yveltal' ? 17 : 13,
+        spa: 1.3,
+      },
+      'Banette-Mega': {hp: postGame === 'simulator' ? 20 : 12},
+      'Ampharos-Mega': {hp: postGame === 'simulator' ? 20 : 14},
+      'Barbaracle-Mega': {hp: postGame === 'simulator' ? 20 : 14},
+      'Mawile-Mega': {hp: postGame === 'simulator' ? 20 : 14},
+      'Froslass-Mega': {hp: postGame === 'simulator' ? 20 : 18},
+      'Altaria-Mega': {hp: postGame === 'simulator' ? 20 : 14},
+      'Venusaur-Mega': {hp: postGame === 'simulator' ? 20 : 18},
+      'Dragonite-Mega': {hp: postGame === 'simulator' ? 20 : 16},
+      'Tyranitar-Mega': {hp: postGame === 'simulator' ? 20 : postGame === 'yveltal' ? 17 : 16},
+      'Starmie-Mega': {hp: postGame === 'simulator' ? 20 : 18},
+      'Zygarde-10%': {hp: 10, atk: 2, spa: 2},
+      'Zygarde': {hp: 12, atk: 2, spa: 1.5},
+      'Zygarde-Complete': {hp: 12, atk: 2, spa: 2},
+    };
+    const ENDGAME_MEGAS: {[k: string]: {[k: string]: number}} = {
+      'Gengar-Mega': {hp: 12},
+      'Heracross-Mega': {hp: 10},
+      'Kangaskhan-Mega': {hp: 8},
+      'Pidgeot-Mega': {hp: 8},
+      'Garchomp-Mega': {hp: 6},
+      'Blastoise-Mega': {hp: 10},
+      'Steelix-Mega': {hp: 6},
+      'Salamence-Mega': {hp: 6},
+      'Aggron-Mega': {hp: 6},
+      'Gardevoir-Mega': {hp: 12},
+      'Gallade-Mega': {hp: 10},
+      'Metagross-Mega': {hp: 12},
+      'Aerodactyl-Mega': {hp: 12},
+      'Alakazam-Mega': {hp: 12},
+    };
+    if (!rogueMega || typeof rogueMega !== 'string') return {hp: 1};
+    return ROGUE_MEGAS[rogueMega] || ENDGAME_MEGAS[rogueMega] || {hp: 1};
   }
 
   calcStatADV(
@@ -132,15 +185,18 @@ export const Stats = new (class {
     level: number,
     nature?: string,
     isAlpha = false,
-    isRogueMega = false
+    isAlphaReboot = false,
+    isRogueMega: string | boolean = false,
+    isPostGameRogueMega: 'yveltal' | 'simulator' | 'endgame' | boolean = false,
   ) {
-    let rogueMegaModifier = 16;
-    let alphaModifier = 2;
+    const rogueMegaModifier = this.getRogueMegaModifier(isRogueMega, isPostGameRogueMega);
+    const alphaModifier = 2;
     if (stat === 'hp') {
       return base === 1
         ? base
-        : (isRogueMega ? rogueMegaModifier : 1) *
-          (isAlpha ? alphaModifier : 1) * Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100) + level + 10;
+        : rogueMegaModifier.hp *
+          (isAlpha ? alphaModifier : 1) *
+          Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100) + level + 10;
     } else {
       let mods: [StatID?, StatID?] = [undefined, undefined];
       if (nature) {
@@ -156,7 +212,8 @@ export const Stats = new (class {
               ? 0.9
               : 1;
 
-      return (isAlpha ? alphaModifier : 1) * Math.floor((Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100) + 5) * n);
+      return (rogueMegaModifier[stat] || 1) * (isAlpha && !isAlphaReboot ? alphaModifier : 1) *
+        Math.floor((Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100) + 5) * n);
     }
   }
 

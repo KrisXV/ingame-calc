@@ -119,7 +119,12 @@ export function computeFinalStatsZA(
       if (stat === 'spe') {
         pokemon.stats.spe = getFinalSpeedZA(gen, pokemon);
       } else {
-        pokemon.stats[stat] = getModifiedStat(pokemon.rawStats[stat]!, pokemon.boosts[stat]!, gen, true);
+        pokemon.stats[stat] = getModifiedStat(
+          pokemon.rawStats[stat]!,
+          pokemon.boosts[stat]!,
+          gen,
+          true
+        );
       }
     }
   }
@@ -175,7 +180,7 @@ export function getFinalSpeedZA(gen: Generation, pokemon: Pokemon) {
   let speed = getModifiedStat(pokemon.rawStats.spe, pokemon.boosts.spe, gen, true);
   const speedMods = [];
   if (pokemon.hasItem(...EV_ITEMS)) {
-      speedMods.push(2048);
+    speedMods.push(2048);
   }
 
   speed = OF32(pokeRound((speed * chainMods(speedMods, 410, 131172)) / 4096));
@@ -605,7 +610,7 @@ export function getFinalDamageFloat(
   effectiveness: number,
   isBurned: boolean,
   stabMod: number,
-  finalMod: number,
+  finalMod: number[],
   protect?: boolean
 ) {
   let damageAmount = Math.floor(OF32(baseAmount * (85 + i)) / 100);
@@ -616,7 +621,10 @@ export function getFinalDamageFloat(
 
   if (isBurned) damageAmount = Math.floor(damageAmount / 2);
   if (protect) damageAmount = pokeRound(OF32(damageAmount * 0.25));
-  return OF16(pokeRound(Math.max(1, OF32(damageAmount * finalMod))));
+  for (const mod of finalMod) {
+    damageAmount = Math.floor(OF32(pokeRound(damageAmount) * mod));
+  }
+  return OF16(pokeRound(Math.max(1, damageAmount)));
 }
 
 /**

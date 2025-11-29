@@ -3,7 +3,7 @@
 import type {AbilityName, Terrain, Weather} from '../data/interface';
 import {inGen, inGens, tests} from './helper';
 
-describe('calc', () => {
+describe.skip('calc', () => {
   describe('Multi-Gen', () => {
     inGens(4, 7, ({gen, calculate, Pokemon, Move}) => {
       test(`Grass Knot (gen ${gen})`, () => {

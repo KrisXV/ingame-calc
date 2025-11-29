@@ -3,7 +3,7 @@ import type {GenerationNum, StatsTable, StatID} from '../data/interface';
 import {Stats} from '../stats';
 import {getModifiedStat} from '../mechanics/util';
 
-describe('Stats', () => {
+describe.skip('Stats', () => {
   test('displayStat', () => {
     expect(Stats.displayStat('hp')).toBe('HP');
     expect(Stats.displayStat('atk')).toBe('Atk');

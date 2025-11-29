@@ -46,8 +46,10 @@ export interface RawDesc {
   isWonderRoom?: boolean;
   isSwitching?: 'out' | 'in';
   plusMove?: boolean;
-  isRogueMega?: boolean;
-  rogueMega4x?: boolean;
+  attackerRogueMega?: '4x' | boolean;
+  defenderRogueMega?: '4x' | boolean;
+  attackerAlpha?: 'post-save' | boolean;
+  defenderAlpha?: 'post-save' | boolean;
   moveBP?: number;
   moveName: string;
   moveTurns?: string;

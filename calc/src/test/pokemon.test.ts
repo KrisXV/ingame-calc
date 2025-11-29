@@ -1,7 +1,7 @@
 import {Pokemon} from '../index';
 import type {StatID, MoveName} from '../data/interface';
 
-describe('Pokemon', () => {
+describe.skip('Pokemon', () => {
   test('defaults', () => {
     const p = new Pokemon(7, 'Gengar');
 

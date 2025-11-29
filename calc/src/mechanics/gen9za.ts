@@ -58,7 +58,7 @@ export function calculateZA(
   attacker.ability = '' as AbilityName;
   defender.ability = '' as AbilityName;
 
-  let type = move.type;
+  const type = move.type;
   if (move.named('Brick Break')) {
     field.defenderSide.isReflect = false;
     field.defenderSide.isLightScreen = false;
@@ -92,14 +92,14 @@ export function calculateZA(
       false,
       false,
     ) : field.defenderSide.forestsCurse && !defender.hasType('Grass')
-    ? getMoveEffectiveness(
-      gen,
-      move,
-      'Grass',
-      false,
-      false,
-      false,
-    ) : 1;
+      ? getMoveEffectiveness(
+        gen,
+        move,
+        'Grass',
+        false,
+        false,
+        false,
+      ) : 1;
   if (!defender.types[1]) {
     type2Effectiveness = type3Effectiveness;
     type3Effectiveness = 1;
@@ -111,10 +111,13 @@ export function calculateZA(
     typeEffectiveness = 1;
   }
 
-  if (typeEffectiveness === 0.5) typeEffectiveness = 0.6;
-  if (typeEffectiveness === 0.25) typeEffectiveness = 0.3;
-  if (typeEffectiveness === 0.125) typeEffectiveness = 0.15;
-  if (move.usePlus) typeEffectiveness *= 1.2;
+  if (typeEffectiveness === 0.5) typeEffectiveness = move.usePlus ? 0.72 : 0.6;
+  if (typeEffectiveness === 0.25) typeEffectiveness = move.usePlus ? 0.36 : 0.3;
+  if (typeEffectiveness === 0.125) typeEffectiveness = move.usePlus ? 0.18 : 0.15;
+  if (typeEffectiveness === 1 && move.usePlus) typeEffectiveness *= 1.2;
+  if (typeEffectiveness === 2 && move.usePlus) typeEffectiveness = 2.6;
+  if (typeEffectiveness === 4 && move.usePlus) typeEffectiveness = 5.2;
+  if (typeEffectiveness === 8 && move.usePlus) typeEffectiveness = 10.4;
 
   if (typeEffectiveness === 0) {
     return result;
@@ -585,12 +588,12 @@ export function calculateFinalModsZA(
   typeEffectiveness: number,
   hitCount = 0
 ) {
-  let finalMod = 1;
+  const finalMod = [];
 
   // Rogue Megas hit by non-Plus moves have a 0.3x modifier for damage dealt to them - Anubis
   if (defender.isRogueMega && !move.usePlus && !defender.name.includes('Zygarde')) {
-    finalMod *= 0.3;
-    desc.isRogueMega = true;
+    finalMod.push(0.3);
+    desc.defenderRogueMega = true;
   }
 
   const moveEffectiveness = gen.types.get(toID(move.type))?.effectiveness;
@@ -606,51 +609,50 @@ export function calculateFinalModsZA(
   let totalEffectiveness = 1;
 
   for (const type of defenderTypes) {
-    if (moveEffectiveness && moveEffectiveness[type]) totalEffectiveness *= moveEffectiveness[type]!;
+    if (moveEffectiveness?.[type]) totalEffectiveness *= moveEffectiveness[type]!;
   }
 
   // megas with a >2x weakness to a move have an additional 0.63x multiplier - Anubis
   if (defender.isRogueMega && totalEffectiveness >= 4) {
-    finalMod *= 0.63;
-    desc.isRogueMega = true;
-    desc.rogueMega4x = true;
+    finalMod.push(0.63);
+    desc.defenderRogueMega = '4x';
   }
 
   // screens are a 0.66x multiplier to damage - Anubis
   if (field.defenderSide.isReflect && move.category === 'Physical' &&
       !isCritical && !field.defenderSide.isAuroraVeil) {
     // doesn't stack with Aurora Veil
-    finalMod *= 0.66;
+    finalMod.push(0.66);
     desc.isReflect = true;
   } else if (
     field.defenderSide.isLightScreen && move.category === 'Special' &&
     !isCritical && !field.defenderSide.isAuroraVeil
   ) {
     // doesn't stack with Aurora Veil
-    finalMod *= 0.66;
+    finalMod.push(0.66);
     desc.isLightScreen = true;
   }
   // Veil isn't in Z-A, keeping this around for a potential convenience button
   if (field.defenderSide.isAuroraVeil && !isCritical) {
-    finalMod *= 0.66;
+    finalMod.push(0.66);
     desc.isAuroraVeil = true;
   }
 
   if (attacker.hasItem('Expert Belt') && typeEffectiveness > 1) {
-    finalMod *= 1.2;
+    finalMod.push(1.2);
     desc.attackerItem = attacker.item;
   } else if (attacker.hasItem('Life Orb')) {
-    finalMod *= 1.3;
+    finalMod.push(1.3);
     desc.attackerItem = attacker.item;
   }
 
   // Overall 0.7x modifier
-    finalMod *= 0.7;
+  finalMod.push(0.7);
 
   if (move.hasType(getBerryResistType(defender.item)) &&
       (typeEffectiveness > 1 || move.hasType('Normal')) &&
       hitCount === 0) {
-    finalMod *= 0.5;
+    finalMod.push(0.5);
     desc.defenderItem = defender.item;
   }
 

@@ -119,6 +119,11 @@ $(".level").bind("keyup change", function () {
 	calcHP(poke);
 	calcStats(poke);
 });
+$(".rogueMega, .rogueMegaQuest, .alpha, .alphaReboot").change(function () {
+	var poke = $(this).closest(".poke-info");
+	calcHP(poke);
+	calcStats(poke);
+});
 $(".nature").bind("keyup change", function () {
 	calcStats($(this).closest(".poke-info"));
 });
@@ -563,6 +568,7 @@ $(".move-selector").change(function () {
 		moveGroupObj.children(".move-times").show();
 	}
 	moveGroupObj.children(".move-z").prop("checked", false);
+	moveGroupObj.children(".move-plus").prop("checked", false);
 });
 
 $(".item").change(function () {
@@ -615,7 +621,11 @@ $(".set-selector").change(function () {
 		pokeObj.find(".teraToggle").prop("checked", isAutoTera);
 		pokeObj.find(".max").prop("checked", false);
 		pokeObj.find(".rogueMega").prop("checked", false);
+		pokeObj.find(".rogueMegaQuest").val("");
 		pokeObj.find(".alpha").prop("checked", false);
+		pokeObj.find(".alphaReboot").prop("checked", false);
+		pokeObj.find(".meow").hide();
+		pokeObj.find(".alphaReboot").hide();
 		stellarButtonsVisibility(pokeObj, 0);
 		pokeObj.find(".boostedStat").val("");
 		pokeObj.find(".analysis").attr("href", smogonAnalysis(pokemonName));
@@ -866,6 +876,27 @@ function setSelectValueIfValid(select, value, fallback) {
 	select.val(!value ? fallback : select.children("option[value='" + value + "']").length ? value : fallback);
 }
 
+$(".alpha").change(function () {
+	var pokeObj = $(this).closest(".poke-info");
+	if (this.checked) {
+		pokeObj.find(".meow").show();
+		pokeObj.find(".alphaReboot").show();
+	} else {
+		pokeObj.find(".meow").hide();
+		pokeObj.find(".alphaReboot").hide();
+		pokeObj.find(".alphaReboot").prop("checked", false);
+	}
+});
+
+$(".rogueMega").change(function () {
+	var pokeObj = $(this).closest(".poke-info");
+	if (this.checked) {
+		pokeObj.find(".rogueMegaQuest").show();
+	} else {
+		pokeObj.find(".rogueMegaQuest").hide();
+	}
+});
+
 $(".teraToggle").change(function () {
 	var pokeObj = $(this).closest(".poke-info");
 	stellarButtonsVisibility(pokeObj, pokeObj.find(".teraType").val() === "Stellar" && this.checked);
@@ -1071,14 +1102,9 @@ function createPokemon(pokeInfo) {
 		});
 	} else {
 		var setName = pokeInfo.find("input.set-selector").val();
-		var name;
-		if (setName.indexOf("(") === -1) {
-			name = setName;
-		} else {
-			var pokemonName = setName.substring(0, setName.indexOf(" ("));
-			var species = pokedex[pokemonName];
-			name = (species.otherFormes || (species.baseSpecies && species.baseSpecies !== pokemonName)) ? pokeInfo.find(".forme").val() : pokemonName;
-		}
+		var pokemonName = setName.substring(0, setName.indexOf(" ("));
+		var species = pokedex[pokemonName];
+		var name = (species.otherFormes || (species.baseSpecies && species.baseSpecies !== pokemonName)) ? pokeInfo.find(".forme").val() : pokemonName;
 
 		var baseStats = {};
 		var ivs = {};
@@ -1096,21 +1122,27 @@ function createPokemon(pokeInfo) {
 		var ability = pokeInfo.find(".ability").val();
 		var item = pokeInfo.find(".item").val();
 		var isDynamaxed = pokeInfo.find(".max").prop("checked");
-		var isAlpha = pokeInfo.find(".alpha").is(":checked");
-		var isRogueMega = pokeInfo.find(".rogueMega").is(":checked");
+		var isAlpha = pokeInfo.find(".alpha").prop("checked");
+		var isAlphaReboot = pokeInfo.find(".alphaReboot").prop("checked");
+		var isRogueMega = pokeInfo.find(".rogueMega").prop("checked") ? name : false;
+		var rogueMegaQuest = isRogueMega ? pokeInfo.find(".rogueMegaQuest").val() : false;
 		var teraType = pokeInfo.find(".teraToggle").is(":checked") ? pokeInfo.find(".teraType").val() : undefined;
 		var opts = {
 			ability: ability,
 			item: item,
 			isDynamaxed: isDynamaxed,
 			isAlpha: isAlpha,
+			isAlphaReboot: isAlphaReboot,
 			isRogueMega: isRogueMega,
+			rogueMegaQuest: rogueMegaQuest,
 			teraType: teraType,
 			species: name,
 		};
 		pokeInfo.isDynamaxed = isDynamaxed;
 		pokeInfo.isRogueMega = isRogueMega;
+		pokeInfo.rogueMegaQuest = rogueMegaQuest;
 		pokeInfo.isAlpha = isAlpha;
+		pokeInfo.isAlphaReboot = isAlphaReboot;
 		calcHP(pokeInfo);
 		var curHP = ~~pokeInfo.find(".current-hp").val();
 		// FIXME the Pokemon constructor expects non-dynamaxed HP
@@ -1127,7 +1159,9 @@ function createPokemon(pokeInfo) {
 			evs: evs,
 			isDynamaxed: isDynamaxed,
 			isRogueMega: isRogueMega,
+			rogueMegaQuest: rogueMegaQuest,
 			isAlpha: isAlpha,
+			isAlphaReboot: isAlphaReboot,
 			alliesFainted: parseInt(pokeInfo.find(".alliesFainted").val()),
 			boostedStat: pokeInfo.find(".boostedStat").val() || undefined,
 			teraType: teraType,
@@ -1158,6 +1192,7 @@ function getGender(gender) {
 function getMoveDetails(moveInfo, opts) {
 	var moveName = moveInfo.find("select.move-selector").val();
 	var isZMove = gen > 6 && moveInfo.find("input.move-z").prop("checked");
+	var isPlus = moveInfo.find("input.move-plus").prop("checked");
 	var isCrit = moveInfo.find(".move-crit").prop("checked");
 	var isStellarFirstUse = moveInfo.find(".move-stellar").prop("checked");
 	var hits = +moveInfo.find(".move-hits").val();
@@ -1182,7 +1217,7 @@ function getMoveDetails(moveInfo, opts) {
 	return new calc.Move(gen, moveName, {
 		ability: opts.ability, item: opts.item, useZ: isZMove, species: opts.species, isCrit: isCrit, hits: hits,
 		isStellarFirstUse: isStellarFirstUse, timesUsed: timesUsed, timesUsedWithMetronome: timesUsedWithMetronome,
-		overrides: overrides, useMax: opts.isDynamaxed, usePlus: opts.usePlus
+		overrides: overrides, useMax: opts.isDynamaxed, usePlus: isPlus
 	});
 }
 
@@ -1321,7 +1356,7 @@ function calcStat(poke, StatID) {
 		if (StatID !== "hp") nature = poke.find(".nature").val();
 	}
 	// Shedinja still has 1 max HP during the effect even if its Dynamax Level is maxed (DaWoblefet)
-	var total = calc.calcStat(gen, legacyStatToStat(StatID), base, ivs, evs, level, nature, poke.isRogueMega, poke.isAlpha);
+	var total = calc.calcStat(gen, legacyStatToStat(StatID), base, ivs, evs, level, nature, poke.isAlpha, poke.isAlphaReboot, poke.isRogueMega, poke.rogueMegaQuest);
 	if (gen > 7 && StatID === "hp" && poke.isDynamaxed && total !== 1) {
 		total *= 2;
 	}

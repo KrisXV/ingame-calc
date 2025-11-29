@@ -530,7 +530,7 @@ th {
 }
 .top label, .info-selectors label {
     display: inline-block;
-    width: 5em;
+    width: 7em;
 }
 .poke-info input:not([type]), .poke-info input[type="text"], .poke-info span {
     display: inline-block;
@@ -616,7 +616,7 @@ table.field {
     width: 100%;
 }
 
-[hidden], .hide {
+[hidden], .hide, label.meow {
     display: none;
 }
 
