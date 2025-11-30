@@ -100,5 +100,5 @@ var SETDEX_SV = {
   },
   "Alakazam-Mega": {
     "Endgame Rogue Mega": {"level":62,"item":"Alakazite","nature":"Hardy","ivs":{"at":0,"df":0,"sa":0,"sd":0,"sp":0},"moves":["Night Slash","Slash"]}
-  },
+  }
 };
