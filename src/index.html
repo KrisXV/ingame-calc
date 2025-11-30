@@ -156,7 +156,6 @@
                     <label>Type</label>
                     <select aria-label="type1" class="type1 terrain-trigger calc-trigger"></select>
                     <select aria-label="type2" class="type2 terrain-trigger calc-trigger"></select>
-                    <small class="right">(<a class="analysis links-lighten" target="_blank" href="">Smogon&nbsp;analysis</a>)</small>
                 </div>
                 <!-- div class="gen-specific g9">
                     <label>Tera Type</label>
@@ -254,10 +253,9 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <!-- option value="2">+2 (PvP only)</option -->
-                                    <option value="1">+1</option>
+                                    <option value="1">1.5x</option>
                                     <option value="0" selected="selected">--</option>
-                                    <option value="-1">-1</option>
+                                    <option value="-1">0.67x</option>
                                 </select>
                             </td>
                         </tr>
@@ -281,10 +279,9 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <!-- option value="2">+2 (PvP only)</option -->
-                                    <option value="1">+1</option>
+                                    <option value="1">1.5x</option>
                                     <option value="0" selected="selected">--</option>
-                                    <option value="-1">-1</option>
+                                    <option value="-1">0.67x</option>
                                 </select>
                             </td>
                         </tr>
@@ -308,10 +305,9 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <!-- option value="2">+2 (PvP only)</option -->
-                                    <option value="1">+1</option>
+                                    <option value="1">1.5x</option>
                                     <option value="0" selected="selected">--</option>
-                                    <option value="-1">-1</option>
+                                    <option value="-1">0.67x</option>
                                 </select>
                             </td>
                         </tr>
@@ -335,10 +331,9 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <!-- option value="2">+2 (PvP only)</option -->
-                                    <option value="1">+1</option>
+                                    <option value="1">1.5x</option>
                                     <option value="0" selected="selected">--</option>
-                                    <option value="-1">-1</option>
+                                    <option value="-1">0.67x</option>
                                 </select>
                             </td>
                         </tr>
@@ -356,10 +351,9 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <!-- option value="2">+2 (PvP only)</option -->
-                                    <option value="1">+1</option>
+                                    <option value="1">1.5x</option>
                                     <option value="0" selected="selected">--</option>
-                                    <option value="-1">-1</option>
+                                    <option value="-1">0.67x</option>
                                 </select>
                             </td>
                         </tr>
@@ -383,10 +377,9 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <!-- option value="2">+2 (PvP only)</option -->
-                                    <option value="1">+1</option>
+                                    <option value="1">1.5x</option>
                                     <option value="0" selected="selected">--</option>
-                                    <option value="-1">-1</option>
+                                    <option value="-1">0.67x</option>
                                 </select>
                             </td>
                             <td><span class="totalMod">---</span>
@@ -664,21 +657,21 @@
         <div aria-label="Field information" role="region">
             <fieldset class="field-info">
                 <legend align="center">Field</legend>
-                <div aria-labelledby="selectBattleFormatInstruction" class="gen-specific g3 g4 g5 g6 g7 g8 g9" role="radiogroup" style="width: 10.6em; margin: 0 auto 5px;" title="Select the battle format.">
+                <!-- div aria-labelledby="selectBattleFormatInstruction" class="gen-specific g3 g4 g5 g6 g7 g8 g9" role="radiogroup" style="width: 10.6em; margin: 0 auto 5px;" title="Select the battle format.">
                     <span class="visually-hidden" id="selectBattleFormatInstruction">Select the battle format.</span>
                     <input class="visually-hidden calc-trigger" type="radio" name="format" value="Singles" id="singles-format" />
                     <label class="btn btn-left" for="singles-format">Singles</label>
                     <input class="visually-hidden calc-trigger" type="radio" name="format" value="Doubles" id="doubles-format" />
                     <label class="btn btn-right" for="doubles-format">Doubles</label>
-                </div>
+                </div -->
                 <div aria-labelledby="selectDefaultLevelInstruction" role="radiogroup" style="margin: auto auto 5px;" title="Select the default level.">
                     <span class="visually-hidden" id="selectDefaultLevelInstruction">Select the default level.</span>
                     <input class="visually-hidden calc-trigger" type="radio" name="defaultLevel" value="100" id="default-level-100" />
                     <label class="btn btn-wide btn-left" for="default-level-100">Level 100</label>
                     <input class="visually-hidden calc-trigger gen-specific g4 g5 g6 g7 g8 g9" type="radio" name="defaultLevel" value="50" id="default-level-50" />
-                    <label class="btn btn-wide btn-mid gen-specific g4 g5 g6 g7 g8 g9" for="default-level-50">Level 50</label>
-                    <input class="visually-hidden calc-trigger" type="radio" name="defaultLevel" value="5" id="default-level-5" />
-                    <label class="btn btn-wide btn-right" for="default-level-5">Level 5</label>
+                    <label class="btn btn-wide btn-right gen-specific g4 g5 g6 g7 g8 g9" for="default-level-50">Level 50</label>
+                    <!-- input class="visually-hidden calc-trigger" type="radio" name="defaultLevel" value="5" id="default-level-5" />
+                    <label class="btn btn-wide btn-right" for="default-level-5">Level 5</label -->
                </div>
                 <!-- div aria-labelledby="selectTerrainInstruction" class="gen-specific g6 g7 g8 g9" role="group" title="Select the current terrain.">
                     <span class="visually-hidden" id="selectTerrainInstruction">Select the current terrain.</span>
@@ -687,7 +680,7 @@
                     <input class="visually-hidden terrain-trigger calc-trigger" type="checkbox" name="terrain" value="Misty" id="misty" /><label class="btn btn-mid" for="misty">Misty</label>
                     <input class="visually-hidden terrain-trigger calc-trigger" type="checkbox" name="terrain" value="Psychic" id="psychic" /><label class="btn btn-xxxwide btn-right" for="psychic">Psychic Terrain</label>
                 </div -->
-                <div aria-labelledby="selectRuinInstruction" class="gen-specific g9 format-specific doubles" role="group" style="margin: 5px auto auto;" title="Select the ruin abilities from other Pok&eacute;mon on the field.">
+                <!-- div aria-labelledby="selectRuinInstruction" class="gen-specific g9 format-specific doubles" role="group" style="margin: 5px auto auto;" title="Select the ruin abilities from other Pok&eacute;mon on the field.">
                     <span class="visually-hidden" id="selectRuinInstruction">Select the active Ruin abilities from other Poke&eacute;mon on the field.</span>
                     <input class="visually-hidden calc-trigger" type="checkbox" name="ruin" value="Beads" id="beads" />
                     <label class="btn btn-left" for="beads">Beads</label>
@@ -697,7 +690,7 @@
                     <label class="btn btn-mid" for="sword">Sword</label>
                     <input class="visually-hidden calc-trigger" type="checkbox" name="ruin" value="Vessel" id="vessel" />
                     <label class="btn btn-xxxwide btn-right" for="vessel">Vessel of Ruin</label>
-                </div>
+                </div -->
                 <hr class="gen-specific g6 g7 g8 g9" />
                 <div aria-labelledby="selectWeatherInstruction" role="radiogroup">
                     <span class="visually-hidden" id="selectWeatherInstruction">Select the current weather condition.</span>
@@ -813,7 +806,22 @@
                                 <label class="btn btn-wide btn-right" for="cannonadeR">Cannonade</label>
                             </div></td>
                         </tr>
-                        <tr class="gen-specific g3 g4 g5 g6 g7 g8 g9">
+                        <tr>
+                            <td><div class="left" title="Is this Pok&eacute;mon buffed with a Red/Blue item?">
+                                <div hidden id="selectBuffInstruction">Is this Pok&eacute;mon buffed by a Red or Blue item?</div>
+                                <input aria-describedby="selectBuffInstruction" class="visually-hidden calc-trigger" type="checkbox" id="redL" />
+                                <label class="btn btn-wide btn-left" for="redL">Red Item</label>
+                                <input aria-describedby="selectBuffInstruction" class="visually-hidden calc-trigger" type="checkbox" id="blueL" />
+                                <label class="btn btn-wide btn-right" for="blueL">Blue Item</label>
+                            </div></td>
+                            <td><div class="right" title="Is this Pok&eacute;mon buffed with a Red/Blue item?">
+                                <input aria-describedby="selectBuffInstruction" class="visually-hidden calc-trigger" type="checkbox" id="blueR" />
+                                <label class="btn btn-wide btn-left" for="blueR">Blue Item</label>
+                                <input aria-describedby="selectBuffInstruction" class="visually-hidden calc-trigger" type="checkbox" id="redR" />
+                                <label class="btn btn-wide btn-right" for="redR">Red Item</label>
+                            </div></td>
+                        </tr>
+                        <!-- tr class="gen-specific g3 g4 g5 g6 g7 g8 g9">
                             <div hidden id="selectSpikeInstruction">Are there Spikes on this side of the field?</div>
                             <td><div aria-labelledby="selectSpikeInstruction" class="left" role="radiogroup" title="Are there Spikes on this side of the field?">
                                 <input class="visually-hidden calc-trigger" type="radio" name="spikesL" value="0" id="spikesL0" checked="checked" />
@@ -835,7 +843,7 @@
                                 <input class="visually-hidden calc-trigger" type="radio" name="spikesR" value="0" id="spikesR0" checked="checked" />
                                 <label class="btn btn-xsmall btn-right" for="spikesR0">0</label>
                             </div></td>
-                        </tr>
+                        </tr -->
                         <tr class="gen-specific g2">
                             <td><div class="left" title="Are there Spikes on this side of the field?">
                                 <input aria-describedby="selectSpikeInstruction" class="visually-hidden calc-trigger" type="checkbox" id="gscSpikesL" />
@@ -850,7 +858,7 @@
                             <td><div class="left" title="Is this Pok&eacute;mon protected by Reflect and/or Light Screen?">
                                 <div hidden id="selectScreenInstruction">Is this Pok&eacute;mon protected by Reflect and/or Light Screen?</div>
                                 <input aria-describedby="selectScreenInstruction" class="visually-hidden calc-trigger" type="checkbox" id="reflectL" />
-                                <label class="btn btn-left" for="reflectL">Reflect</label>
+                                <label class="btn btn-wide btn-left" for="reflectL">Reflect</label>
                                 <input aria-describedby="selectScreenInstruction" class="visually-hidden calc-trigger" type="checkbox" id="lightScreenL" />
                                 <label class="btn btn-xwide btn-right" for="lightScreenL">Light Screen</label>
                             </div></td>
@@ -858,51 +866,51 @@
                                 <input aria-describedby="selectScreenInstruction" class="visually-hidden calc-trigger" type="checkbox" id="lightScreenR" />
                                 <label class="btn btn-xwide btn-left" for="lightScreenR">Light Screen</label>
                                 <input aria-describedby="selectScreenInstruction" class="visually-hidden calc-trigger" type="checkbox" id="reflectR" />
-                                <label class="btn btn-right" for="reflectR">Reflect</label>
+                                <label class="btn btn-wide btn-right" for="reflectR">Reflect</label>
                             </div></td>
                         </tr>
                         <tr class="gen-specific g2 g3 g4 g5 g6 g7 g8 g9">
                             <td><div class="left" title="Is this Pok&eacute;mon protected?">
                                 <div hidden id="selectProtectInstruction">Is this Pok&eacute;mon protected?</div>
                                 <input aria-describedby="selectProtectInstruction" class="visually-hidden calc-trigger" type="checkbox" id="protectL" />
-                                <label class="btn btn-wide" for="protectL">Protect</label>
+                                <label class="btn btn-xxwide" for="protectL">Protect</label>
                             </div></td>
                             <td><div class="right" title="Is this Pok&eacute;mon protected?">
                                 <input aria-describedby="selectProtectInstruction" class="visually-hidden calc-trigger" type="checkbox" id="protectR" />
-                                <label class="btn btn-wide" for="protectR">Protect</label>
+                                <label class="btn btn-xxwide" for="protectR">Protect</label>
                             </div></td>
                         </tr>
                         <tr class="gen-specific g6 g7 g8 g9">
                             <td><div class="left" title="Is this Pok&eacute;mon afflicted by Trick-or-Treat?">
                                 <div hidden id="selectTrickOrTreatInstruction">Is this Pok&eacute;mon afflicted by Trick-or-Treat?</div>
                                 <input aria-describedby="selectTrickOrTreatInstruction" class="visually-hidden calc-trigger" type="checkbox" id="totL" />
-                                <label class="btn btn-wide" for="totL">Trick-or-Treat</label>
+                                <label class="btn btn-xxwide" for="totL">Trick-or-Treat</label>
                             </div></td>
                             <td><div class="right" title="Is this Pok&eacute;mon Trick-or-Treated?">
                                 <input aria-describedby="selectTrickOrTreatInstruction" class="visually-hidden calc-trigger" type="checkbox" id="totR" />
-                                <label class="btn btn-wide" for="totR">Trick-or-Treat</label>
+                                <label class="btn btn-xxwide" for="totR">Trick-or-Treat</label>
                             </div></td>
                         </tr>
                         <tr class="gen-specific g6 g7 g8 g9">
                             <td><div class="left" title="Is this Pok&eacute;mon afflicted by Forest's Curse?">
                                 <div hidden id="selectForestsCurseInstruction">Is this Pok&eacute;mon afflicted by Forest's Curse?</div>
                                 <input aria-describedby="selectForestsCurseInstruction" class="visually-hidden calc-trigger" type="checkbox" id="forestsCurseL" />
-                                <label class="btn btn-wide" for="forestsCurseL">Forest's Curse</label>
+                                <label class="btn btn-xxwide" for="forestsCurseL">Forest's Curse</label>
                             </div></td>
                             <td><div class="right" title="Is this Pok&eacute;mon afflicted by Forest's Curse?">
                                 <input aria-describedby="selectForestsCurseInstruction" class="visually-hidden calc-trigger" type="checkbox" id="forestsCurseR" />
-                                <label class="btn btn-wide" for="forestsCurseR">Forest's Curse</label>
+                                <label class="btn btn-xxwide" for="forestsCurseR">Forest's Curse</label>
                             </div></td>
                         </tr>
                         <tr>
                             <td><div class="left" title="Has this Pok&eacute;mon been affected by Leech Seed?">
                                 <div hidden id="selectLeechSeedInstruction">Has this Pok&eacute;mon been affected by Leech Seed?</div>
                                 <input aria-describedby="selectLeechSeedInstruction" class="visually-hidden calc-trigger" type="checkbox" id="leechSeedL" />
-                                <label class="btn btn-wide" for="leechSeedL">Leech Seed</label>
+                                <label class="btn btn-xxwide" for="leechSeedL">Leech Seed</label>
                             </div></td>
                             <td><div class="right" title="Has this Pok&eacute;mon been affected by Leech Seed?">
                                 <input aria-describedby="selectLeechSeedInstruction" class="visually-hidden calc-trigger" type="checkbox" id="leechSeedR" />
-                                <label class="btn btn-wide" for="leechSeedR">Leech Seed</label>
+                                <label class="btn btn-xxwide" for="leechSeedR">Leech Seed</label>
                             </div></td>
                         </tr>
                         <!-- tr class="gen-specific g9">
@@ -1086,7 +1094,6 @@
                     <label>Type</label>
                     <select aria-label="Type 1" class="type1 terrain-trigger calc-trigger"></select>
                     <select aria-label="Type 2" class="type2 terrain-trigger calc-trigger"></select>
-                    <small class="right">(<a class="analysis links-lighten" target="_blank" href="">Smogon&nbsp;analysis</a>)</small>
                 </div>
                 <!-- div class="gen-specific g9">
                     <label>Tera Type</label>
@@ -1174,10 +1181,9 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <!-- option value="2">+2 (PvP only)</option -->
-                                    <option value="1">+1</option>
+                                    <option value="1">1.5x</option>
                                     <option value="0" selected="selected">--</option>
-                                    <option value="-1">-1</option>
+                                    <option value="-1">0.67x</option>
                                 </select>
                             </td>
                         </tr>
@@ -1201,10 +1207,9 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <!-- option value="2">+2 (PvP only)</option -->
-                                    <option value="1">+1</option>
+                                    <option value="1">1.5x</option>
                                     <option value="0" selected="selected">--</option>
-                                    <option value="-1">-1</option>
+                                    <option value="-1">0.67x</option>
                                 </select>
                             </td>
                         </tr>
@@ -1228,10 +1233,9 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <!-- option value="2">+2 (PvP only)</option -->
-                                    <option value="1">+1</option>
+                                    <option value="1">1.5x</option>
                                     <option value="0" selected="selected">--</option>
-                                    <option value="-1">-1</option>
+                                    <option value="-1">0.67x</option>
                                 </select>
                             </td>
                         </tr>
@@ -1255,10 +1259,9 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <!-- option value="2">+2 (PvP only)</option -->
-                                    <option value="1">+1</option>
+                                    <option value="1">1.5x</option>
                                     <option value="0" selected="selected">--</option>
-                                    <option value="-1">-1</option>
+                                    <option value="-1">0.67x</option>
                                 </select>
                             </td>
                         </tr>
@@ -1276,10 +1279,9 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <!-- option value="2">+2 (PvP only)</option -->
-                                    <option value="1">+1</option>
+                                    <option value="1">1.5x</option>
                                     <option value="0" selected="selected">--</option>
-                                    <option value="-1">-1</option>
+                                    <option value="-1">0.67x</option>
                                 </select>
                             </td>
                         </tr>
@@ -1303,10 +1305,9 @@
                             </td>
                             <td>
                                 <select class="boost calc-trigger">
-                                    <!-- option value="2">+2 (PvP only)</option -->
-                                    <option value="1">+1</option>
+                                    <option value="1">1.5x</option>
                                     <option value="0" selected="selected">--</option>
-                                    <option value="-1">-1</option>
+                                    <option value="-1">0.67x</option>
                                 </select>
                             </td>
                             <td><span class="totalMod">---</span>

@@ -10084,6 +10084,10 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   Greninja: {otherFormes: ['Greninja-Ash', 'Greninja-Bond', 'Greninja-Mega']},
   Hawlucha: {otherFormes: ['Hawlucha-Mega']},
   Malamar: {otherFormes: ['Malamar-Mega']},
+  'Mawile-Mega': {bs: {at: 147}},
+  Meditite: {bs: {at: 56}},
+  Medicham: {bs: {at: 84}},
+  'Medicham-Mega': {bs: {at: 140}},
   Meganium: {otherFormes: ['Meganium-Mega']},
   Pyroar: {otherFormes: ['Pyroar-Mega']},
   Scolipede: {otherFormes: ['Scolipede-Mega']},
@@ -10092,6 +10096,21 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   Starmie: {otherFormes: ['Starmie-Mega']},
   Victreebel: {otherFormes: ['Victreebel-Mega']},
   Zygarde: {otherFormes: ['Zygarde-10%', 'Zygarde-Complete', 'Zygarde-Mega']},
+  'Ange Flower': {
+    types: ['???'],
+    bs: {
+      hp: 2,
+      at: 1,
+      df: 1,
+      sa: 1,
+      sd: 1,
+      sp: 1,
+    },
+    weightkg: 100.0,
+    abilities: {
+      '0': 'Symbiosis',
+    },
+  },
   'Barbaracle-Mega': {
     types: [
       'Rock',

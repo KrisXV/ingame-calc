@@ -192,12 +192,14 @@ export const Stats = new (class {
     const rogueMegaModifier = this.getRogueMegaModifier(isRogueMega, isPostGameRogueMega);
     const alphaModifier = 2;
     if (stat === 'hp') {
+      if (isRogueMega === 'Ange') return 25000;
       return base === 1
         ? base
         : rogueMegaModifier.hp *
           (isAlpha ? alphaModifier : 1) *
           Math.floor(((base * 2 + iv + Math.floor(ev / 4)) * level) / 100) + level + 10;
     } else {
+      if (isRogueMega === 'Ange' && (stat === 'def' || stat === 'spd')) return 5;
       let mods: [StatID?, StatID?] = [undefined, undefined];
       if (nature) {
         const nat = natures.get(toID(nature));

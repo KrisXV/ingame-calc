@@ -628,7 +628,7 @@ $(".set-selector").change(function () {
 		pokeObj.find(".alphaReboot").hide();
 		stellarButtonsVisibility(pokeObj, 0);
 		pokeObj.find(".boostedStat").val("");
-		pokeObj.find(".analysis").attr("href", smogonAnalysis(pokemonName));
+		// pokeObj.find(".analysis").attr("href", smogonAnalysis(pokemonName));
 		pokeObj.find(".type1").val(pokemon.types[0]);
 		pokeObj.find(".type2").val(pokemon.types[1]);
 		pokeObj.find(".hp .base").val(pokemon.bs.hp);
@@ -972,7 +972,7 @@ $(".forme").change(function () {
 	var chosenSet = isRandoms && gen < 8 ? pokemonSets : pokemonSets && pokemonSets[setName];
 	var greninjaSet = $(this).val().indexOf("Greninja") !== -1;
 	var isAltForme = $(this).val() !== pokemonName;
-	if (isAltForme && abilities.indexOf(altForme.abilities[0]) !== -1 && !greninjaSet) {
+	/* if (isAltForme && abilities.indexOf(altForme.abilities[0]) !== -1 && !greninjaSet) {
 		container.find(".ability").val(altForme.abilities[0]);
 	} else if (!isAltForme && abilities.indexOf(altForme.abilities[0]) !== -1 && !greninjaSet) {
 		if (chosenSet && (chosenSet.ability || chosenSet.abilities[0])) {
@@ -988,7 +988,7 @@ $(".forme").change(function () {
 		} else {
 			container.find(".ability").val(chosenSet.abilities[0]);
 		}
-	}
+	} */
 	var forcedTeraType = getForcedTeraType($(this).val());
 	if (forcedTeraType) {
 		$(this).parent().siblings().find(".teraType").val(forcedTeraType);
@@ -1124,6 +1124,9 @@ function createPokemon(pokeInfo) {
 		var isDynamaxed = pokeInfo.find(".max").prop("checked");
 		var isAlpha = pokeInfo.find(".alpha").prop("checked");
 		var isAlphaReboot = pokeInfo.find(".alphaReboot").prop("checked");
+		if (setName.indexOf("Rogue") >= 0 || setName.indexOf("Boss") >= 1) {
+			pokeInfo.find(".rogueMega").prop("checked", true);
+		}
 		var isRogueMega = pokeInfo.find(".rogueMega").prop("checked") ? name : false;
 		var rogueMegaQuest = isRogueMega ? pokeInfo.find(".rogueMegaQuest").val() : false;
 		var teraType = pokeInfo.find(".teraToggle").is(":checked") ? pokeInfo.find(".teraType").val() : undefined;
@@ -1263,6 +1266,8 @@ function createField() {
 	var isPowerSpot = [$("#powerSpotL").prop("checked"), $("#powerSpotR").prop("checked")];
 	var trickOrTreat = [$("#totL").prop("checked"), $("#totR").prop("checked")];
 	var forestsCurse = [$("#forestsCurseL").prop("checked"), $("#forestsCurseR").prop("checked")];
+	var redItem = [$("#redL").prop("checked"), $("#redR").prop("checked")];
+	var blueItem = [$("#blueL").prop("checked"), $("#blueR").prop("checked")];
 	// TODO: support switching in as well!
 	var isSwitchingOut = [$("#switchingL").prop("checked"), $("#switchingR").prop("checked")];
 
@@ -1292,6 +1297,8 @@ function createField() {
 			isPowerSpot: isPowerSpot[i],
 			trickOrTreat: trickOrTreat[i],
 			forestsCurse: forestsCurse[i],
+			redItem: redItem[i],
+			blueItem: blueItem[i],
 			isSwitching: isSwitchingOut[i] ? 'out' : undefined
 		});
 	};
@@ -1357,6 +1364,7 @@ function calcStat(poke, StatID) {
 	}
 	// Shedinja still has 1 max HP during the effect even if its Dynamax Level is maxed (DaWoblefet)
 	var total = calc.calcStat(gen, legacyStatToStat(StatID), base, ivs, evs, level, nature, poke.isAlpha, poke.isAlphaReboot, poke.isRogueMega, poke.rogueMegaQuest);
+	if (StatID === "hp" && ~~poke.find(".set-selector").val().indexOf("Ange") >= 0) return 25000;
 	if (gen > 7 && StatID === "hp" && poke.isDynamaxed && total !== 1) {
 		total *= 2;
 	}

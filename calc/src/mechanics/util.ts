@@ -73,12 +73,12 @@ export function getModifiedStat(stat: number, mod: number, gen?: Generation, isZ
       [2, 3],
       [2, 2],
       [3, 2],
-      [4, 2],
-      [4, 2],
-      [4, 2],
-      [4, 2],
-      [4, 2],
-      [4, 2],
+      [3, 2],
+      [3, 2],
+      [3, 2],
+      [3, 2],
+      [3, 2],
+      [3, 2],
     ];
   }
   stat = OF16(stat * modernGenBoostTable[6 + mod][numerator]);
@@ -111,20 +111,24 @@ export function computeFinalStatsZA(
   gen: Generation,
   attacker: Pokemon,
   defender: Pokemon,
+  field: Field,
   ...stats: StatID[]
 ) {
-  const sideActive: Array<Pokemon> = [attacker, defender];
-  for (const pokemon of sideActive) {
+  const sides: Array<[Pokemon, Side]> =
+    [[attacker, field.attackerSide], [defender, field.defenderSide]];
+  for (const [pokemon, side] of sides) {
     for (const stat of stats) {
       if (stat === 'spe') {
         pokemon.stats.spe = getFinalSpeedZA(gen, pokemon);
       } else {
-        pokemon.stats[stat] = getModifiedStat(
-          pokemon.rawStats[stat]!,
-          pokemon.boosts[stat]!,
-          gen,
-          true
-        );
+        pokemon.stats[stat] = (side.blueItem && (stat === 'def' || stat === 'spd') ? 2 : 1) *
+          (side.redItem && (stat === 'atk' || stat === 'spa') ? 2 : 1) *
+            getModifiedStat(
+              pokemon.rawStats[stat]!,
+              pokemon.boosts[stat]!,
+              gen,
+              true
+            );
       }
     }
   }

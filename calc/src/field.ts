@@ -96,6 +96,8 @@ export class Side implements State.Side {
   isSteelySpirit: boolean;
   trickOrTreat: boolean;
   forestsCurse: boolean;
+  redItem: boolean;
+  blueItem: boolean;
   isSwitching?: 'out' | 'in';
 
   constructor(side: State.Side = {}) {
@@ -108,6 +110,8 @@ export class Side implements State.Side {
     this.isSR = !!side.isSR;
     this.isReflect = !!side.isReflect;
     this.isLightScreen = !!side.isLightScreen;
+    this.redItem = !!side.redItem;
+    this.blueItem = !!side.blueItem;
     this.isProtected = !!side.isProtected;
     this.isSeeded = !!side.isSeeded;
     this.isSaltCured = !!side.isSaltCured;

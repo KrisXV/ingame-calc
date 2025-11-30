@@ -38,7 +38,7 @@ export function calculateZA(
   checkItem(attacker, field.isMagicRoom);
   checkItem(defender, field.isMagicRoom);
 
-  computeFinalStatsZA(gen, attacker, defender, 'atk', 'def', 'spa', 'spd', 'spe');
+  computeFinalStatsZA(gen, attacker, defender, field, 'atk', 'def', 'spa', 'spd', 'spe');
 
   const desc: RawDesc = {
     attackerName: attacker.name,
@@ -50,7 +50,7 @@ export function calculateZA(
 
   const breaksProtect = move.breaksProtect;
 
-  if (field.defenderSide.isProtected && !breaksProtect) {
+  if (field.defenderSide.isProtected && !(move.usePlus || attacker.name.includes('Mega'))) {
     desc.isProtected = true;
     return result;
   }
@@ -114,10 +114,12 @@ export function calculateZA(
   if (typeEffectiveness === 0.5) typeEffectiveness = move.usePlus ? 0.72 : 0.6;
   if (typeEffectiveness === 0.25) typeEffectiveness = move.usePlus ? 0.36 : 0.3;
   if (typeEffectiveness === 0.125) typeEffectiveness = move.usePlus ? 0.18 : 0.15;
-  if (typeEffectiveness === 1 && move.usePlus) typeEffectiveness *= 1.2;
+  if (typeEffectiveness === 1 && move.usePlus) typeEffectiveness = 1.2;
   if (typeEffectiveness === 2 && move.usePlus) typeEffectiveness = 2.6;
   if (typeEffectiveness === 4 && move.usePlus) typeEffectiveness = 5.2;
   if (typeEffectiveness === 8 && move.usePlus) typeEffectiveness = 10.4;
+
+  if (typeEffectiveness === 0 && attacker.isRogueMega) typeEffectiveness = 0.3;
 
   if (typeEffectiveness === 0) {
     return result;
@@ -221,7 +223,7 @@ export function calculateZA(
   );
 
   let protect = false;
-  if (field.defenderSide.isProtected && move.usePlus) {
+  if (field.defenderSide.isProtected && (move.usePlus || attacker.isRogueMega)) {
     protect = true;
     desc.isProtected = true;
   }
@@ -357,10 +359,11 @@ export function calculateBasePowerZA(
         getWeight(attacker, desc, 'attacker') /
         getWeight(defender, desc, 'defender');
     basePower = wr >= 5 ? 120 : wr >= 4 ? 100 : wr >= 3 ? 80 : wr >= 2 ? 60 : 40;
+    if (defender.named('Ange Flower')) basePower = 120;
     desc.moveBP = basePower;
     break;
   case 'Water Shuriken':
-    basePower = move.usePlus ? 75 : 15;
+    basePower = move.usePlus || attacker.name.includes('Mega') ? 75 : 15;
     desc.moveBP = basePower;
     break;
   default:
@@ -369,7 +372,8 @@ export function calculateBasePowerZA(
   if (basePower === 0) {
     return 0;
   }
-  if (move.usePlus) desc.plusMove = true;
+  if (move.usePlus ||
+    (attacker.name.includes('Mega') && !attacker.isRogueMega)) desc.plusMove = true;
   const bpMods = calculateBPModsZA(
     gen,
     attacker,

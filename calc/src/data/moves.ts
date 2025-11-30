@@ -4921,6 +4921,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
 };
 
 const ZA_PATCH: {[name: string]: DeepPartial<MoveData>} = {
+  'Quick Attack': {bp: 30},
   'Nihil Light': {
     bp: 100,
     type: 'Dragon',

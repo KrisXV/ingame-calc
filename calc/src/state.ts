@@ -84,6 +84,8 @@ export namespace State {
     isSteelySpirit?: boolean;
     trickOrTreat?: boolean;
     forestsCurse?: boolean;
+    redItem?: boolean;
+    blueItem?: boolean;
     isSwitching?: 'out' | 'in';
   }
 }

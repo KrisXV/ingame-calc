@@ -1,3 +1,4 @@
+/*
 // How to run this file:
 // npm run compile
 // node dist/set-import.js path/to/output
@@ -580,3 +581,4 @@ function stringifyCalcSets(calcSets: {[specie: string]: {[name: string]: CalcSet
 })().catch((err) => {
   throw err;
 });
+*/

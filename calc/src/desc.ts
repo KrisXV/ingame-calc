@@ -1016,7 +1016,16 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
   if (description.isSwitching) {
     output += 'switching boosted ';
   }
-  output += description.moveName + ' ';
+  if (description.defenderRogueMega === '4x') {
+    output += 'ultra effective ';
+  }
+  if (description.attackerAlpha) {
+    if (description.attackerAlpha === 'post-save') {
+      output += 'post-save ';
+    }
+    output += 'Alpha ';
+  }
+  output += description.moveName + (description.plusMove ? '+ ' : ' ');
   if (description.moveBP && description.moveType) {
     output += '(' + description.moveBP + ' BP ' + description.moveType + ') ';
   } else if (description.moveBP) {
@@ -1053,6 +1062,15 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
   }
   if (description.isDefenderDynamaxed) {
     output += 'Dynamax ';
+  }
+  if (description.defenderRogueMega) {
+    output += 'Rogue ';
+  }
+  if (description.defenderAlpha) {
+    if (description.defenderAlpha === 'post-save') {
+      output += 'post-save ';
+    }
+    output += 'Alpha ';
   }
   if (description.defenderTera) {
     output += `Tera ${description.defenderTera} `;
