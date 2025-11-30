@@ -51,13 +51,13 @@ var SETDEX_SV = {
     "Rogue Mega": {"level":59,"item":"Starminite","nature":"Hardy","moves":["Night Slash","Slash"]}
   },
   "Zygarde-10%": {
-    "Boss Phase 1": {"level":84,"nature":"Quiet","ivs":{"df":15,"sd":28,"sp":19},moves:["Core Enforcer","Thousand Waves","Thousand Arrows","Land's Wrath"]},
+    "Boss Phase 1": {"level":84,"nature":"Quiet","ivs":{"df":15,"sd":28,"sp":19},"moves":["Core Enforcer","Thousand Waves","Thousand Arrows","Land's Wrath"]},
   },
   "Zygarde": {
-    "Boss Phase 2": {"level":84,"nature":"Quiet","ivs":{"df":15,"sd":28,"sp":19},moves:["Core Enforcer","Thousand Waves","Thousand Arrows","Land's Wrath"]},
+    "Boss Phase 2": {"level":84,"nature":"Quiet","ivs":{"df":15,"sd":28,"sp":19},"moves":["Core Enforcer","Thousand Waves","Thousand Arrows","Land's Wrath"]},
   },
   "Zygarde-Complete": {
-    "Boss Phase 3": {"level":84,"nature":"Quiet","ivs":{"df":15,"sd":28,"sp":19},moves:["Core Enforcer","Thousand Waves","Thousand Arrows","Land's Wrath"]},
+    "Boss Phase 3": {"level":84,"nature":"Quiet","ivs":{"df":15,"sd":28,"sp":19},"moves":["Core Enforcer","Thousand Waves","Thousand Arrows","Land's Wrath"]},
   },
   "Gengar-Mega": {
     "Endgame Rogue Mega": {"level":62,"item":"Gengarite","nature":"Hardy","ivs":{"at":0,"df":0,"sa":0,"sd":0,"sp":0},"moves":["Night Slash","Slash"]}
