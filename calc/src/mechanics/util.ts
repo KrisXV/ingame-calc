@@ -625,9 +625,11 @@ export function getFinalDamageFloat(
 
   if (isBurned) damageAmount = Math.floor(damageAmount / 2);
   if (protect) damageAmount = pokeRound(OF32(damageAmount * 0.25));
+  let totalMod = 1;
   for (const mod of finalMod) {
-    damageAmount = Math.floor(OF32(pokeRound(damageAmount) * mod));
+    totalMod *= mod;
   }
+  damageAmount = Math.floor(OF32(pokeRound(damageAmount) * totalMod));
   return OF16(pokeRound(Math.max(1, damageAmount)));
 }
 
@@ -756,7 +758,7 @@ export function pokeRound(num: number) {
 
 // 16-bit Overflow
 export function OF16(n: number) {
-  return n > 65535 ? n % 65536 : n;
+  return n > 65535 ? 65535 : n;
 }
 
 // 32-bit Overflow
