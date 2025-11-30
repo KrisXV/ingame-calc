@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+/* #!/usr/bin/env node
 'use strict';
 
 // TODO: use bundled output in official UI, switch Typescript version to generate modern JS
@@ -104,4 +104,4 @@ window.calc = Object.assign(window.calc || {}, {
   Stats: exports.Stats,
 });
 })();`
-bundler.bundle(bundled);
+bundler.bundle(bundled); */
