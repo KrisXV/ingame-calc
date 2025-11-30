@@ -894,6 +894,7 @@ $(".rogueMega").change(function () {
 		pokeObj.find(".rogueMegaQuest").show();
 	} else {
 		pokeObj.find(".rogueMegaQuest").hide();
+		pokeObj.find(".rogueMegaQuest").val("");
 	}
 });
 
@@ -1126,6 +1127,11 @@ function createPokemon(pokeInfo) {
 		var isAlphaReboot = pokeInfo.find(".alphaReboot").prop("checked");
 		if (setName.indexOf("Rogue") >= 0 || setName.indexOf("Boss") >= 0 || setName.indexOf("Quest") >= 0) {
 			pokeInfo.find(".rogueMega").prop("checked", true);
+			if (setName.indexOf("Endgame") >= 0) {
+				pokeInfo.find("rogueMegaQuest").val("endgame");
+			} else if (setName.indexOf("Quest") >= 0) {
+				pokeInfo.find("rogueMegaQuest").val("yveltal");
+			}
 		}
 		var isRogueMega = pokeInfo.find(".rogueMega").prop("checked") ? name : false;
 		var rogueMegaQuest = isRogueMega ? pokeInfo.find(".rogueMegaQuest").val() : false;
@@ -1367,6 +1373,9 @@ function calcStat(poke, StatID) {
 	if (StatID === "hp" && ~~poke.find(".set-selector").val().indexOf("Ange") >= 0) return 25000;
 	if (gen > 7 && StatID === "hp" && poke.isDynamaxed && total !== 1) {
 		total *= 2;
+	}
+	if (poke.isRogueMega && StatID === "hp") {
+		total *= calc.Stats.getRogueMegaModifier(poke.isRogueMega, poke.rogueMegaQuest).hp || 1;
 	}
 	stat.find(".total").text(total);
 	return total;
