@@ -96,6 +96,7 @@ export class Side implements State.Side {
   isSteelySpirit: boolean;
   trickOrTreat: boolean;
   forestsCurse: boolean;
+  charge: boolean;
   redItem: boolean;
   blueItem: boolean;
   isSwitching?: 'out' | 'in';
@@ -127,6 +128,7 @@ export class Side implements State.Side {
     this.isSteelySpirit = !!side.isSteelySpirit;
     this.trickOrTreat = !!side.trickOrTreat;
     this.forestsCurse = !!side.forestsCurse;
+    this.charge = !!side.charge;
     this.isSwitching = side.isSwitching;
   }
 

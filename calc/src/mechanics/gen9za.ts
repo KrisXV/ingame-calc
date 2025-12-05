@@ -38,7 +38,7 @@ export function calculateZA(
   checkItem(attacker, field.isMagicRoom);
   checkItem(defender, field.isMagicRoom);
 
-  computeFinalStatsZA(gen, attacker, defender, field, 'atk', 'def', 'spa', 'spd', 'spe');
+  computeFinalStatsZA(gen, attacker, defender, 'atk', 'def', 'spa', 'spd', 'spe');
 
   const desc: RawDesc = {
     attackerName: attacker.name,
@@ -169,6 +169,7 @@ export function calculateZA(
     gen,
     attacker,
     defender,
+    field,
     move,
     desc
   );
@@ -280,6 +281,7 @@ export function calculateZA(
         gen,
         attacker,
         defender,
+        field,
         move,
         desc
       );
@@ -337,6 +339,7 @@ export function calculateBasePowerZA(
   gen: Generation,
   attacker: Pokemon,
   defender: Pokemon,
+  field: Field,
   move: Move,
   desc: RawDesc
 ) {
@@ -378,6 +381,7 @@ export function calculateBasePowerZA(
     gen,
     attacker,
     defender,
+    field,
     move,
     desc,
     basePower
@@ -390,6 +394,7 @@ export function calculateBPModsZA(
   gen: Generation,
   attacker: Pokemon,
   defender: Pokemon,
+  field: Field,
   move: Move,
   desc: RawDesc,
   basePower: number
@@ -415,6 +420,12 @@ export function calculateBPModsZA(
   if (move.named('Knock Off') && !resistedKnockOffDamage) {
     bpMods.push(6144);
     desc.moveBP = basePower * 1.5;
+  }
+
+  if (move.hasType('Electric') && field.attackerSide.charge) {
+    bpMods.push(8192);
+    desc.moveBP = basePower * 2;
+    desc.charged = true;
   }
 
   // Items
@@ -477,6 +488,10 @@ export function calculateAtModsZA(
     atMods.push(8192);
     desc.attackerItem = attacker.item;
   }
+  if (field.attackerSide.redItem) {
+    atMods.push(8192);
+    desc.redItem = true;
+  }
   return atMods;
 }
 
@@ -535,6 +550,10 @@ export function calculateDfModsZA(
       (!hitsPhysical && defender.hasItem('Assault Vest'))) {
     dfMods.push(6144);
     desc.defenderItem = defender.item;
+  }
+  if (field.defenderSide.blueItem) {
+    dfMods.push(8192);
+    desc.blueItem = true;
   }
   return dfMods;
 }
@@ -595,7 +614,8 @@ export function calculateFinalModsZA(
   const finalMod = [];
 
   // Rogue Megas hit by non-Plus moves have a 0.3x modifier for damage dealt to them - Anubis
-  if (defender.isRogueMega && !move.usePlus && !defender.name.includes('Zygarde')) {
+  if (defender.isRogueMega && !move.usePlus &&
+    (!defender.name.includes('Zygarde') || defender.rogueMegaQuest === 'endgame')) {
     finalMod.push(0.3);
     desc.defenderRogueMega = true;
   }

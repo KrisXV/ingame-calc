@@ -1272,6 +1272,7 @@ function createField() {
 	var isPowerSpot = [$("#powerSpotL").prop("checked"), $("#powerSpotR").prop("checked")];
 	var trickOrTreat = [$("#totL").prop("checked"), $("#totR").prop("checked")];
 	var forestsCurse = [$("#forestsCurseL").prop("checked"), $("#forestsCurseR").prop("checked")];
+	var charge = [$("#chargeL").prop("checked"), $("#chargeR").prop("checked")];
 	var redItem = [$("#redL").prop("checked"), $("#redR").prop("checked")];
 	var blueItem = [$("#blueL").prop("checked"), $("#blueR").prop("checked")];
 	// TODO: support switching in as well!
@@ -1303,6 +1304,7 @@ function createField() {
 			isPowerSpot: isPowerSpot[i],
 			trickOrTreat: trickOrTreat[i],
 			forestsCurse: forestsCurse[i],
+			charge: charge[i],
 			redItem: redItem[i],
 			blueItem: blueItem[i],
 			isSwitching: isSwitchingOut[i] ? 'out' : undefined
@@ -1370,7 +1372,7 @@ function calcStat(poke, StatID) {
 	}
 	// Shedinja still has 1 max HP during the effect even if its Dynamax Level is maxed (DaWoblefet)
 	var total = calc.calcStat(gen, legacyStatToStat(StatID), base, ivs, evs, level, nature, poke.isAlpha, poke.isAlphaReboot, poke.isRogueMega, poke.rogueMegaQuest);
-	if (StatID === "hp" && ~~poke.find(".set-selector").val().indexOf("Ange") >= 0) return 25000;
+	// if (StatID === "hp" && ~~poke.find(".set-selector").val().indexOf("Ange") >= 0) return 25000;
 	if (gen > 7 && StatID === "hp" && poke.isDynamaxed && total !== 1) {
 		total *= 2;
 	}
@@ -1600,6 +1602,16 @@ function clearField() {
 	$("#batteryR").prop("checked", false);
 	$("#powerSpotL").prop("checked", false);
 	$("#powerSpotR").prop("checked", false);
+	$("#totL").prop("checked", false);
+	$("#totR").prop("checked", false);
+	$("#forestsCurseL").prop("checked", false);
+	$("#forestsCurseR").prop("checked", false);
+	$("#redL").prop("checked", false);
+	$("#redR").prop("checked", false);
+	$("#blueL").prop("checked", false);
+	$("#blueR").prop("checked", false);
+	$("#chargeL").prop("checked", false);
+	$("#chargeR").prop("checked", false);
 	$("#switchingL").prop("checked", false);
 	$("#switchingR").prop("checked", false);
 	$("input:checkbox[name='terrain']").prop("checked", false);

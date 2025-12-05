@@ -86,6 +86,7 @@ export namespace State {
     forestsCurse?: boolean;
     redItem?: boolean;
     blueItem?: boolean;
+    charge?: boolean;
     isSwitching?: 'out' | 'in';
   }
 }

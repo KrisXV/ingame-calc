@@ -50,6 +50,9 @@ export interface RawDesc {
   defenderRogueMega?: '4x' | boolean;
   attackerAlpha?: 'post-save' | boolean;
   defenderAlpha?: 'post-save' | boolean;
+  charged?: boolean;
+  redItem?: boolean;
+  blueItem?: boolean;
   moveBP?: number;
   moveName: string;
   moveTurns?: string;
@@ -968,6 +971,9 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
     }
     output += description.attackBoost + ' ';
   }
+  if (description.redItem) {
+    output += 'Red Item ';
+  }
   output = appendIfSet(output, attackerLevel);
   output = appendIfSet(output, description.attackEVs);
   output = appendIfSet(output, description.attackerItem);
@@ -1025,7 +1031,15 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
     }
     output += 'Alpha ';
   }
-  output += description.moveName + (description.plusMove ? '+ ' : ' ');
+  if (description.charged) {
+    output += 'Charged ';
+  }
+  output += description.moveName;
+  if (description.plusMove) {
+    output += '+ ';
+  } else {
+    output += ' ';
+  }
   if (description.moveBP && description.moveType) {
     output += '(' + description.moveBP + ' BP ' + description.moveType + ') ';
   } else if (description.moveBP) {
@@ -1043,6 +1057,9 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
       output += '+';
     }
     output += description.defenseBoost + ' ';
+  }
+  if (description.blueItem) {
+    output += 'Blue Item ';
   }
   output = appendIfSet(output, defenderLevel);
   output = appendIfSet(output, description.HPEVs);
