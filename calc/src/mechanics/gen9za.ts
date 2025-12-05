@@ -362,7 +362,7 @@ export function calculateBasePowerZA(
         getWeight(attacker, desc, 'attacker') /
         getWeight(defender, desc, 'defender');
     basePower = wr >= 5 ? 120 : wr >= 4 ? 100 : wr >= 3 ? 80 : wr >= 2 ? 60 : 40;
-    if (defender.named('Ange Flower')) basePower = 120;
+    if (defender.named('Ange')) basePower = 120;
     desc.moveBP = basePower;
     break;
   case 'Water Shuriken':

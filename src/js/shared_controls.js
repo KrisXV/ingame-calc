@@ -1372,7 +1372,11 @@ function calcStat(poke, StatID) {
 	}
 	// Shedinja still has 1 max HP during the effect even if its Dynamax Level is maxed (DaWoblefet)
 	var total = calc.calcStat(gen, legacyStatToStat(StatID), base, ivs, evs, level, nature, poke.isAlpha, poke.isAlphaReboot, poke.isRogueMega, poke.rogueMegaQuest);
-	// if (StatID === "hp" && ~~poke.find(".set-selector").val().indexOf("Ange") >= 0) return 25000;
+	var fullSetName = poke.find('.set-selector').val();
+	var pokemonName = fullSetName.substring(0, fullSetName.indexOf(" ("));
+	// This is stupid af and still doesnt work
+	if (StatID === "hp" && startsWith(pokemonName, "Ange")) return 25000;
+	if ((StatID === "def" || StatID === "spd") && startsWith(pokemonName, "Ange")) return 5;
 	if (gen > 7 && StatID === "hp" && poke.isDynamaxed && total !== 1) {
 		total *= 2;
 	}
@@ -1540,7 +1544,7 @@ function getFirstValidSetOption() {
 	var sets = getSetOptions();
 	// NB: The first set is never valid, so we start searching after it.
 	for (var i = 1; i < sets.length; i++) {
-		if (sets[i].id && sets[i].id.indexOf('(Blank Set)') === -1) return sets[i];
+		if (sets[i].id && sets[i].id.indexOf('(New Set)') === -1) return sets[i];
 	}
 	return undefined;
 }
@@ -1673,9 +1677,9 @@ function getSetOptions(sets) {
 			}
 			setOptions.push({
 				pokemon: pokeName,
-				set: "Blank Set",
-				text: pokeName + " (Blank Set)",
-				id: pokeName + " (Blank Set)"
+				set: "New Set",
+				text: pokeName + " (New Set)",
+				id: pokeName + " (New Set)"
 			});
 		}
 	}

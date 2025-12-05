@@ -105,6 +105,10 @@ export class Pokemon implements State.Pokemon {
       const val = this.calcStat(gen, stat);
       this.rawStats[stat] = val;
       this.stats[stat] = val;
+      if (this.named('Ange')) {
+        if (stat === 'hp') this.rawStats[stat] = this.stats[stat] = 25000;
+        if (stat === 'def' || stat === 'spd') this.rawStats[stat] = this.stats[stat] = 5;
+      }
     }
 
     const curHP = options.curHP || options.originalCurHP;

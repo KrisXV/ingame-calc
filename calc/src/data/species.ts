@@ -10096,8 +10096,8 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   Starmie: {otherFormes: ['Starmie-Mega']},
   Victreebel: {otherFormes: ['Victreebel-Mega']},
   Zygarde: {otherFormes: ['Zygarde-10%', 'Zygarde-Complete', 'Zygarde-Mega']},
-  'Ange Flower': {
-    types: ['???'],
+  'Ange': {
+    types: ['???', '???'],
     bs: {
       hp: 2,
       at: 1,
@@ -10106,6 +10106,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       sd: 1,
       sp: 1,
     },
+    gender: 'N',
     weightkg: 100.0,
     abilities: {
       '0': 'Symbiosis',
@@ -10609,6 +10610,46 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
 };
 
 const SV: {[name: string]: SpeciesData} = extend(true, {}, SS, SV_PATCH, PLA_PATCH, ZA_PATCH);
+
+/* eslint-disable max-len */
+const zaLegal = [
+  'Abomasnow', 'Abomasnow-Mega', 'Abra', 'Absol', 'Absol-Mega', 'Aegislash', 'Aegislash-Blade', 'Aerodactyl', 'Aerodactyl-Mega',
+  'Aggron', 'Aggron-Mega', 'Alakazam', 'Alakazam-Mega', 'Altaria', 'Altaria-Mega', 'Amaura', 'Ampharos', 'Ampharos-Mega',
+  'Arbok', 'Ariados', 'Aromatisse', 'Aron', 'Audino', 'Audino-Mega', 'Aurorus', 'Avalugg', 'Avalugg-Hisui', 'Bagon', 'Banette',
+  'Banette-Mega', 'Barbaracle', 'Barbaracle-Mega', 'Bayleef', 'Beedrill', 'Beedrill-Mega', 'Beldum', 'Bellsprout', 'Bergmite',
+  'Binacle', 'Blastoise', 'Blastoise-Mega', 'Braixen', 'Budew', 'Bulbasaur', 'Buneary', 'Bunnelby', 'Camerupt', 'Camerupt-Mega',
+  'Carbink', 'Carvanha', 'Chandelure', 'Chandelure-Mega', 'Charizard', 'Charizard-Mega-X', 'Charizard-Mega-Y', 'Charmander',
+  'Charmeleon', 'Chesnaught', 'Chesnaught-Mega', 'Chespin', 'Chikorita', 'Clauncher', 'Clawitzer', 'Clefable', 'Clefable-Mega',
+  'Clefairy', 'Cleffa', 'Croconaw', 'Dedenne', 'Delibird', 'Delphox', 'Delphox-Mega', 'Diancie', 'Diancie-Mega', 'Diggersby', 'Doublade',
+  'Dragalge', 'Dragalge-Mega', 'Dragonair', 'Dragonite', 'Dragonite-Mega', 'Drampa', 'Drampa-Mega', 'Dratini', 'Drilbur', 'Eelektrik',
+  'Eelektross', 'Eelektross-Mega', 'Eevee', 'Ekans', 'Electrike', 'Emboar', 'Emboar-Mega', 'Emolga', 'Espeon', 'Espurr', 'Excadrill',
+  'Excadrill-Mega', 'Falinks', 'Falinks-Mega', 'Fennekin', 'Feraligatr', 'Feraligatr-Mega', 'Flaaffy', 'Flabébé', 'Flareon', 'Fletchinder',
+  'Fletchling', 'Floette', 'Floette-Eternal', 'Floette-Mega', 'Florges', 'Froakie', 'Frogadier', 'Froslass', 'Froslass-Mega', 'Furfrou',
+  'Gabite', 'Gallade', 'Gallade-Mega', 'Garbodor', 'Garchomp', 'Garchomp-Mega', 'Gardevoir', 'Gardevoir-Mega', 'Gastly', 'Gengar',
+  'Gengar-Mega', 'Gible', 'Glaceon', 'Glalie', 'Glalie-Mega', 'Gogoat', 'Goodra', 'Goodra-Hisui', 'Goomy', 'Gourgeist', 'Gourgeist-Large',
+  'Gourgeist-Small', 'Gourgeist-Super', 'Greninja', 'Greninja-Bond', 'Greninja-Mega', 'Gyarados', 'Gyarados-Mega', 'Haunter', 'Hawlucha',
+  'Hawlucha-Mega', 'Heliolisk', 'Helioptile', 'Heracross', 'Heracross-Mega', 'Hippopotas', 'Hippowdon', 'Honedge', 'Hoopa', 'Hoopa-Unbound',
+  'Houndoom', 'Houndoom-Mega', 'Houndour', 'Inkay', 'Ivysaur', 'Jolteon', 'Kadabra', 'Kakuna', 'Kangaskhan', 'Kangaskhan-Mega', 'Kirlia',
+  'Klefki', 'Krokorok', 'Krookodile', 'Lairon', 'Lampent', 'Larvitar', 'Leafeon', 'Litleo', 'Litwick', 'Lopunny', 'Lopunny-Mega', 'Lucario',
+  'Lucario-Mega', 'Machamp', 'Machoke', 'Machop', 'Magikarp', 'Malamar', 'Malamar-Mega', 'Manectric', 'Manectric-Mega', 'Mareep', 'Mawile',
+  'Mawile-Mega', 'Medicham', 'Medicham-Mega', 'Meditite', 'Meganium', 'Meganium-Mega', 'Meowstic', 'Meowstic-F', 'Metagross', 'Metagross-Mega',
+  'Metang', 'Mewtwo', 'Mewtwo-Mega-X', 'Mewtwo-Mega-Y', 'Noibat', 'Noivern', 'Numel', 'Onix', 'Pancham', 'Pangoro', 'Panpour', 'Pansage',
+  'Pansear', 'Patrat', 'Phantump', 'Pichu', 'Pidgeot', 'Pidgeot-Mega', 'Pidgeotto', 'Pidgey', 'Pignite', 'Pikachu', 'Pinsir', 'Pinsir-Mega',
+  'Pumpkaboo', 'Pumpkaboo-Large', 'Pumpkaboo-Small', 'Pumpkaboo-Super', 'Pupitar', 'Pyroar', 'Pyroar-Mega', 'Quilladin', 'Raichu', 'Raichu-Alola',
+  'Ralts', 'Riolu', 'Roselia', 'Roserade', 'Sableye', 'Sableye-Mega', 'Salamence', 'Salamence-Mega', 'Sandile', 'Scatterbug', 'Scizor', 'Scizor-Mega',
+  'Scolipede', 'Scolipede-Mega', 'Scrafty', 'Scrafty-Mega', 'Scraggy', 'Scyther', 'Sharpedo', 'Sharpedo-Mega', 'Shelgon', 'Shuppet', 'Simipour',
+  'Simisage', 'Simisear', 'Skarmory', 'Skarmory-Mega', 'Skiddo', 'Skrelp', 'Sliggoo', 'Sliggoo-Hisui', 'Slowbro', 'Slowbro-Galar', 'Slowbro-Mega',
+  'Slowking', 'Slowking-Galar', 'Slowpoke', 'Slowpoke-Galar', 'Slurpuff', 'Snorunt', 'Snover', 'Spewpa', 'Spinarak', 'Spritzee', 'Squirtle',
+  'Starmie', 'Starmie-Mega', 'Staryu', 'Steelix', 'Steelix-Mega', 'Stunfisk', 'Stunfisk-Galar', 'Swablu', 'Swirlix', 'Sylveon', 'Talonflame',
+  'Tepig', 'Totodile', 'Trevenant', 'Trubbish', 'Tynamo', 'Tyranitar', 'Tyranitar-Mega', 'Tyrantrum', 'Tyrunt', 'Umbreon', 'Vanillish',
+  'Vanillite', 'Vanilluxe', 'Vaporeon', 'Venipede', 'Venusaur', 'Venusaur-Mega', 'Victreebel', 'Victreebel-Mega', 'Vivillon', 'Volcanion',
+  'Wartortle', 'Watchog', 'Weedle', 'Weepinbell', 'Whirlipede', 'Xerneas', 'Yveltal', 'Zygarde', 'Zygarde-10%', 'Zygarde-Complete', 'Zygarde-Mega',
+  'Ange',
+];
+/* eslint-enable max-len */
+for (const s in SV) {
+  if (!zaLegal.includes(s)) delete SV[s];
+}
 
 export const SPECIES = [{}, RBY, GSC, ADV, DPP, BW, XY, SM, SS, SV];
 
