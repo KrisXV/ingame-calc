@@ -516,6 +516,7 @@ $(".move-selector").change(function () {
 		} else {
 			moveGroupObj.children(".move-bp").val(actual.power);
 		}
+		// moveGroupObj.children(".move-plus").prop("checked", pokemon.isMega && !pokemon.isRogueMega);
 	} else if (gen >= 2 && gen <= 6 && HIDDEN_POWER_REGEX.test($(this).attr('data-prev'))) {
 		// If this selector was previously Hidden Power but now isn't, reset all IVs/DVs to max.
 		var pokeObj = $(this).closest(".poke-info");
@@ -1125,6 +1126,7 @@ function createPokemon(pokeInfo) {
 		var isDynamaxed = pokeInfo.find(".max").prop("checked");
 		var isAlpha = pokeInfo.find(".alpha").prop("checked");
 		var isAlphaReboot = pokeInfo.find(".alphaReboot").prop("checked");
+		var isMega = pokemonName.indexOf("Mega") >= 0 && pokemonName !== "Meganium";
 		if (setName.indexOf("Rogue") >= 0 || setName.indexOf("Boss") >= 0 || setName.indexOf("Quest") >= 0) {
 			pokeInfo.find(".rogueMega").prop("checked", true);
 			if (setName.indexOf("Endgame") >= 0) {
@@ -1146,12 +1148,14 @@ function createPokemon(pokeInfo) {
 			rogueMegaQuest: rogueMegaQuest,
 			teraType: teraType,
 			species: name,
+			isMega: isMega,
 		};
 		pokeInfo.isDynamaxed = isDynamaxed;
 		pokeInfo.isRogueMega = isRogueMega;
 		pokeInfo.rogueMegaQuest = rogueMegaQuest;
 		pokeInfo.isAlpha = isAlpha;
 		pokeInfo.isAlphaReboot = isAlphaReboot;
+		pokeInfo.isMega = isMega;
 		calcHP(pokeInfo);
 		var curHP = ~~pokeInfo.find(".current-hp").val();
 		// FIXME the Pokemon constructor expects non-dynamaxed HP
@@ -1171,6 +1175,7 @@ function createPokemon(pokeInfo) {
 			rogueMegaQuest: rogueMegaQuest,
 			isAlpha: isAlpha,
 			isAlphaReboot: isAlphaReboot,
+			isMega: isMega,
 			alliesFainted: parseInt(pokeInfo.find(".alliesFainted").val()),
 			boostedStat: pokeInfo.find(".boostedStat").val() || undefined,
 			teraType: teraType,
@@ -1201,7 +1206,7 @@ function getGender(gender) {
 function getMoveDetails(moveInfo, opts) {
 	var moveName = moveInfo.find("select.move-selector").val();
 	var isZMove = gen > 6 && moveInfo.find("input.move-z").prop("checked");
-	var isPlus = moveInfo.find("input.move-plus").prop("checked");
+	var isPlus = moveInfo.find("input.move-plus").prop("checked") || (opts.isMega && !opts.isRogueMega);
 	var isCrit = moveInfo.find(".move-crit").prop("checked");
 	var isStellarFirstUse = moveInfo.find(".move-stellar").prop("checked");
 	var hits = +moveInfo.find(".move-hits").val();

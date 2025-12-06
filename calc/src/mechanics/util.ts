@@ -618,7 +618,6 @@ export function getFinalDamageFloat(
   // us to calculate damage overflow incorrectly (DaWoblefet)
   if (stabMod !== 1) damageAmount = Math.floor(damageAmount * stabMod);
   damageAmount = Math.floor(damageAmount * effectiveness);
-  console.log('Damage amount after stab: ' + damageAmount);
 
   if (isBurned) damageAmount = Math.floor(damageAmount / 2);
   if (protect) damageAmount = Math.floor(damageAmount * 0.25);
@@ -626,7 +625,6 @@ export function getFinalDamageFloat(
   for (const mod of finalMod) {
     totalMod *= mod;
   }
-  console.log('final mod: ' + finalMod);
   damageAmount = Math.floor(Math.floor(damageAmount) * totalMod);
   return pokeRound(Math.min(Math.max(1, damageAmount), 65535));
 }

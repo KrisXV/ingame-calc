@@ -12,6 +12,7 @@ export namespace State {
     rogueMegaQuest?: 'yveltal' | 'endgame' | 'simulator' | boolean;
     isAlpha?: boolean;
     isAlphaReboot?: boolean;
+    isMega?: boolean;
     alliesFainted?: number;
     boostedStat?: I.StatIDExceptHP | 'auto';
     item?: I.ItemName;

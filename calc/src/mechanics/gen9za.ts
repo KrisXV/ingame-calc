@@ -581,7 +581,6 @@ function calculateBaseDamageZA(
   }
 
   if (field.hasWeather('Rain')) {
-    console.log('pre-rain modifier dmg: ' + baseDamage);
     if (move.hasType('Water')) {
       baseDamage = Math.floor(OF32(baseDamage * 1.2));
       desc.weather = field.weather;
@@ -590,7 +589,6 @@ function calculateBaseDamageZA(
       baseDamage = Math.floor(OF32(baseDamage * 0.8));
       desc.weather = field.weather;
     }
-    console.log('post-rain modifier dmg: ' + baseDamage);
   }
 
   if (isCritical) {

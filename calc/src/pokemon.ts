@@ -30,6 +30,7 @@ export class Pokemon implements State.Pokemon {
   rogueMegaQuest?: 'yveltal' | 'endgame' | 'simulator' | boolean;
   isAlpha?: boolean;
   isAlphaReboot?: boolean;
+  isMega?: boolean;
 
   nature: I.NatureName;
   ivs: I.StatsTable;
@@ -76,6 +77,7 @@ export class Pokemon implements State.Pokemon {
     this.rogueMegaQuest = options.rogueMegaQuest;
     this.isAlpha = !!options.isAlpha;
     this.isAlphaReboot = !!options.isAlphaReboot;
+    this.isMega = !!options.isMega;
     this.item = options.item;
     this.nature = options.nature || ('Serious' as I.NatureName);
     this.ivs = Pokemon.withDefault(gen, options.ivs, 31);
@@ -181,6 +183,7 @@ export class Pokemon implements State.Pokemon {
       rogueMegaQuest: this.rogueMegaQuest,
       isAlpha: this.isAlpha,
       isAlphaReboot: this.isAlphaReboot,
+      isMega: this.isMega,
       alliesFainted: this.alliesFainted,
       boostedStat: this.boostedStat,
       item: this.item,
