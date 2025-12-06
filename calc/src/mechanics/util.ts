@@ -34,7 +34,7 @@ export function isGrounded(pokemon: Pokemon, field: Field) {
       !pokemon.hasItem('Air Balloon')));
 }
 
-export function getModifiedStat(stat: number, mod: number, gen?: Generation, isZA = false) {
+export function getModifiedStat(stat: number, mod: number, gen?: Generation) {
   if (gen && gen.num < 3) {
     if (mod >= 0) {
       const pastGenBoostTable = [1, 1.5, 2, 2.5, 3, 3.5, 4];
@@ -48,7 +48,7 @@ export function getModifiedStat(stat: number, mod: number, gen?: Generation, isZ
 
   const numerator = 0;
   const denominator = 1;
-  let modernGenBoostTable = [
+  const modernGenBoostTable = [
     [2, 8],
     [2, 7],
     [2, 6],
@@ -63,27 +63,32 @@ export function getModifiedStat(stat: number, mod: number, gen?: Generation, isZ
     [7, 2],
     [8, 2],
   ];
-  if (isZA) {
-    modernGenBoostTable = [
-      [2, 3],
-      [2, 3],
-      [2, 3],
-      [2, 3],
-      [2, 3],
-      [2, 3],
-      [2, 2],
-      [3, 2],
-      [3, 2],
-      [3, 2],
-      [3, 2],
-      [3, 2],
-      [3, 2],
-      [3, 2],
-    ];
-  }
   stat = OF16(stat * modernGenBoostTable[6 + mod][numerator]);
   stat = Math.floor(stat / modernGenBoostTable[6 + mod][denominator]);
 
+  return stat;
+}
+
+export function getModifiedStatZA(stat: number, mod: number) {
+  const numerator = 0;
+  const denominator = 1;
+  const modernGenBoostTable = [
+    [67, 100],
+    [67, 100],
+    [67, 100],
+    [67, 100],
+    [67, 100],
+    [67, 100],
+    [2, 2],
+    [3, 2],
+    [3, 2],
+    [3, 2],
+    [3, 2],
+    [3, 2],
+    [3, 2],
+  ];
+  stat = OF16(stat * modernGenBoostTable[6 + mod][numerator]);
+  stat = Math.floor(stat / modernGenBoostTable[6 + mod][denominator]);
   return stat;
 }
 
@@ -119,12 +124,7 @@ export function computeFinalStatsZA(
       if (stat === 'spe') {
         pokemon.stats.spe = getFinalSpeedZA(gen, pokemon);
       } else {
-        pokemon.stats[stat] = getModifiedStat(
-          pokemon.rawStats[stat]!,
-          pokemon.boosts[stat]!,
-          gen,
-          true
-        );
+        pokemon.stats[stat] = getModifiedStatZA(pokemon.rawStats[stat]!, pokemon.boosts[stat]!);
       }
     }
   }
@@ -177,7 +177,7 @@ export function getFinalSpeed(gen: Generation, pokemon: Pokemon, field: Field, s
 }
 
 export function getFinalSpeedZA(gen: Generation, pokemon: Pokemon) {
-  let speed = getModifiedStat(pokemon.rawStats.spe, pokemon.boosts.spe, gen, true);
+  let speed = getModifiedStatZA(pokemon.rawStats.spe, pokemon.boosts.spe);
   const speedMods = [];
   if (pokemon.hasItem(...EV_ITEMS)) {
     speedMods.push(2048);
@@ -534,6 +534,10 @@ export function getBaseDamage(level: number, basePower: number, attack: number, 
   );
 }
 
+export function getBaseDamageZA(level: number, basePower: number, attack: number, defense: number) {
+  return Math.floor((attack * basePower * (Math.floor(2 * level / 5) + 2)) / (50 * defense)) + 2;
+}
+
 /**
  * Get which stat will be boosted by Quark Drive or Protosynthesis
  * In the case that `pokemon.boostedStat` is set, it will always return that stat
@@ -619,13 +623,14 @@ export function getFinalDamageFloat(
   if (stabMod !== 1) damageAmount = Math.floor(damageAmount * stabMod);
   damageAmount = Math.floor(damageAmount * effectiveness);
 
-  if (isBurned) damageAmount = Math.floor(damageAmount / 2);
+  if (isBurned) damageAmount = Math.floor(damageAmount * 50 / 100);
   if (protect) damageAmount = Math.floor(damageAmount * 0.25);
   let totalMod = 1;
   for (const mod of finalMod) {
     totalMod *= mod;
   }
-  damageAmount = Math.floor(Math.floor(damageAmount) * totalMod);
+  damageAmount = Math.floor(damageAmount * totalMod);
+  damageAmount = Math.floor(damageAmount * 70 / 100);
   return pokeRound(Math.min(Math.max(1, damageAmount), 65535));
 }
 

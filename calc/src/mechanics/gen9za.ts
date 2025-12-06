@@ -13,10 +13,10 @@ import {
   checkItem,
   checkMultihitBoost,
   computeFinalStatsZA,
-  getBaseDamage,
+  getBaseDamageZA,
   getStatDescriptionText,
   getFinalDamageFloat,
-  getModifiedStat,
+  getModifiedStatZA,
   getMoveEffectiveness,
   getWeight,
   handleFixedDamageMoves,
@@ -460,8 +460,8 @@ export function calculateAttackZA(
       (isCritical && attackSource.boosts[attackStat] < 0)) {
     attack = attackSource.rawStats[attackStat];
   } else {
-    attack = getModifiedStat(attackSource.rawStats[attackStat]!, attackSource.boosts[attackStat]!,
-      undefined, true);
+    attack = getModifiedStatZA(attackSource.rawStats[attackStat]!,
+      attackSource.boosts[attackStat]!);
     desc.attackBoost = attackSource.boosts[attackStat];
   }
   const atMods = calculateAtModsZA(gen, attacker, defender, move, field, desc);
@@ -516,7 +516,7 @@ export function calculateDefenseZA(
   } else if (move.name === 'Nihil Light') {
     defense = defender.rawStats[defenseStat];
   } else {
-    defense = getModifiedStat(defender.rawStats[defenseStat]!, boosts, undefined, true);
+    defense = getModifiedStatZA(defender.rawStats[defenseStat]!, boosts);
     desc.defenseBoost = boosts;
   }
 
@@ -569,7 +569,7 @@ function calculateBaseDamageZA(
   desc: RawDesc,
   isCritical = false,
 ) {
-  let baseDamage = getBaseDamage(attacker.level, basePower, attack, defense);
+  let baseDamage = getBaseDamageZA(attacker.level, basePower, attack, defense);
   const isSpread = field.gameType !== 'Singles' &&
      ['allAdjacent', 'allAdjacentFoes'].includes(move.target);
   if (isSpread) {
@@ -582,17 +582,17 @@ function calculateBaseDamageZA(
 
   if (field.hasWeather('Rain')) {
     if (move.hasType('Water')) {
-      baseDamage = Math.floor(OF32(baseDamage * 1.2));
+      baseDamage = Math.floor(baseDamage * 1.2);
       desc.weather = field.weather;
     }
     if (move.hasType('Fire')) {
-      baseDamage = Math.floor(OF32(baseDamage * 0.8));
+      baseDamage = Math.floor(baseDamage * 0.8);
       desc.weather = field.weather;
     }
   }
 
   if (isCritical) {
-    baseDamage = Math.floor(OF32(baseDamage * 1.5));
+    baseDamage = Math.floor(baseDamage * 1.5);
     desc.isCritical = isCritical;
   }
 
@@ -668,9 +668,6 @@ export function calculateFinalModsZA(
     finalMod.push(1.3);
     desc.attackerItem = attacker.item;
   }
-
-  // Overall 0.7x modifier
-  finalMod.push(0.7);
 
   if (move.hasType(getBerryResistType(defender.item)) &&
       (typeEffectiveness > 1 || move.hasType('Normal')) &&

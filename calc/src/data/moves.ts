@@ -5023,6 +5023,10 @@ const ZA1: {[name: string]: DeepPartial<MoveData>} = {
   'Breaking Swipe (B)': {...SV['Moonblast'], bp: 40, multihit: [1, 10]},
 };
 
+for (const m in ZA1) {
+  if (m.endsWith('(B)')) delete (ZA1[m] as any).multihit;
+}
+
 const ZA: {[name: string]: MoveData} = extend(true, {}, SV, ZA1);
 
 export const MOVES = [{}, RBY, GSC, ADV, DPP, BW, XY, SM, SS, ZA];
