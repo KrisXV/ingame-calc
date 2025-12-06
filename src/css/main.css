@@ -334,6 +334,9 @@ fieldset {
     background-color: #F1F4F9;
     border: 1px solid #AAAAAA;
 }
+fieldset.pve {
+    float:none;
+}
 legend {
     font-weight: bold;
     text-align: center;
