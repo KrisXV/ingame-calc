@@ -15,7 +15,6 @@ import {
   computeFinalStatsZA,
   getBaseDamage,
   getStatDescriptionText,
-  getFinalDamage,
   getFinalDamageFloat,
   getModifiedStat,
   getMoveEffectiveness,
@@ -23,7 +22,7 @@ import {
   handleFixedDamageMoves,
   OF16, OF32,
   pokeRound,
-  getStabMod,
+  getStabModZA,
 } from './util';
 
 export function calculateZA(
@@ -206,7 +205,7 @@ export function calculateZA(
 
   // the random factor is applied between the crit mod and the stab mod, so don't apply anything
   // below this until we're inside the loop
-  let stabMod = getStabMod(attacker, move, desc);
+  let stabMod = getStabModZA(attacker, move);
 
   const applyBurn =
     attacker.hasStatus('brn') &&
@@ -274,7 +273,7 @@ export function calculateZA(
 
       if (move.timesUsed! > 1) {
         // Adaptability does not change between hits of a multihit, only between turns
-        stabMod = getStabMod(attacker, move, desc);
+        stabMod = getStabModZA(attacker, move);
       }
 
       const newBasePower = calculateBasePowerZA(
@@ -582,14 +581,16 @@ function calculateBaseDamageZA(
   }
 
   if (field.hasWeather('Rain')) {
+    console.log('pre-rain modifier dmg: ' + baseDamage);
     if (move.hasType('Water')) {
-      baseDamage = pokeRound(OF32(baseDamage * 1.2));
+      baseDamage = Math.floor(OF32(baseDamage * 1.2));
       desc.weather = field.weather;
     }
     if (move.hasType('Fire')) {
-      baseDamage = pokeRound(OF32(baseDamage * 0.8));
+      baseDamage = Math.floor(OF32(baseDamage * 0.8));
       desc.weather = field.weather;
     }
+    console.log('post-rain modifier dmg: ' + baseDamage);
   }
 
   if (isCritical) {
@@ -615,7 +616,7 @@ export function calculateFinalModsZA(
 
   // Rogue Megas hit by non-Plus moves have a 0.3x modifier for damage dealt to them - Anubis
   if (defender.isRogueMega && !move.usePlus &&
-    (!defender.name.includes('Zygarde') || defender.rogueMegaQuest === 'endgame')) {
+    !(defender.name.includes('Zygarde') || defender.rogueMegaQuest === 'endgame')) {
     finalMod.push(0.3);
     desc.defenderRogueMega = true;
   }

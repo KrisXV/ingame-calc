@@ -613,20 +613,22 @@ export function getFinalDamageFloat(
   finalMod: number[],
   protect?: boolean
 ) {
-  let damageAmount = Math.floor(OF32(baseAmount * (85 + i)) / 100);
+  let damageAmount = Math.floor(baseAmount * (85 + i) / 100);
   // If the stabMod would not accomplish anything we avoid applying it because it could cause
   // us to calculate damage overflow incorrectly (DaWoblefet)
-  if (stabMod !== 4096) damageAmount = OF32(damageAmount * stabMod) / 4096;
-  damageAmount = Math.floor(OF32(pokeRound(damageAmount) * effectiveness));
+  if (stabMod !== 1) damageAmount = Math.floor(damageAmount * stabMod);
+  damageAmount = Math.floor(damageAmount * effectiveness);
+  console.log('Damage amount after stab: ' + damageAmount);
 
   if (isBurned) damageAmount = Math.floor(damageAmount / 2);
-  if (protect) damageAmount = pokeRound(OF32(damageAmount * 0.25));
+  if (protect) damageAmount = Math.floor(damageAmount * 0.25);
   let totalMod = 1;
   for (const mod of finalMod) {
     totalMod *= mod;
   }
-  damageAmount = Math.floor(OF32(pokeRound(damageAmount) * totalMod));
-  return OF16(pokeRound(Math.max(1, damageAmount)));
+  console.log('final mod: ' + finalMod);
+  damageAmount = Math.floor(Math.floor(damageAmount) * totalMod);
+  return pokeRound(Math.min(Math.max(1, damageAmount), 65535));
 }
 
 /**
@@ -685,6 +687,14 @@ export function getStabMod(pokemon: Pokemon, move: Move, desc: RawDesc) {
   if (pokemon.hasAbility('Adaptability') && pokemon.hasType(move.type)) {
     stabMod += teraType && pokemon.hasOriginalType(teraType) ? 1024 : 2048;
     desc.attackerAbility = pokemon.ability;
+  }
+  return stabMod;
+}
+
+export function getStabModZA(pokemon: Pokemon, move: Move) {
+  let stabMod = 1;
+  if (pokemon.hasOriginalType(move.type)) {
+    stabMod = 1.5;
   }
   return stabMod;
 }

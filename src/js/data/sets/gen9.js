@@ -103,5 +103,5 @@ var SETDEX_SV = {
   },
   "Ange": {
     "Flower": {"level":100,"nature":"Hardy","moves":["Splash"]},
-  },
+  }
 };
