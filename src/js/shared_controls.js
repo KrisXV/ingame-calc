@@ -1130,13 +1130,13 @@ function createPokemon(pokeInfo) {
 		if (setName.indexOf("Rogue") >= 0 || setName.indexOf("Boss") >= 0 || setName.indexOf("Quest") >= 0) {
 			pokeInfo.find(".rogueMega").prop("checked", true);
 			if (setName.indexOf("Endgame") >= 0) {
-				pokeInfo.find("rogueMegaQuest").val("endgame");
+				pokeInfo.find(".rogueMegaQuest").val("endgame");
 			} else if (setName.indexOf("Quest") >= 0) {
-				pokeInfo.find("rogueMegaQuest").val("yveltal");
+				pokeInfo.find(".rogueMegaQuest").val("yveltal");
 			}
 		}
 		var isRogueMega = pokeInfo.find(".rogueMega").prop("checked") ? name : false;
-		var rogueMegaQuest = isRogueMega ? pokeInfo.find(".rogueMegaQuest").val() : false;
+		var rogueMegaQuest = isRogueMega ? pokeInfo.find(".rogueMegaQuest").val() : undefined;
 		var teraType = pokeInfo.find(".teraToggle").is(":checked") ? pokeInfo.find(".teraType").val() : undefined;
 		var opts = {
 			ability: ability,

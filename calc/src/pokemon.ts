@@ -27,7 +27,7 @@ export class Pokemon implements State.Pokemon {
   disabledItem?: I.ItemName;
   teraType?: I.TypeName;
   isRogueMega?: string | boolean;
-  rogueMegaQuest?: 'yveltal' | 'endgame' | 'simulator' | boolean;
+  rogueMegaQuest?: 'yveltal' | 'endgame' | 'simulator';
   isAlpha?: boolean;
   isAlphaReboot?: boolean;
   isMega?: boolean;

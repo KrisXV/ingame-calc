@@ -4936,6 +4936,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Bullet Punch': {bp: 30},
   'Aqua Jet': {bp: 30},
   'Water Shuriken': {bp: 15},
+  'Diamond Storm': {category: 'Physical'},
   'Nihil Light': {
     bp: 200,
     type: 'Dragon',
