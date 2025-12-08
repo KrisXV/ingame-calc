@@ -570,6 +570,7 @@ $(".move-selector").change(function () {
 	}
 	moveGroupObj.children(".move-z").prop("checked", false);
 	moveGroupObj.children(".move-plus").prop("checked", false);
+	moveGroupObj.children(".move-plus").keyup();
 });
 
 $(".move-plus").bind("keyup change", function () {
