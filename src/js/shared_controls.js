@@ -581,7 +581,7 @@ $(".move-plus").bind("keyup change", function () {
 	var setName = pokeInfo.find("input.set-selector").val();
 	var pokeName;
 	if (typeof pokeInfo === "string") {
-		pokeName = pokeInfo.substring(0, pokeInfo.indexOf(" ("));		
+		pokeName = pokeInfo.substring(0, pokeInfo.indexOf(" ("));
 	} else {
 		if (setName.indexOf("(") === -1) {
 			pokeName = setName;
@@ -596,14 +596,14 @@ $(".move-plus").bind("keyup change", function () {
 	if (isMega) {
 		moveGroupObj.find("input.move-plus").prop("checked", true);
 	}
-	
+
 	var isWaterShuriken = moveName === "Water Shuriken";
 	var isPlus = moveGroupObj.find("input.move-plus").prop("checked") || isMega;
 	if (isWaterShuriken) {
 		moveGroupObj.children(".move-bp").val(isPlus ? 75 : 15);
 	}
 	if (Array.isArray(move.multihit) || (!isNaN(move.multihit) && move.multiaccuracy)) {
-		var maxHits = (isWaterShuriken && isPlus) ? 1 : (!isNaN(move.multihit) ? move.multihit : move.multihit[1]) + (isPlus ? 1 : 0)
+		var maxHits = (isWaterShuriken && isPlus) ? 1 : (!isNaN(move.multihit) ? move.multihit : move.multihit[1]) + (isPlus ? 1 : 0);
 		moveGroupObj.children(".move-times").hide();
 		moveGroupObj.children(".move-times").val(1);
 		moveGroupObj.children(".move-hits").empty();
