@@ -365,7 +365,8 @@ export function calculateBasePowerZA(
     desc.moveBP = basePower;
     break;
   case 'Water Shuriken':
-    basePower = move.usePlus || attacker.name.includes('Mega') ? 75 : 15;
+    // basePower = move.usePlus || attacker.name.includes('Mega') ? 75 : 15;
+    basePower = move.bp; // allows BP to be edited by the user
     desc.moveBP = basePower;
     break;
   default:
