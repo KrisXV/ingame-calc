@@ -49,7 +49,7 @@ export function calculateZA(
 
   const breaksProtect = move.breaksProtect;
 
-  if (field.defenderSide.isProtected && !(move.usePlus || attacker.name.includes('Mega'))) {
+  if (field.defenderSide.isProtected && !(move.usePlus || attacker.isMega)) {
     desc.isProtected = true;
     return result;
   }
@@ -365,7 +365,7 @@ export function calculateBasePowerZA(
     desc.moveBP = basePower;
     break;
   case 'Water Shuriken':
-    // basePower = move.usePlus || attacker.name.includes('Mega') ? 75 : 15;
+    // basePower = move.usePlus || attacker.isMega ? 75 : 15;
     basePower = move.bp; // allows BP to be edited by the user
     desc.moveBP = basePower;
     break;
@@ -376,7 +376,7 @@ export function calculateBasePowerZA(
     return 0;
   }
   if (move.usePlus ||
-    (attacker.name.includes('Mega') && !attacker.isRogueMega)) desc.plusMove = true;
+    (attacker.isMega && !attacker.isRogueMega)) desc.plusMove = true;
   const bpMods = calculateBPModsZA(
     gen,
     attacker,
