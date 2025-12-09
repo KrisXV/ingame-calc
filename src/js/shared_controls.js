@@ -1126,7 +1126,7 @@ function createPokemon(pokeInfo) {
 		var isDynamaxed = pokeInfo.find(".max").prop("checked");
 		var isAlpha = pokeInfo.find(".alpha").prop("checked");
 		var isAlphaReboot = pokeInfo.find(".alphaReboot").prop("checked");
-		var isMega = pokemonName.indexOf("Mega") >= 0 && pokemonName !== "Meganium";
+		var isMega = name.indexOf("Mega") >= 0 && name !== "Meganium";
 		if (setName.indexOf("Rogue") >= 0 || setName.indexOf("Boss") >= 0 || setName.indexOf("Quest") >= 0) {
 			pokeInfo.find(".rogueMega").prop("checked", true);
 			if (setName.indexOf("Endgame") >= 0) {
