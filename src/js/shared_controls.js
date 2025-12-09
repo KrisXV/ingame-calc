@@ -1697,6 +1697,27 @@ function clearField() {
 	$("input:checkbox[name='terrain']").prop("checked", false);
 }
 
+$("#forestsCurseL").change(function () {
+	if ($("#forestsCurseL").prop("checked")) {
+		$("#totL").prop("checked", false);
+	}
+});
+$("#forestsCurseR").change(function () {
+	if ($("#forestsCurseR").prop("checked")) {
+		$("#totR").prop("checked", false);
+	}
+});
+$("#totL").change(function () {
+	if ($("#totL").prop("checked")) {
+		$("#forestsCurseL").prop("checked", false);
+	}
+});
+$("#totR").change(function () {
+	if ($("#totR").prop("checked")) {
+		$("#forestsCurseR").prop("checked", false);
+	}
+});
+
 function getSetOptions(sets) {
 	var setsHolder = sets;
 	if (setsHolder === undefined) {
