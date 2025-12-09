@@ -570,6 +570,64 @@ $(".move-selector").change(function () {
 	}
 	moveGroupObj.children(".move-z").prop("checked", false);
 	moveGroupObj.children(".move-plus").prop("checked", false);
+	moveGroupObj.children(".move-plus").keyup();
+});
+
+$(".move-plus").bind("keyup change", function () {
+	var moveGroupObj = $(this).parent();
+	var moveName = moveGroupObj.find(".select2-chosen").text();
+	var move = moves[moveName] || moves['(No Move)'];
+	var pokeInfo = $(this).closest(".poke-info");
+	var setName = pokeInfo.find("input.set-selector").val();
+	var pokeName;
+	if (typeof pokeInfo === "string") {
+		pokeName = pokeInfo.substring(0, pokeInfo.indexOf(" ("));
+	} else {
+		if (setName.indexOf("(") === -1) {
+			pokeName = setName;
+		} else {
+			var pokemonName = setName.substring(0, setName.indexOf(" ("));
+			var species = pokedex[pokemonName];
+			pokeName = (species.otherFormes || (species.baseSpecies && species.baseSpecies !== pokemonName)) ? pokeInfo.find(".forme").val() : pokemonName;
+			pokeName = pokeName || pokemonName;
+		}
+	}
+	var isMega = pokeName.includes("-Mega");
+	if (isMega) {
+		moveGroupObj.find("input.move-plus").prop("checked", true);
+	}
+
+	var isWaterShuriken = moveName === "Water Shuriken";
+	var isPlus = moveGroupObj.find("input.move-plus").prop("checked") || isMega;
+	if (isWaterShuriken) {
+		moveGroupObj.children(".move-bp").val(isPlus ? 75 : 15);
+	}
+	if (Array.isArray(move.multihit) || (!isNaN(move.multihit) && move.multiaccuracy)) {
+		var maxHits = (isWaterShuriken && isPlus) ? 1 : (!isNaN(move.multihit) ? move.multihit : move.multihit[1]) + (isPlus ? 1 : 0);
+		moveGroupObj.children(".move-times").hide();
+		moveGroupObj.children(".move-times").val(1);
+		moveGroupObj.children(".move-hits").empty();
+		if (!isNaN(move.multihit)) {
+			for (var i = 1; i <= maxHits; i++) {
+				moveGroupObj.children(".move-hits").append("<option value=" + i + ">" + i + " hits</option>");
+			}
+		} else {
+			for (var i = 1; i <= maxHits; i++) {
+				moveGroupObj.children(".move-hits").append("<option value=" + i + ">" + i + " hits</option>");
+			}
+		}
+		moveGroupObj.children(".move-hits").show();
+		moveGroupObj.children(".move-hits").val(maxHits);
+	} else if (!isNaN(move.multihit)) {
+		moveGroupObj.children(".move-hits").val(1);
+		moveGroupObj.children(".move-hits").hide();
+		moveGroupObj.children(".move-times").val(1);
+		moveGroupObj.children(".move-times").hide();
+	} else {
+		moveGroupObj.children(".move-hits").val(1);
+		moveGroupObj.children(".move-hits").hide();
+		moveGroupObj.children(".move-times").show();
+	}
 });
 
 $(".item").change(function () {
@@ -1001,6 +1059,19 @@ $(".forme").change(function () {
 	} else {
 		container.find(".item").prop("disabled", false);
 	}
+	var species = pokedex[pokemonName];
+	var name = (species.otherFormes || (species.baseSpecies && species.baseSpecies !== pokemonName)) ? container.parent().find(".forme").val() : pokemonName;
+	var isMega = name.includes("-Mega");
+	if (!isMega) {
+		container.parent().find(".move1").find("input.move-plus").prop("checked", false);
+		container.parent().find(".move2").find("input.move-plus").prop("checked", false);
+		container.parent().find(".move3").find("input.move-plus").prop("checked", false);
+		container.parent().find(".move4").find("input.move-plus").prop("checked", false);
+	}
+	container.parent().find(".move1").find("input.move-plus").keyup();
+	container.parent().find(".move2").find("input.move-plus").keyup();
+	container.parent().find(".move3").find("input.move-plus").keyup();
+	container.parent().find(".move4").find("input.move-plus").keyup();
 });
 
 function correctHiddenPower(pokemon) {
@@ -1625,6 +1696,27 @@ function clearField() {
 	$("#switchingR").prop("checked", false);
 	$("input:checkbox[name='terrain']").prop("checked", false);
 }
+
+$("#forestsCurseL").change(function () {
+	if ($("#forestsCurseL").prop("checked")) {
+		$("#totL").prop("checked", false);
+	}
+});
+$("#forestsCurseR").change(function () {
+	if ($("#forestsCurseR").prop("checked")) {
+		$("#totR").prop("checked", false);
+	}
+});
+$("#totL").change(function () {
+	if ($("#totL").prop("checked")) {
+		$("#forestsCurseL").prop("checked", false);
+	}
+});
+$("#totR").change(function () {
+	if ($("#totR").prop("checked")) {
+		$("#forestsCurseR").prop("checked", false);
+	}
+});
 
 function getSetOptions(sets) {
 	var setsHolder = sets;
