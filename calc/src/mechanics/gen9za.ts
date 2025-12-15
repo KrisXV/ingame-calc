@@ -1,4 +1,4 @@
-import type {Generation, AbilityName} from '../data/interface';
+import type {Generation, AbilityName, StatID} from '../data/interface';
 import {toID} from '../util';
 import {
   getBerryResistType,
@@ -37,6 +37,12 @@ export function calculateZA(
   checkItem(attacker, field.isMagicRoom);
   checkItem(defender, field.isMagicRoom);
 
+  if (move.named('Meteor Beam')) {
+    attacker.boosts.spa += 1;
+    // restrict to +- 1
+    attacker.boosts.spa = Math.min(1, Math.max(-1, attacker.boosts.spa));
+  }
+
   computeFinalStatsZA(gen, attacker, defender, 'atk', 'def', 'spa', 'spd', 'spe');
 
   const desc: RawDesc = {
@@ -58,7 +64,7 @@ export function calculateZA(
   defender.ability = '' as AbilityName;
 
   const type = move.type;
-  if (move.named('Brick Break')) {
+  if (move.named('Brick Break', 'Psychic Fangs')) {
     field.defenderSide.isReflect = false;
     field.defenderSide.isLightScreen = false;
     field.defenderSide.isAuroraVeil = false;
@@ -155,6 +161,20 @@ export function calculateZA(
     const lostHP = field.defenderSide.isProtected ? 0 : Math.floor(defender.curHP() / 2);
     result.damage = lostHP;
     return result;
+  }
+
+  if (move.named('Spectral Thief')) {
+    let stat: StatID;
+    for (stat in defender.boosts) {
+      if (defender.boosts[stat] > 0) {
+        attacker.boosts[stat] += defender.boosts[stat]!;
+        if (attacker.boosts[stat] > 1) attacker.boosts[stat] = 1;
+        if (attacker.boosts[stat] < -1) attacker.boosts[stat] = -1;
+        attacker.stats[stat] = getModifiedStatZA(attacker.rawStats[stat]!, attacker.boosts[stat]!);
+        defender.boosts[stat] = 0;
+        defender.stats[stat] = defender.rawStats[stat];
+      }
+    }
   }
 
   if (move.hits > 1) {

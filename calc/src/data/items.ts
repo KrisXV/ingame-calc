@@ -500,9 +500,99 @@ const ZA_MEGA_STONES: {[species: string]: string} = {
   Zygardite: 'Zygarde-Complete',
 };
 
+const ZA_DLC_MEGA_STONES: {[species: string]: string} = {
+  'Absolite Z': 'Absol',
+  Baxcalibrite: 'Baxcalibur',
+  Chimechite: 'Chimecho',
+  Crabominite: 'Crabominable',
+  Darkranite: 'Darkrai',
+  'Garchompite Z': 'Garchomp',
+  Glimmoranite: 'Glimmora',
+  Golisopite: 'Golisopod',
+  Golurkite: 'Golurk',
+  Heatranite: 'Heatran',
+  'Lucarionite Z': 'Lucario',
+  Magearnite: 'Magearna',
+  Meowsticite: 'Meowstic',
+  'Raichunite X': 'Raichu',
+  'Raichunite Y': 'Raichu',
+  Scovillainite: 'Scovillain',
+  Staraptite: 'Staraptor',
+  Tatsugirinite: 'Tatsugiri',
+  Zeraorite: 'Zeraora',
+};
+
+const ZA_PATCH = [
+  ...Object.keys(ZA_MEGA_STONES),
+  ...Object.keys(ZA_DLC_MEGA_STONES),
+  'Canari Bread',
+  'Hyper Hondew Berry',
+  'Hyper Kasib Berry',
+  'Hyper Kebia Berry',
+  'Hyper Kelpsy Berry',
+  'Hyper Lum Berry',
+  'Hyper Occa Berry',
+  'Hyper Oran Berry',
+  'Hyper Passho Berry',
+  'Hyper Payapa Berry',
+  'Hyper Pecha Berry',
+  'Hyper Persim Berry',
+  'Hyper Pomeg Berry',
+  'Hyper Qualot Berry',
+  'Hyper Rawst Berry',
+  'Hyper Rindo Berry',
+  'Hyper Roseli Berry',
+  'Hyper Shuca Berry',
+  'Hyper Sitrus Berry',
+  'Hyper Tamato Berry',
+  'Hyper Tanga Berry',
+  'Hyper Wacan Berry',
+  'Hyper Yache Berry',
+  'Lumiose Galette',
+];
+
+/* eslint-disable max-len */
+const zaLegal = [
+  'Abomasite', 'Absolite', 'Adamant Mint', 'Aerodactylite', 'Aggronite', 'Alakazite', 'Altarianite', 'Ampharosite', 'Antidote', 'Aspear Berry',
+  'Assault Vest', 'Audinite', 'Awakening', 'Babiri Berry', 'Banettite', 'Barbaracite', 'Beedrillite', 'Big Nugget', 'Big Pearl', 'Big Root', 'Black Belt',
+  'Black Glasses', 'Blastoisinite', 'Bold Mint', 'Bottle Cap', 'Brave Mint', 'Burn Heal', 'Calcium', 'Calm Mint', 'Cameruptite', 'Carbos', 'Careful Mint',
+  'Chandelurite', 'Charcoal', 'Charizardite X', 'Charizardite Y', 'Charti Berry', 'Cheri Berry', 'Chesnaughtite', 'Chesto Berry', 'Chilan Berry',
+  'Chople Berry', 'Clefablite', 'Clever Feather', 'Coba Berry', 'Colbur Berry', 'Colorful Screw', 'Dawn Stone', 'Delphoxite', 'Diancite', 'Dive Ball',
+  'Dragalgite', 'Dragon Fang', 'Dragoninite', 'Drampanite', 'Dream Ball', 'Dusk Ball', 'Dusk Stone', 'Eelektrossite', 'Emboarite', 'Eviolite', 'Excadrite',
+  'Exp. Candy L', 'Exp. Candy M', 'Exp. Candy S', 'Exp. Candy XL', 'Exp. Candy XS', 'Expert Belt', 'Fairy Feather', 'Falinksite', 'Fast Ball',
+  'Feraligite', 'Fire Stone', 'Floettite', 'Focus Band', 'Focus Sash', 'Fresh Water', 'Friend Ball', 'Froslassite', 'Full Heal', 'Full Restore',
+  'Galarica Cuff', 'Galarica Wreath', 'Galladite', 'Garchompite', 'Gardevoirite', 'Gengarite', 'Genius Feather', 'Gentle Mint', 'Glalitite',
+  'Gold Bottle Cap', 'Great Ball', 'Greninjite', 'Grepa Berry', 'Gyaradosite', 'HP Up', 'Haban Berry', 'Hard Stone', 'Hasty Mint', 'Hawluchanite',
+  'Heal Ball', 'Health Feather', 'Heavy Ball', 'Heracronite', 'Hondew Berry', 'Houndoominite', 'Hyper Potion', 'Ice Heal', 'Ice Stone', 'Impish Mint',
+  'Iron', 'Jolly Mint', 'Kangaskhanite', 'Kasib Berry', 'Kebia Berry', 'Kelpsy Berry', 'King\'s Rock', 'King\'s Rock', 'Lax Mint', 'Leaf Stone', 'Leftovers',
+  'Lemonade', 'Level Ball', 'Life Orb', 'Light Ball', 'Lonely Mint', 'Lopunnite', 'Love Ball', 'Lucarionite', 'Lucky Egg', 'Lum Berry', 'Lumiose Galette',
+  'Lure Ball', 'Luxury Ball', 'Magnet', 'Malamarite', 'Manectite', 'Master Ball', 'Mawilite', 'Max Potion', 'Max Revive', 'Medichamite', 'Mega Shard',
+  'Meganiumite', 'Metagrossite', 'Metal Coat', 'Metal Coat', 'Mewtwonite X', 'Mewtwonite Y', 'Mild Mint', 'Miracle Seed', 'Modest Mint', 'Moomoo Milk',
+  'Moon Ball', 'Moon Stone', 'Muscle Band', 'Muscle Feather', 'Mystic Water', 'Naive Mint', 'Naughty Mint', 'Nest Ball', 'Net Ball', 'Never-Melt Ice',
+  'Normal Gem', 'Nugget', 'Occa Berry', 'Oran Berry', 'Parlyze Heal', 'Passho Berry', 'Payapa Berry', 'Pearl', 'Pearl String', 'Pecha Berry', 'Persim Berry',
+  'Pidgeotite', 'Pinsirite', 'Poison Barb', 'Poké Ball', 'Pomeg Berry', 'Potion', 'Power Anklet', 'Power Band', 'Power Belt', 'Power Bracer', 'Power Lens',
+  'Power Weight', 'Premier Ball', 'Pretty Feather', 'Protein', 'Pyroarite', 'Qualot Berry', 'Quick Ball', 'Quick Claw', 'Quiet Mint', 'Rare Candy',
+  'Rash Mint', 'Rawst Berry', 'Relaxed Mint', 'Repeat Ball', 'Resist Feather', 'Revive', 'Rindo Berry', 'Rocky Helmet', 'Roseli Berry', 'Sablenite',
+  'Sachet', 'Salamencite', 'Safari Ball', 'Sassy Mint', 'Scizorite', 'Scolipite', 'Scope Lens', 'Scraftinite', 'Seed of Mastery', 'Serious Mint',
+  'Sharp Beak', 'Sharpedonite', 'Shell Bell', 'Shiny Stone', 'Shuca Berry', 'Silk Scarf', 'SilverPowder', 'Sitrus Berry', 'Skarmorite','Slowbronite',
+  'Soda Pop', 'Soft Sand', 'Soothe Bell', 'Spell Tag', 'Sport Ball', 'Starminite', 'Steelixite', 'Sun Stone', 'Super Potion', 'Swift Feather',
+  'Tamato Berry', 'Tanga Berry', 'Thunderstone', 'Timer Ball', 'Timid Mint', 'TinyMushroom', 'TwistedSpoon', 'Tyranitarite', 'Ultra Ball', 'Venusaurite',
+  'Victreebelite', 'Wacan Berry', 'Water Stone', 'Weakness Policy', 'Whipped Dream', 'White Herb', 'Wise Glasses', 'Yache Berry', 'Zinc', 'Zygardite'
+];
+/* eslint-disable max-len */
+const zaDlcLegal = [
+  'Absolite Z', 'Auspicious Armor', 'Baxcalibrite', 'Black Augurite', 'Blazikenite', 'Blue Orb', 'Burn Drive', 'Canari Bread', 'Chill Drive', 'Chimechite',
+  'Crabominite', 'Darkranite', 'Douse Drive', 'Dubious Disc', 'Garchompite Z', 'Glimmoranite', 'Golisopite', 'Golurkite', 'Heatranite', 'Hyper Hondew Berry',
+  'Hyper Kasib Berry', 'Hyper Kebia Berry', 'Hyper Kelpsy Berry', 'Hyper Lum Berry', 'Hyper Occa Berry', 'Hyper Oran Berry', 'Hyper Passho Berry',
+  'Hyper Payapa Berry', 'Hyper Pecha Berry', 'Hyper Persim Berry', 'Hyper Pomeg Berry', 'Hyper Qualot Berry', 'Hyper Rawst Berry', 'Hyper Rindo Berry',
+  'Hyper Roseli Berry', 'Hyper Shuca Berry', 'Hyper Sitrus Berry', 'Hyper Tamato Berry', 'Hyper Tanga Berry', 'Hyper Wacan Berry', 'Hyper Yache Berry',
+  'Latiasite', 'Latiosite', 'Lucarionite Z', 'Magearnite', 'Malicious Armor', 'Meowsticite', 'Prism Scale', 'Raichunite X', 'Raichunite Y', 'Red Orb',
+  'Sceptilite', 'Shock Drive', 'Staraptite', 'Swampertite', 'Tatsugirinite', 'Upgrade', 'Zeraorite'
+];
+
 const SV = SS.concat(
   [
-    ...Object.keys(ZA_MEGA_STONES),
+    ...ZA_PATCH,
     'Adamant Crystal',
     'Auspicious Armor',
     'Ability Shield',
@@ -524,8 +614,8 @@ const SV = SS.concat(
     'Syrupy Apple',
     'Unremarkable Teacup',
     'Wellspring Mask',
-  ].sort()
-);
+  ]
+).filter((i) => (zaLegal.includes(i) || zaDlcLegal.includes(i))).sort();
 
 const BERRIES: {[berry: string]: {t: I.TypeName; p: number}} = {
   'Aguav Berry': {t: 'Dragon', p: 80},
@@ -607,7 +697,7 @@ const BERRIES: {[berry: string]: {t: I.TypeName; p: number}} = {
   'Yache Berry': {t: 'Ice', p: 80},
 };
 
-export const MEGA_STONES = Object.assign({}, GEN_6_MEGA_STONES, ZA_MEGA_STONES);
+export const MEGA_STONES = Object.assign({}, GEN_6_MEGA_STONES, ZA_MEGA_STONES, ZA_DLC_MEGA_STONES);
 
 export const ITEMS = [[], RBY, GSC, ADV, DPP, BW, XY, SM, SS, SV];
 

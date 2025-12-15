@@ -4948,7 +4948,26 @@ const ZA_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   },
 };
 
-const SV: {[name: string]: MoveData} = extend(true, {}, SS, SV_PATCH, ZA_PATCH);
+const ZA_DLC_PATCH: {[name: string]: DeepPartial<MoveData>} = {
+  'Bonemerang': {bp: 55},
+  'Comet Punch': {bp: 30},
+  'Dark Void': {bp: 60, category: 'Special'},
+  'Double Hit': {bp: 50},
+  'Dual Chop': {bp: 45},
+  'Dual Wingbeat': {bp: 45},
+  'Frost Breath': {bp: 65},
+  'Fissure': {bp: 250},
+  'Magnet Bomb': {bp: 95},
+  'Petal Dance': {bp: 40, multihit: [3]},
+  'Razor Wind': {bp: 40, multihit: [3]},  // TODO: need to test number of hits
+  'Sheer Cold': {bp: 150},
+  'Skull Bash': {bp: 150, secondaries: true},
+  'Storm Throw': {bp: 65},
+  'Tri Attack': {bp: 40, multihit: [3]},
+  'Triple Axel': {bp: 40},
+}
+
+const SV: {[name: string]: MoveData} = extend(true, {}, SS, SV_PATCH, ZA_PATCH, ZA_DLC_PATCH);
 
 const ZA1: {[name: string]: DeepPartial<MoveData>} = {
   'Fly (B)': {...SV['Fly'], bp: 45, multihit: [1, 10]},
@@ -5028,6 +5047,50 @@ for (const m in ZA1) {
 }
 
 const ZA: {[name: string]: MoveData} = extend(true, {}, SV, ZA1);
+
+/* eslint-disable max-len */
+const zaLegal = [
+  '(No Move)', 'Absorb', 'Acid Armor', 'Aerial Ace', 'Agility', 'Air Slash', 'Amnesia', 'Aqua Jet', 'Aqua Ring', 'Aura Sphere', 'Bite', 'Blizzard',
+  'Body Slam', 'Boomburst', 'Bounce', 'Brave Bird', 'Breaking Swipe', 'Brick Break', 'Brutal Swing', 'Bubble Beam', 'Bug Buzz', 'Bulk Up', 'Bulldoze',
+  'Bullet Punch', 'Bullet Seed', 'Calm Mind', 'Charge', 'Charm', 'Close Combat', 'Confuse Ray', 'Confusion', 'Core Enforcer', 'Cotton Guard', 'Crunch',
+  'Curse', 'Dark Pulse', 'Dazzling Gleam', 'Detect', 'Diamond Storm', 'Dig', 'Disarming Voice', 'Discharge', 'Double Team', 'Double-Edge', 'Draco Meteor',
+  'Dragon Breath', 'Dragon Claw', 'Dragon Pulse', 'Dragon Rush', 'Draining Kiss', 'Drill Run', 'Dynamic Punch', 'Earth Power', 'Earthquake',
+  'Eerie Impulse', 'Electroweb', 'Ember', 'Endure', 'Energy Ball', 'Explosion', 'Extreme Speed', 'Fairy Wind', 'Fake Tears', 'Feather Dance', 'Fire Blast',
+  'Fire Fang', 'Fire Punch', 'Fire Spin', 'Flame Wheel', 'Flamethrower', 'Flare Blitz', 'Flash Cannon', 'Flip Turn', 'Fly', 'Flying Press', 'Focus Blast',
+  'Focus Energy', 'Forest\'s Curse', 'Freeze-Dry', 'Future Sight', 'Geomancy', 'Giga Drain', 'Giga Impact', 'Glare', 'Growl', 'Growth', 'Gunk Shot', 'Gust',
+  'Harden', 'Haze', 'Head Smash', 'Headbutt', 'Heal Block', 'Heat Crash', 'Heat Wave', 'Heavy Slam', 'Horn Leech', 'Hurricane', 'Hydro Pump', 'Hyper Beam',
+  'Hyper Voice', 'Hyperspace Fury', 'Hyperspace Hole', 'Hypnosis', 'Ice Beam', 'Ice Fang', 'Ice Punch', 'Ice Shard', 'Icicle Crash', 'Icy Wind',
+  'Infestation', 'Iron Defense', 'Iron Head', 'Iron Tail', 'King\'s Shield', 'Knock Off', 'Land\'s Wrath', 'Lava Plume', 'Leaf Blade', 'Leaf Storm',
+  'Leafage', 'Leech Life', 'Leech Seed', 'Leer', 'Lick', 'Light of Ruin', 'Light Screen', 'Liquidation', 'Lunge', 'Mach Punch', 'Magical Leaf',
+  'Megahorn', 'Metal Claw', 'Metal Sound', 'Metronome', 'Mist', 'Moonblast', 'Moonlight', 'Morning Sun', 'Mud Shot', 'Mystical Fire', 'Nasty Plot',
+  'Night Slash', 'Nihil Light', 'No Retreat', 'Nuzzle', 'Oblivion Wing', 'Outrage', 'Overheat', 'Parabolic Charge', 'Parting Shot', 'Peck', 'Perish Song',
+  'Phantom Force', 'Pin Missile', 'Play Rough', 'Poison Jab', 'Poison Powder', 'Poison Sting', 'Power Gem', 'Power Whip', 'Power-Up Punch', 'Protect',
+  'Psybeam', 'Psychic', 'Psycho Cut', 'Psyshock', 'Psystrike', 'Quick Attack', 'Razor Leaf', 'Recover', 'Reflect', 'Roar', 'Rock Blast', 'Rock Slide',
+  'Rock Smash', 'Rock Throw', 'Rock Tomb', 'Rollout', 'Safeguard', 'Sand Tomb', 'Screech', 'Self-Destruct', 'Shadow Ball', 'Shadow Claw', 'Shadow Sneak',
+  'Slash', 'Sleep Powder', 'Sludge Bomb', 'Sludge Wave', 'Smokescreen', 'Snarl', 'Solar Beam', 'Spark', 'Spikes', 'Spiky Shield', 'Splash', 'Stealth Rock',
+  'Steam Eruption', 'Steel Wing', 'Sticky Web', 'Stone Edge', 'String Shot', 'Stun Spore', 'Substitute', 'Super Fang', 'Supersonic', 'Surf', 'Swift',
+  'Swords Dance', 'Synthesis', 'Tackle', 'Tail Whip', 'Take Down', 'Taunt', 'Teleport', 'Thousand Arrows', 'Thousand Waves', 'Thunder', 'Thunder Fang',
+  'Thunder Punch', 'Thunder Shock', 'Thunder Wave', 'Thunderbolt', 'Topsy-Turvy', 'Toxic', 'Toxic Spikes', 'Trick-or-Treat', 'Twister', 'U-turn',
+  'Vine Whip', 'Volt Switch', 'Volt Tackle', 'Water Gun', 'Water Pulse', 'Water Shuriken', 'Waterfall', 'Whirlpool', 'Whirlwind', 'Wild Charge',
+  'Will-O-Wisp', 'Wing Attack', 'Wish', 'Wood Hammer', 'Work Up', 'X-Scissor', 'Zap Cannon', 'Zen Headbutt'
+];
+/* eslint-disable max-len */
+const zaDlcLegal = [
+  'Acid Spray', 'Ancient Power', 'Armor Cannon', 'Aura Wheel', 'Barb Barrage', 'Bitter Blade', 'Blast Burn', 'Blaze Kick', 'Bonemerang', 'Charge Beam',
+  'Chilling Water', 'Circle Throw', 'Comet Punch', 'Conversion', 'Conversion 2', 'Dark Void', 'Double Hit', 'Double Iron Bash', 'Dragon Ascent',
+  'Drain Punch', 'Dream Eater', 'Dual Chop', 'Dual Wingbeat', 'Facade', 'Fake Out', 'False Swipe', 'First Impression', 'Fissure', 'Flame Charge',
+  'Fleur Cannon', 'Frenzy Plant', 'Frost Breath', 'Gigaton Hammer', 'Glaive Rush', 'Hydro Cannon', 'Ice Hammer', 'Icicle Spear', 'Last Respects',
+  'Low Sweep', 'Luster Purge', 'Magma Storm', 'Magnet Bomb', 'Make It Rain', 'Meteor Assault', 'Meteor Beam', 'Mimic', 'Mist Ball', 'Mortal Spin',
+  'Muddy Water', 'Octolock', 'Ominous Wind', 'Order Up', 'Origin Pulse', 'Overdrive', 'Pay Day', 'Petal Dance', 'Plasma Fists', 'Poison Fang',
+  'Precipice Blades', 'Psychic Fangs', 'Rage Fist', 'Razor Wind', 'Relic Song', 'Sacred Sword', 'Salt Cure', 'Scald', 'Scale Shot', 'Scorching Sands',
+  'Secret Sword', 'Seed Bomb', 'Shadow Bone', 'Shadow Punch', 'Shed Tail', 'Sheer Cold', 'Shore Up', 'Silver Wind', 'Sing', 'Skull Bash', 'Sky Attack',
+  'Solar Blade', 'Spectral Thief', 'Spicy Extract', 'Spore', 'Steel Beam', 'Stone Axe', 'Storm Throw', 'Swagger', 'Techno Blast', 'Torment', 'Trailblaze',
+  'Tri Attack', 'Triple Axel', 'Vacuum Wave'
+];
+/* eslint-disable max-len */
+for (const m in ZA) {
+  if (!(zaLegal.includes(m) || zaDlcLegal.includes(m))) delete ZA[m];
+}
 
 export const MOVES = [{}, RBY, GSC, ADV, DPP, BW, XY, SM, SS, ZA];
 
