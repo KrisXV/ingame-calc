@@ -10117,7 +10117,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Absol-Mega-Z': {
     types: [
       'Dark',
-      'Ghost'
+      'Ghost',
     ],
     bs: {
       hp: 65,
@@ -10125,7 +10125,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 60,
       sa: 75,
       sd: 60,
-      sp: 151
+      sp: 151,
     },
     weightkg: 49.0,
     abilities: {
@@ -10171,7 +10171,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Baxcalibur-Mega': {
     types: [
       'Dragon',
-      'Ice'
+      'Ice',
     ],
     bs: {
       hp: 115,
@@ -10179,7 +10179,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 117,
       sa: 105,
       sd: 101,
-      sp: 87
+      sp: 87,
     },
     weightkg: 315.0,
     abilities: {
@@ -10228,7 +10228,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Chimecho-Mega': {
     types: [
       'Psychic',
-      'Steel'
+      'Steel',
     ],
     bs: {
       hp: 75,
@@ -10236,7 +10236,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 110,
       sa: 135,
       sd: 120,
-      sp: 65
+      sp: 65,
     },
     weightkg: 8.0,
     abilities: {
@@ -10266,7 +10266,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Crabominable-Mega': {
     types: [
       'Ice',
-      'Fighting'
+      'Fighting',
     ],
     bs: {
       hp: 97,
@@ -10274,7 +10274,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 122,
       sa: 62,
       sd: 107,
-      sp: 33
+      sp: 33,
     },
     weightkg: 252.8,
     abilities: {
@@ -10284,7 +10284,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Darkrai-Mega': {
     types: [
-      'Dark'
+      'Dark',
     ],
     bs: {
       hp: 70,
@@ -10292,7 +10292,8 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 130,
       sa: 165,
       sd: 130,
-      sp: 85},
+      sp: 85,
+    },
     weightkg: 240.0,
     abilities: {
       '0': 'Bad Dreams',
@@ -10509,7 +10510,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Garchomp-Mega-Z': {
     types: [
-      'Dragon'
+      'Dragon',
     ],
     bs: {
       hp: 108,
@@ -10517,7 +10518,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 85,
       sa: 141,
       sd: 85,
-      sp: 151
+      sp: 151,
     },
     weightkg: 99.0,
     abilities: {
@@ -10528,7 +10529,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Glimmora-Mega': {
     types: [
       'Rock',
-      'Poison'
+      'Poison',
     ],
     bs: {
       hp: 83,
@@ -10536,7 +10537,8 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 105,
       sa: 150,
       sd: 96,
-      sp: 101},
+      sp: 101,
+    },
     weightkg: 77.0,
     abilities: {
       '0': 'Toxic Debris',
@@ -10546,7 +10548,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Golisopod-Mega': {
     types: [
       'Bug',
-      'Steel'
+      'Steel',
     ],
     bs: {
       hp: 75,
@@ -10554,7 +10556,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 175,
       sa: 70,
       sd: 120,
-      sp: 40
+      sp: 40,
     },
     weightkg: 148.0,
     abilities: {
@@ -10565,7 +10567,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Golurk-Mega': {
     types: [
       'Ground',
-      'Ghost'
+      'Ghost',
     ],
     bs: {
       hp: 89,
@@ -10573,7 +10575,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 105,
       sa: 70,
       sd: 105,
-      sp: 55
+      sp: 55,
     },
     weightkg: 330.0,
     abilities: {
@@ -10622,7 +10624,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Heatran-Mega': {
     types: [
       'Fire',
-      'Steel'
+      'Steel',
     ],
     bs: {
       hp: 91,
@@ -10630,7 +10632,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 106,
       sa: 175,
       sd: 141,
-      sp: 67
+      sp: 67,
     },
     weightkg: 570.0,
     abilities: {
@@ -10641,7 +10643,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Lucario-Mega-Z': {
     types: [
       'Fighting',
-      'Steel'
+      'Steel',
     ],
     bs: {
       hp: 70,
@@ -10649,7 +10651,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 70,
       sa: 164,
       sd: 70,
-      sp: 151
+      sp: 151,
     },
     weightkg: 49.4,
     abilities: {
@@ -10658,14 +10660,17 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
     baseSpecies: 'Lucario',
   },
   'Magearna-Mega': {
-    types: ['Steel', 'Fairy'],
+    types: [
+      'Steel',
+      'Fairy',
+    ],
     bs: {
       hp: 80,
       at: 125,
       df: 115,
       sa: 170,
       sd: 115,
-      sp: 95
+      sp: 95,
     },
     weightkg: 248.1,
     abilities: {
@@ -10713,7 +10718,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Meowstic-Mega': {
     types: [
-      'Psychic'
+      'Psychic',
     ],
     bs: {
       hp: 74,
@@ -10721,7 +10726,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 76,
       sa: 143,
       sd: 101,
-      sp: 124
+      sp: 124,
     },
     weightkg: 10.1,
     abilities: {
@@ -10750,7 +10755,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Raichu-Mega-X': {
     types: [
-      'Electric'
+      'Electric',
     ],
     bs: {
       hp: 60,
@@ -10758,7 +10763,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 95,
       sa: 90,
       sd: 95,
-      sp: 110
+      sp: 110,
     },
     weightkg: 38.0,
     abilities: {
@@ -10768,7 +10773,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Raichu-Mega-Y': {
     types: [
-      'Electric'
+      'Electric',
     ],
     bs: {
       hp: 60,
@@ -10776,7 +10781,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 55,
       sa: 160,
       sd: 80,
-      sp: 130
+      sp: 130,
     },
     weightkg: 26.0,
     abilities: {
@@ -10806,7 +10811,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Scovillain-Mega': {
     types: [
       'Grass',
-      'Fire'
+      'Fire',
     ],
     bs: {
       hp: 65,
@@ -10814,7 +10819,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 85,
       sa: 138,
       sd: 85,
-      sp: 75
+      sp: 75,
     },
     weightkg: 22.0,
     abilities: {
@@ -10863,7 +10868,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Staraptor-Mega': {
     types: [
       'Fighting',
-      'Flying'
+      'Flying',
     ],
     bs: {
       hp: 85,
@@ -10871,7 +10876,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 100,
       sa: 60,
       sd: 90,
-      sp: 110
+      sp: 110,
     },
     weightkg: 50.0,
     abilities: {
@@ -10902,7 +10907,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Tatsugiri-Mega': {
     types: [
       'Water',
-      'Dragon'
+      'Dragon',
     ],
     bs: {
       hp: 68,
@@ -10910,7 +10915,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 90,
       sa: 135,
       sd: 125,
-      sp: 92
+      sp: 92,
     },
     weightkg: 24.0,
     abilities: {
@@ -10939,7 +10944,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   },
   'Zeraora-Mega': {
     types: [
-      'Electric'
+      'Electric',
     ],
     bs: {
       hp: 88,
@@ -10947,7 +10952,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
       df: 75,
       sa: 147,
       sd: 80,
-      sp: 153
+      sp: 153,
     },
     weightkg: 44.5,
     abilities: {
@@ -11020,7 +11025,7 @@ const zaDlcLegal = [
   'Ceruledge', 'Charcadet', 'Chimecho', 'Chimecho-Mega', 'Chingling', 'Clobbopus', 'Cobalion', 'Cofagrigus', 'Combusken', 'Corviknight', 'Corvisquire',
   'Crabominable', 'Crabominable-Mega', 'Crabrawler', 'Crobat', 'Cryogonal', 'Cubone', 'Cyclizar', 'Dachsbun', 'Darkrai', 'Darkrai-Mega', 'Dondozo',
   'Farfetch\u2019d', 'Farfetch\u2019d-Galar', 'Feebas', 'Fidough', 'Flamigo', 'Foongus', 'Frigibax', 'Garchomp-Mega-Z', 'Garganacl', 'Genesect', 'Gholdengo',
-  'Gimmighoul', 'Glimmet', 'Glimmora', 'Glimmora-Mega', 'Golbat', 'Golett', 'Golisopod', 'Golisopod-Mega', 'Golurk', 'Golurk-Mega','Grafaiai', 'Grapploct',
+  'Gimmighoul', 'Glimmet', 'Glimmora', 'Glimmora-Mega', 'Golbat', 'Golett', 'Golisopod', 'Golisopod-Mega', 'Golurk', 'Golurk-Mega', 'Grafaiai', 'Grapploct',
   'Greavard', 'Groudon', 'Groudon-Primal', 'Grovyle', 'Grumpig', 'Gulpin', 'Heatran', 'Heatran-Mega', 'Hoopa', 'Hoopa-Unbound', 'Houndstone', 'Igglybuff',
   'Indeedee', 'Indeedee-F', 'Jigglypuff', 'Kecleon', 'Keldeo', 'Kleavor', 'Kyogre', 'Kyogre-Primal', 'Latias', 'Latias-Mega', 'Latios', 'Latios-Mega', 'Liepard',
   'Lucario-Mega-Z', 'Mabosstiff', 'Magearna', 'Magearna-Mega', 'Mankey', 'Marowak', 'Marowak-Alola', 'Marshadow', 'Marshtomp', 'Maschiff', 'Melmetal',
@@ -11030,7 +11035,7 @@ const zaDlcLegal = [
   'Rotom', 'Rotom-Fan', 'Rotom-Frost', 'Rotom-Heat', 'Rotom-Mow', 'Rotom-Wash', 'Runerigus', 'Sandygast', 'Sawk', 'Sceptile', 'Sceptile-Mega', 'Scovillain',
   'Scovillain-Mega', 'Seviper', 'Shroodle', 'Sirfetch\u2019d', 'Spoink', 'Squawkabilly', 'Staraptor', 'Staraptor-Mega', 'Staravia', 'Starly', 'Swalot',
   'Swampert', 'Swampert-Mega', 'Tatsugiri', 'Tatsugiri-Mega', 'Terrakion', 'Thievul', 'Throh', 'Tinkatink', 'Tinkaton', 'Tinkatuff', 'Torchic', 'Toxel',
-  'Toxtricity', 'Treecko', 'Virizion', 'Volcanion', 'Wigglytuff', 'Wimpod', 'Yamask', 'Yamask-Galar', 'Zangoose', 'Zeraora', 'Zeraora-Mega', 'Zubat'
+  'Toxtricity', 'Treecko', 'Virizion', 'Volcanion', 'Wigglytuff', 'Wimpod', 'Yamask', 'Yamask-Galar', 'Zangoose', 'Zeraora', 'Zeraora-Mega', 'Zubat',
 ];
 /* eslint-enable max-len */
 for (const s in SV) {

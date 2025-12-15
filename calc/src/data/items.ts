@@ -574,10 +574,10 @@ const zaLegal = [
   'Power Weight', 'Premier Ball', 'Pretty Feather', 'Protein', 'Pyroarite', 'Qualot Berry', 'Quick Ball', 'Quick Claw', 'Quiet Mint', 'Rare Candy',
   'Rash Mint', 'Rawst Berry', 'Relaxed Mint', 'Repeat Ball', 'Resist Feather', 'Revive', 'Rindo Berry', 'Rocky Helmet', 'Roseli Berry', 'Sablenite',
   'Sachet', 'Salamencite', 'Safari Ball', 'Sassy Mint', 'Scizorite', 'Scolipite', 'Scope Lens', 'Scraftinite', 'Seed of Mastery', 'Serious Mint',
-  'Sharp Beak', 'Sharpedonite', 'Shell Bell', 'Shiny Stone', 'Shuca Berry', 'Silk Scarf', 'SilverPowder', 'Sitrus Berry', 'Skarmorite','Slowbronite',
+  'Sharp Beak', 'Sharpedonite', 'Shell Bell', 'Shiny Stone', 'Shuca Berry', 'Silk Scarf', 'SilverPowder', 'Sitrus Berry', 'Skarmorite', 'Slowbronite',
   'Soda Pop', 'Soft Sand', 'Soothe Bell', 'Spell Tag', 'Sport Ball', 'Starminite', 'Steelixite', 'Sun Stone', 'Super Potion', 'Swift Feather',
   'Tamato Berry', 'Tanga Berry', 'Thunderstone', 'Timer Ball', 'Timid Mint', 'TinyMushroom', 'TwistedSpoon', 'Tyranitarite', 'Ultra Ball', 'Venusaurite',
-  'Victreebelite', 'Wacan Berry', 'Water Stone', 'Weakness Policy', 'Whipped Dream', 'White Herb', 'Wise Glasses', 'Yache Berry', 'Zinc', 'Zygardite'
+  'Victreebelite', 'Wacan Berry', 'Water Stone', 'Weakness Policy', 'Whipped Dream', 'White Herb', 'Wise Glasses', 'Yache Berry', 'Zinc', 'Zygardite',
 ];
 /* eslint-disable max-len */
 const zaDlcLegal = [
@@ -587,7 +587,7 @@ const zaDlcLegal = [
   'Hyper Payapa Berry', 'Hyper Pecha Berry', 'Hyper Persim Berry', 'Hyper Pomeg Berry', 'Hyper Qualot Berry', 'Hyper Rawst Berry', 'Hyper Rindo Berry',
   'Hyper Roseli Berry', 'Hyper Shuca Berry', 'Hyper Sitrus Berry', 'Hyper Tamato Berry', 'Hyper Tanga Berry', 'Hyper Wacan Berry', 'Hyper Yache Berry',
   'Latiasite', 'Latiosite', 'Lucarionite Z', 'Magearnite', 'Malicious Armor', 'Meowsticite', 'Prism Scale', 'Raichunite X', 'Raichunite Y', 'Red Orb',
-  'Sceptilite', 'Shock Drive', 'Staraptite', 'Swampertite', 'Tatsugirinite', 'Upgrade', 'Zeraorite'
+  'Sceptilite', 'Shock Drive', 'Staraptite', 'Swampertite', 'Tatsugirinite', 'Upgrade', 'Zeraorite',
 ];
 
 const SV = SS.concat(

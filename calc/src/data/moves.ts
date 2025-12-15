@@ -4959,13 +4959,13 @@ const ZA_DLC_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Fissure': {bp: 250},
   'Magnet Bomb': {bp: 95},
   'Petal Dance': {bp: 40, multihit: [3]},
-  'Razor Wind': {bp: 40, multihit: [3]},  // TODO: need to test number of hits
+  'Razor Wind': {bp: 40, multihit: [3]}, // TODO: need to test number of hits
   'Sheer Cold': {bp: 150},
   'Skull Bash': {bp: 150, secondaries: true},
   'Storm Throw': {bp: 65},
   'Tri Attack': {bp: 40, multihit: [3]},
   'Triple Axel': {bp: 40},
-}
+};
 
 const SV: {[name: string]: MoveData} = extend(true, {}, SS, SV_PATCH, ZA_PATCH, ZA_DLC_PATCH);
 
@@ -5049,7 +5049,7 @@ for (const m in ZA1) {
 const ZA: {[name: string]: MoveData} = extend(true, {}, SV, ZA1);
 
 /* eslint-disable max-len */
-const zaLegal = [
+const zaLegal = [...Object.keys(ZA1),
   '(No Move)', 'Absorb', 'Acid Armor', 'Aerial Ace', 'Agility', 'Air Slash', 'Amnesia', 'Aqua Jet', 'Aqua Ring', 'Aura Sphere', 'Bite', 'Blizzard',
   'Body Slam', 'Boomburst', 'Bounce', 'Brave Bird', 'Breaking Swipe', 'Brick Break', 'Brutal Swing', 'Bubble Beam', 'Bug Buzz', 'Bulk Up', 'Bulldoze',
   'Bullet Punch', 'Bullet Seed', 'Calm Mind', 'Charge', 'Charm', 'Close Combat', 'Confuse Ray', 'Confusion', 'Core Enforcer', 'Cotton Guard', 'Crunch',
@@ -5072,7 +5072,7 @@ const zaLegal = [
   'Swords Dance', 'Synthesis', 'Tackle', 'Tail Whip', 'Take Down', 'Taunt', 'Teleport', 'Thousand Arrows', 'Thousand Waves', 'Thunder', 'Thunder Fang',
   'Thunder Punch', 'Thunder Shock', 'Thunder Wave', 'Thunderbolt', 'Topsy-Turvy', 'Toxic', 'Toxic Spikes', 'Trick-or-Treat', 'Twister', 'U-turn',
   'Vine Whip', 'Volt Switch', 'Volt Tackle', 'Water Gun', 'Water Pulse', 'Water Shuriken', 'Waterfall', 'Whirlpool', 'Whirlwind', 'Wild Charge',
-  'Will-O-Wisp', 'Wing Attack', 'Wish', 'Wood Hammer', 'Work Up', 'X-Scissor', 'Zap Cannon', 'Zen Headbutt'
+  'Will-O-Wisp', 'Wing Attack', 'Wish', 'Wood Hammer', 'Work Up', 'X-Scissor', 'Zap Cannon', 'Zen Headbutt',
 ];
 /* eslint-disable max-len */
 const zaDlcLegal = [
@@ -5085,7 +5085,7 @@ const zaDlcLegal = [
   'Precipice Blades', 'Psychic Fangs', 'Rage Fist', 'Razor Wind', 'Relic Song', 'Sacred Sword', 'Salt Cure', 'Scald', 'Scale Shot', 'Scorching Sands',
   'Secret Sword', 'Seed Bomb', 'Shadow Bone', 'Shadow Punch', 'Shed Tail', 'Sheer Cold', 'Shore Up', 'Silver Wind', 'Sing', 'Skull Bash', 'Sky Attack',
   'Solar Blade', 'Spectral Thief', 'Spicy Extract', 'Spore', 'Steel Beam', 'Stone Axe', 'Storm Throw', 'Swagger', 'Techno Blast', 'Torment', 'Trailblaze',
-  'Tri Attack', 'Triple Axel', 'Vacuum Wave'
+  'Tri Attack', 'Triple Axel', 'Vacuum Wave',
 ];
 /* eslint-disable max-len */
 for (const m in ZA) {
