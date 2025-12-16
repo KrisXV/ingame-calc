@@ -10271,7 +10271,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Eelektross-Mega': {
     types: ['Electric'],
     bs: {hp: 85, at: 145, df: 80, sa: 135, sd: 90, sp: 80},
-    weightkg: 160,
+    weightkg: 180,
     abilities: {'0': 'Levitate'},
     baseSpecies: 'Eelektross',
   },
@@ -10390,7 +10390,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<SpeciesData>} = {
   'Drampa-Mega': {
     types: ['Normal', 'Dragon'],
     bs: {hp: 78, at: 85, df: 110, sa: 160, sd: 116, sp: 36},
-    weightkg: 185,
+    weightkg: 240.5,
     abilities: {'0': 'Berserk'},
     baseSpecies: 'Drampa',
   },
