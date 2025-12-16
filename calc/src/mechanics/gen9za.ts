@@ -2,6 +2,7 @@ import type {Generation, AbilityName} from '../data/interface';
 import {toID} from '../util';
 import {
   getBerryResistType,
+  getItemBoostType,
 } from '../items';
 import type {RawDesc} from '../desc';
 import type {Field} from '../field';
@@ -430,14 +431,17 @@ export function calculateBPModsZA(
 
   // Items
 
-  if (attacker.hasItem(`${move.type} Gem`)) {
-    bpMods.push(1.3);
+  if (attacker.item && move.hasType(getItemBoostType(attacker.item))) {
+    bpMods.push(4915);
+    desc.attackerItem = attacker.item;
+  } else if (attacker.hasItem(`${move.type} Gem`)) {
+    bpMods.push(5325);
     desc.attackerItem = attacker.item;
   } else if (
     (attacker.hasItem('Muscle Band') && move.category === 'Physical') ||
     (attacker.hasItem('Wise Glasses') && move.category === 'Special')
   ) {
-    bpMods.push(1.1);
+    bpMods.push(4505);
     desc.attackerItem = attacker.item;
   }
   return bpMods;
