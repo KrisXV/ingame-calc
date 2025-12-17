@@ -4921,22 +4921,38 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
 };
 
 const ZA_PATCH: {[name: string]: DeepPartial<MoveData>} = {
-  'Quick Attack': {bp: 30},
+  'Comet Punch': {bp: 30},
+  'Razor Wind': {bp: 40, multihit: [1, 3]},
   'Poison Sting': {bp: 30},
-  'Pin Missile': {bp: 15},
+  'Pin Missile': {bp: 15, multihit: [1, 5]},
   'Growth': {type: 'Grass'},
+  'Fire Spin': {bp: 20},
+  'Fissure': {bp: 250},
+  'Quick Attack': {bp: 30},
+  'Skull Bash': {bp: 150, secondaries: true},
+  'Bonemerang': {bp: 55},
+  'Tri Attack': {bp: 40, multihit: [1, 3]},
   'Mach Punch': {bp: 30},
   'Rollout': {bp: 60},
   'Extreme Speed': {bp: 65},
   'Whirlpool': {bp: 20},
-  'Fire Spin': {bp: 20},
   'Sand Tomb': {bp: 20},
-  'Bullet Seed': {bp: 15},
-  'Rock Blast': {bp: 15},
+  'Sheer Cold': {bp: 150},
+  'Bullet Seed': {bp: 15, multihit: [1, 5]},
+  'Rock Blast': {bp: 15, multihit: [1, 5]},
   'Bullet Punch': {bp: 30},
+  'Magnet Bomb': {bp: 95},
   'Aqua Jet': {bp: 30},
-  'Water Shuriken': {bp: 15},
+  'Double Hit': {bp: 50, multihit: [1, 2]},
+  'Dark Void': {bp: 60, category: 'Special'},
+  'Storm Throw': {bp: 65},
+  'Frost Breath': {bp: 65},
+  'Dual Chop': {bp: 45},
   'Diamond Storm': {category: 'Physical'},
+  'Water Shuriken': {bp: 15},
+  'Double Iron Bash': {multihit: [1, 2]},
+  'Triple Axel': {bp: 40, multihit: [1, 3]},
+  'Dual Wingbeat': {bp: 45, multihit: [1, 2]},
   'Nihil Light': {
     bp: 200,
     type: 'Dragon',
@@ -5028,6 +5044,46 @@ for (const m in ZA1) {
 }
 
 const ZA: {[name: string]: MoveData} = extend(true, {}, SV, ZA1);
+
+/* eslint-disable max-len */
+const zaLegal = [...Object.keys(ZA1),
+  '(No Move)', 'Absorb', 'Acid Armor', 'Acid Spray', 'Aerial Ace', 'Agility', 'Air Slash', 'Amnesia', 'Ancient Power', 'Aqua Jet', 'Aqua Ring',
+  'Armor Cannon', 'Aura Sphere', 'Aura Wheel', 'Barb Barrage', 'Bite', 'Bitter Blade', 'Blast Burn', 'Blaze Kick', 'Blizzard', 'Body Slam', 'Bonemerang',
+  'Boomburst', 'Bounce', 'Brave Bird', 'Breaking Swipe', 'Brick Break', 'Brutal Swing', 'Bubble Beam', 'Bug Buzz', 'Bulk Up', 'Bulldoze', 'Bullet Punch',
+  'Bullet Seed', 'Calm Mind', 'Charge', 'Charge Beam', 'Charm', 'Chilling Water', 'Circle Throw', 'Close Combat', 'Comet Punch', 'Confuse Ray', 'Confusion',
+  'Conversion', 'Conversion 2', 'Core Enforcer', 'Cotton Guard', 'Crunch', 'Curse', 'Dark Pulse', 'Dark Void', 'Dazzling Gleam', 'Detect', 'Diamond Storm',
+  'Dig', 'Disarming Voice', 'Discharge', 'Double Hit', 'Double Iron Bash', 'Double Team', 'Double-Edge', 'Draco Meteor', 'Dragon Ascent', 'Dragon Breath',
+  'Dragon Claw', 'Dragon Pulse', 'Dragon Rush', 'Drain Punch', 'Draining Kiss', 'Dream Eater', 'Drill Run', 'Dual Chop', 'Dual Wingbeat', 'Dynamic Punch',
+  'Earth Power', 'Earthquake', 'Eerie Impulse', 'Electroweb', 'Ember', 'Endure', 'Energy Ball', 'Explosion', 'Extreme Speed', 'Facade', 'Fairy Wind',
+  'Fake Out', 'Fake Tears', 'False Swipe', 'Feather Dance', 'Fire Blast', 'Fire Fang', 'Fire Punch', 'Fire Spin', 'First Impression', 'Fissure',
+  'Flame Charge', 'Flame Wheel', 'Flamethrower', 'Flare Blitz', 'Flash Cannon', 'Fleur Cannon', 'Flip Turn', 'Fly', 'Flying Press', 'Focus Blast',
+  'Focus Energy', 'Forest\'s Curse', 'Freeze-Dry', 'Frenzy Plant', 'Frost Breath', 'Future Sight', 'Geomancy', 'Giga Drain', 'Giga Impact',
+  'Gigaton Hammer', 'Glaive Rush', 'Glare', 'Growl', 'Growth', 'Gunk Shot', 'Gust', 'Harden', 'Haze', 'Head Smash', 'Headbutt', 'Heal Block', 'Heat Crash',
+  'Heat Wave', 'Heavy Slam', 'Horn Leech', 'Hurricane', 'Hydro Cannon', 'Hydro Pump', 'Hyper Beam', 'Hyper Voice', 'Hyperspace Fury', 'Hyperspace Hole',
+  'Hypnosis', 'Ice Beam', 'Ice Fang', 'Ice Hammer', 'Ice Punch', 'Ice Shard', 'Icicle Crash', 'Icicle Spear', 'Icy Wind', 'Infestation', 'Iron Defense',
+  'Iron Head', 'Iron Tail', 'King\'s Shield', 'Knock Off', 'Land\'s Wrath', 'Last Respects', 'Lava Plume', 'Leaf Blade', 'Leaf Storm', 'Leafage',
+  'Leech Life', 'Leech Seed', 'Leer', 'Lick', 'Light Screen', 'Light of Ruin', 'Liquidation', 'Low Sweep', 'Lunge', 'Luster Purge', 'Mach Punch',
+  'Magical Leaf', 'Magma Storm', 'Magnet Bomb', 'Make It Rain', 'Megahorn', 'Metal Claw', 'Metal Sound', 'Meteor Assault', 'Meteor Beam', 'Metronome',
+  'Mimic', 'Mist', 'Mist Ball', 'Moonblast', 'Moonlight', 'Morning Sun', 'Mortal Spin', 'Mud Shot', 'Muddy Water', 'Mystical Fire', 'Nasty Plot',
+  'Night Slash', 'Nihil Light', 'No Retreat', 'Nuzzle', 'Oblivion Wing', 'Octolock', 'Ominous Wind', 'Order Up', 'Origin Pulse', 'Outrage', 'Overdrive',
+  'Overheat', 'Parabolic Charge', 'Parting Shot', 'Pay Day', 'Peck', 'Perish Song', 'Petal Dance', 'Phantom Force', 'Pin Missile', 'Plasma Fists',
+  'Play Rough', 'Poison Fang', 'Poison Jab', 'Poison Powder', 'Poison Sting', 'Power Gem', 'Power Whip', 'Power-Up Punch', 'Precipice Blades', 'Protect',
+  'Psybeam', 'Psychic', 'Psychic Fangs', 'Psycho Cut', 'Psyshock', 'Psystrike', 'Quick Attack', 'Rage Fist', 'Razor Leaf', 'Razor Wind', 'Recover',
+  'Reflect', 'Relic Song', 'Roar', 'Rock Blast', 'Rock Slide', 'Rock Smash', 'Rock Throw', 'Rock Tomb', 'Rollout', 'Sacred Sword', 'Safeguard',
+  'Salt Cure', 'Sand Tomb', 'Scald', 'Scale Shot', 'Scorching Sands', 'Screech', 'Secret Sword', 'Seed Bomb', 'Self-Destruct', 'Shadow Ball', 'Shadow Bone',
+  'Shadow Claw', 'Shadow Punch', 'Shadow Sneak', 'Shed Tail', 'Sheer Cold', 'Shore Up', 'Silver Wind', 'Sing', 'Skull Bash', 'Sky Attack', 'Slash',
+  'Sleep Powder', 'Sludge Bomb', 'Sludge Wave', 'Smokescreen', 'Snarl', 'Solar Beam', 'Solar Blade', 'Spark', 'Spectral Thief', 'Spicy Extract', 'Spikes',
+  'Spiky Shield', 'Splash', 'Spore', 'Stealth Rock', 'Steam Eruption', 'Steel Beam', 'Steel Wing', 'Sticky Web', 'Stone Axe', 'Stone Edge', 'Storm Throw',
+  'String Shot', 'Stun Spore', 'Substitute', 'Super Fang', 'Supersonic', 'Surf', 'Swagger', 'Swift', 'Swords Dance', 'Synthesis', 'Tackle', 'Tail Whip',
+  'Take Down', 'Taunt', 'Techno Blast', 'Teleport', 'Thousand Arrows', 'Thousand Waves', 'Thunder', 'Thunder Fang', 'Thunder Punch', 'Thunder Shock',
+  'Thunder Wave', 'Thunderbolt', 'Topsy-Turvy', 'Torment', 'Toxic', 'Toxic Spikes', 'Trailblaze', 'Tri Attack', 'Trick-or-Treat', 'Triple Axel', 'Twister',
+  'U-turn', 'Vacuum Wave', 'Vine Whip', 'Volt Switch', 'Volt Tackle', 'Water Gun', 'Water Pulse', 'Water Shuriken', 'Waterfall', 'Whirlpool', 'Whirlwind',
+  'Wild Charge', 'Will-O-Wisp', 'Wing Attack', 'Wish', 'Wood Hammer', 'Work Up', 'X-Scissor', 'Zap Cannon', 'Zen Headbutt',
+];
+/* eslint-disable max-len */
+for (const m in ZA) {
+  if (!(zaLegal.includes(m))) delete ZA[m];
+}
 
 export const MOVES = [{}, RBY, GSC, ADV, DPP, BW, XY, SM, SS, ZA];
 
