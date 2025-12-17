@@ -4921,22 +4921,38 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
 };
 
 const ZA_PATCH: {[name: string]: DeepPartial<MoveData>} = {
-  'Quick Attack': {bp: 30},
+  'Comet Punch': {bp: 30},
+  'Razor Wind': {bp: 40, multihit: [1, 3]},
   'Poison Sting': {bp: 30},
-  'Pin Missile': {bp: 15},
+  'Pin Missile': {bp: 15, multihit: [1, 5]},
   'Growth': {type: 'Grass'},
+  'Fire Spin': {bp: 20},
+  'Fissure': {bp: 250},
+  'Quick Attack': {bp: 30},
+  'Skull Bash': {bp: 150, secondaries: true},
+  'Bonemerang': {bp: 55},
+  'Tri Attack': {bp: 40, multihit: [1, 3]},
   'Mach Punch': {bp: 30},
   'Rollout': {bp: 60},
   'Extreme Speed': {bp: 65},
   'Whirlpool': {bp: 20},
-  'Fire Spin': {bp: 20},
   'Sand Tomb': {bp: 20},
-  'Bullet Seed': {bp: 15},
-  'Rock Blast': {bp: 15},
+  'Sheer Cold': {bp: 150},
+  'Bullet Seed': {bp: 15, multihit: [1, 5]},
+  'Rock Blast': {bp: 15, multihit: [1, 5]},
   'Bullet Punch': {bp: 30},
+  'Magnet Bomb': {bp: 95},
   'Aqua Jet': {bp: 30},
-  'Water Shuriken': {bp: 15},
+  'Double Hit': {bp: 50, multihit: [1, 2]},
+  'Dark Void': {bp: 60, category: 'Special'},
+  'Storm Throw': {bp: 65},
+  'Frost Breath': {bp: 65},
+  'Dual Chop': {bp: 45},
   'Diamond Storm': {category: 'Physical'},
+  'Water Shuriken': {bp: 15},
+  'Double Iron Bash': {multihit: [1, 2]},
+  'Triple Axel': {bp: 40, multihit: [1, 3]},
+  'Dual Wingbeat': {bp: 45, multihit: [1, 2]},
   'Nihil Light': {
     bp: 200,
     type: 'Dragon',
@@ -4948,26 +4964,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   },
 };
 
-const ZA_DLC_PATCH: {[name: string]: DeepPartial<MoveData>} = {
-  'Bonemerang': {bp: 55},
-  'Comet Punch': {bp: 30},
-  'Dark Void': {bp: 60, category: 'Special'},
-  'Double Hit': {bp: 50},
-  'Dual Chop': {bp: 45},
-  'Dual Wingbeat': {bp: 45},
-  'Frost Breath': {bp: 65},
-  'Fissure': {bp: 250},
-  'Magnet Bomb': {bp: 95},
-  'Petal Dance': {bp: 40, multihit: [3]},
-  'Razor Wind': {bp: 40, multihit: [3]}, // TODO: need to test number of hits
-  'Sheer Cold': {bp: 150},
-  'Skull Bash': {bp: 150, secondaries: true},
-  'Storm Throw': {bp: 65},
-  'Tri Attack': {bp: 40, multihit: [3]},
-  'Triple Axel': {bp: 40},
-};
-
-const SV: {[name: string]: MoveData} = extend(true, {}, SS, SV_PATCH, ZA_PATCH, ZA_DLC_PATCH);
+const SV: {[name: string]: MoveData} = extend(true, {}, SS, SV_PATCH, ZA_PATCH);
 
 const ZA1: {[name: string]: DeepPartial<MoveData>} = {
   'Fly (B)': {...SV['Fly'], bp: 45, multihit: [1, 10]},

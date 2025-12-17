@@ -603,7 +603,10 @@ $(".move-plus").bind("keyup change", function () {
 		moveGroupObj.children(".move-bp").val(isPlus ? 75 : 15);
 	}
 	if (Array.isArray(move.multihit) || (!isNaN(move.multihit) && move.multiaccuracy)) {
-		var maxHits = (isWaterShuriken && isPlus) ? 1 : (!isNaN(move.multihit) ? move.multihit : move.multihit[1]) + (isPlus ? 1 : 0);
+		var maxHits = (isWaterShuriken && isPlus) ? 1 : (!isNaN(move.multihit) ? move.multihit : move.multihit[1]);
+		if (isPlus && maxHits === 5) {
+			maxHits = 6;
+		}
 		moveGroupObj.children(".move-times").hide();
 		moveGroupObj.children(".move-times").val(1);
 		moveGroupObj.children(".move-hits").empty();
