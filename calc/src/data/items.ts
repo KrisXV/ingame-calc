@@ -569,7 +569,7 @@ const zaLegal = [
   'Hyper Occa Berry', 'Hyper Oran Berry', 'Hyper Passho Berry', 'Hyper Payapa Berry', 'Hyper Pecha Berry', 'Hyper Persim Berry', 'Hyper Pomeg Berry',
   'Hyper Potion', 'Hyper Qualot Berry', 'Hyper Rawst Berry', 'Hyper Rindo Berry', 'Hyper Roseli Berry', 'Hyper Shuca Berry', 'Hyper Sitrus Berry',
   'Hyper Tamato Berry', 'Hyper Tanga Berry', 'Hyper Wacan Berry', 'Hyper Yache Berry', 'Ice Heal', 'Ice Stone', 'Impish Mint', 'Iron', 'Jolly Mint',
-  'Kangaskhanite', 'Kasib Berry', 'Kebia Berry', 'Kelpsy Berry', 'King\'s Rock', 'King\'s Rock', 'Latiasite', 'Latiosite', 'Lax Mint', 'Leaf Stone',
+  'Kangaskhanite', 'Kasib Berry', 'Kebia Berry', 'Kelpsy Berry', 'King\'s Rock', 'King\'s Rock', 'Latiasite', 'Latiosite', 'Lax Mint', 'Leaf Stone', 'Leek',
   'Leftovers', 'Lemonade', 'Level Ball', 'Life Orb', 'Light Ball', 'Lonely Mint', 'Lopunnite', 'Love Ball', 'Lucarionite', 'Lucarionite Z', 'Lucky Egg',
   'Lum Berry', 'Lumiose Galette', 'Lure Ball', 'Luxury Ball', 'Magearnite', 'Magnet', 'Malamarite', 'Malicious Armor', 'Manectite', 'Master Ball',
   'Mawilite', 'Max Potion', 'Max Revive', 'Medichamite', 'Mega Shard', 'Meganiumite', 'Meowsticite', 'Metagrossite', 'Metal Coat', 'Metal Coat',
@@ -582,7 +582,7 @@ const zaLegal = [
   'Roseli Berry', 'Sablenite', 'Sachet', 'Safari Ball', 'Salamencite', 'Sassy Mint', 'Sceptilite', 'Scizorite', 'Scolipite', 'Scope Lens', 'Scraftinite',
   'Seed of Mastery', 'Serious Mint', 'Sharp Beak', 'Sharpedonite', 'Shell Bell', 'Shiny Stone', 'Shock Drive', 'Shuca Berry', 'Silk Scarf',
   'SilverPowder', 'Sitrus Berry', 'Skarmorite', 'Slowbronite', 'Soda Pop', 'Soft Sand', 'Soothe Bell', 'Spell Tag', 'Sport Ball', 'Staraptite',
-  'Starminite', 'Steelixite', 'Sun Stone', 'Super Potion', 'Swampertite', 'Swift Feather', 'Tamato Berry', 'Tanga Berry', 'Tatsugirinite',
+  'Starminite', 'Steelixite', 'Sun Stone', 'Super Potion', 'Swampertite', 'Swift Feather', 'Tamato Berry', 'Tanga Berry', 'Tatsugirinite', 'Thick Club',
   'Thunderstone', 'Timer Ball', 'Timid Mint', 'TinyMushroom', 'TwistedSpoon', 'Tyranitarite', 'Ultra Ball', 'Upgrade', 'Venusaurite', 'Victreebelite',
   'Wacan Berry', 'Water Stone', 'Weakness Policy', 'Whipped Dream', 'White Herb', 'Wise Glasses', 'Yache Berry', 'Zeraorite', 'Zinc', 'Zygardite',
 ];
