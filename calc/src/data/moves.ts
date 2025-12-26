@@ -4955,7 +4955,7 @@ const ZA_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Water Shuriken': {bp: 15},
   'Hyperspace Fury': {bp: 20, multihit: [1, 5]},
   'Double Iron Bash': {multihit: [1, 2]},
-  'Scale Shot': {multihit: [1, 5]},
+  'Scale Shot': {bp: 15, multihit: [1, 5]},
   'Triple Axel': {bp: 40, multihit: [1, 3]},
   'Dual Wingbeat': {bp: 45, multihit: [1, 2]},
   'Nihil Light': {
