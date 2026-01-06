@@ -604,7 +604,7 @@ $(".move-plus").bind("keyup change", function () {
 	}
 	if (Array.isArray(move.multihit) || (!isNaN(move.multihit) && move.multiaccuracy)) {
 		var maxHits = (isWaterShuriken && isPlus) ? 1 : (!isNaN(move.multihit) ? move.multihit : move.multihit[1]);
-		if (isPlus && maxHits === 5 && !['Icicle Spear', 'Seed Bomb', 'Hyperspace Fury'].includes(moveName)) { // only applies to "one after another" 5-hit moves
+		if (isPlus && maxHits === 5 && !['Razor Wind', 'Icicle Spear', 'Seed Bomb', 'Hyperspace Fury'].includes(moveName)) { // only applies to "one after another" 5-hit moves
 			maxHits = 6;
 		}
 		moveGroupObj.children(".move-times").hide();
