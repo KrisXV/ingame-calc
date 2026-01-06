@@ -4922,7 +4922,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
 
 const ZA_PATCH: {[name: string]: DeepPartial<MoveData>} = {
   'Comet Punch': {bp: 30, multihit: [1, 5]},
-  'Razor Wind': {bp: 40, multihit: [1, 3]},
+  'Razor Wind': {bp: 40, multihit: [1, 5]},
   'Poison Sting': {bp: 30},
   'Pin Missile': {bp: 15, multihit: [1, 5]},
   'Growth': {type: 'Grass'},
