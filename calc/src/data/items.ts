@@ -583,7 +583,7 @@ const zaLegal = [
   'Seed of Mastery', 'Serious Mint', 'Sharp Beak', 'Sharpedonite', 'Shell Bell', 'Shiny Stone', 'Shock Drive', 'Shuca Berry', 'Silk Scarf',
   'SilverPowder', 'Sitrus Berry', 'Skarmorite', 'Slowbronite', 'Soda Pop', 'Soft Sand', 'Soothe Bell', 'Spell Tag', 'Sport Ball', 'Staraptite',
   'Starminite', 'Steelixite', 'Sun Stone', 'Super Potion', 'Swampertite', 'Swift Feather', 'Tamato Berry', 'Tanga Berry', 'Tatsugirinite', 'Thick Club',
-  'Thunderstone', 'Timer Ball', 'Timid Mint', 'TinyMushroom', 'TwistedSpoon', 'Tyranitarite', 'Ultra Ball', 'Upgrade', 'Venusaurite', 'Victreebelite',
+  'Thunderstone', 'Timer Ball', 'Timid Mint', 'TinyMushroom', 'Twisted Spoon', 'Tyranitarite', 'Ultra Ball', 'Upgrade', 'Venusaurite', 'Victreebelite',
   'Wacan Berry', 'Water Stone', 'Weakness Policy', 'Whipped Dream', 'White Herb', 'Wise Glasses', 'Yache Berry', 'Zeraorite', 'Zinc', 'Zygardite',
 ];
 
